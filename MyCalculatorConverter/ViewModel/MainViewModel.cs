@@ -26,6 +26,10 @@ namespace MyСalculatorConverter.ViewModel
 
         private ICalculationAlgorithm _calculationAlgorithm;
 
+        private bool _workingSymbalInput;
+        private bool _dontInput;
+        private bool _equalsInput;
+
         #endregion
 
         #region Ctors
