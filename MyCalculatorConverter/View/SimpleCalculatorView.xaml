@@ -1,12 +1,164 @@
-﻿<UserControl x:Class="MyCalculatorConverter.View.SimpleCalculatorView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MyCalculatorConverter.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+﻿<UserControl
+    x:Class="MyCalculatorConverter.View.SimpleCalculatorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MyСalculatorConverter.ViewModel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Row="0"
+            Grid.Column="0"
+            Content="MC" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Content="MR" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="2"
+            Content="MS" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="3"
+            Content="M+" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="4"
+            Content="M-" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Content="--" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="1"
+            Command="{Binding DeleteAllCommand}"
+            Content="C" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="2"
+            Command="{Binding DeleteOneNumberCommand}"
+            Content="CE" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="3"
+            Content="+-" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="4"
+            Content="^" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Command="{Binding SevenInputCommand}"
+            Content="7" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Command="{Binding EightInputCommand}"
+            Content="8" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="2"
+            Command="{Binding NineInputCommand}"
+            Content="9" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="3"
+            Command="{Binding DivideInputCommand}"
+            Content="/" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="4"
+            Content="%" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="0"
+            Command="{Binding FourInputCommand}"
+            Content="4" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="1"
+            Command="{Binding FiveInputCommand}"
+            Content="5" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="2"
+            Command="{Binding SixInputCommand}"
+            Content="6" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="3"
+            Command="{Binding MultiplyInputCommand}"
+            Content="*" />
+        <Button
+            Grid.Row="3"
+            Grid.Column="4"
+            Content="1/x" />
+        <Button
+            Grid.Row="4"
+            Grid.Column="0"
+            Command="{Binding OneInputCommand}"
+            Content="1" />
+        <Button
+            Grid.Row="4"
+            Grid.Column="1"
+            Command="{Binding TwoInputCommand}"
+            Content="2" />
+        <Button
+            Grid.Row="4"
+            Grid.Column="2"
+            Command="{Binding ThreeInputCommand}"
+            Content="3" />
+        <Button
+            Grid.Row="4"
+            Grid.Column="3"
+            Command="{Binding MinusInputCommand}"
+            Content="-" />
+        <Button
+            Grid.Row="4"
+            Grid.RowSpan="2"
+            Grid.Column="4"
+            Command="{Binding EqualsInputCommand}"
+            Content="=" />
+        <Button
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Command="{Binding ZeroInputCommand}"
+            Content="0" />
+        <Button
+            Grid.Row="5"
+            Grid.Column="2"
+            Command="{Binding DotInputCommand}"
+            Content="," />
+        <Button
+            Grid.Row="5"
+            Grid.Column="3"
+            Command="{Binding PlusInputCommand}"
+            Content="+" />
     </Grid>
+
 </UserControl>
