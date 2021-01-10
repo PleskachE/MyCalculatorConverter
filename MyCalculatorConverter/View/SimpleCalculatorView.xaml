@@ -27,14 +27,18 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button
+        <Border CornerRadius="5">
+            <Button
             Grid.Row="0"
             Grid.Column="0"
-            Content="MC" />
+            Content="MC" 
+            Style="{DynamicResource WorkingButtonStyle}"/>
+            </Border>
         <Button
             Grid.Row="0"
             Grid.Column="1"
-            Content="MR" />
+            Content="MR" 
+            Style="{DynamicResource NumberButtonStyle}"/>
         <Button
             Grid.Row="0"
             Grid.Column="2"
@@ -121,7 +125,8 @@
             Grid.Row="4"
             Grid.Column="0"
             Command="{Binding OneInputCommand}"
-            Content="1" />
+            Content="1" 
+            Style="{DynamicResource NumberButtonStyle}"/>
         <Button
             Grid.Row="4"
             Grid.Column="1"
