@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MyСalculatorConverter.ViewModel
+namespace MyСalculatorConverter.ViewModel.Abstraction
 {
     public abstract class ViewModelBase :  INotifyPropertyChanged, IDisposable
     {

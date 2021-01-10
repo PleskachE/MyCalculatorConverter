@@ -59,6 +59,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\Number.cs" />
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\EngineeringCalculatorView.xaml.cs">
