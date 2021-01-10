@@ -1,14 +1,14 @@
-﻿using MyСalculatorConverter.Algorithms;
-using MyСalculatorConverter.Algorithms.Abstraction;
-using MyСalculatorConverter.Converters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using MyCalculatorConverter.Algorithms;
+using MyCalculatorConverter.Algorithms.Abstraction;
+using MyCalculatorConverter.Converters;
 using MyСalculatorConverter.Infrastructure;
-using MyСalculatorConverter.Infrastructure.Interfaces;
+using MyСalculatorConverter.Infrastructure.Abstraction;
 using MyСalculatorConverter.Model;
 using MyСalculatorConverter.ViewModel.Abstraction;
 
