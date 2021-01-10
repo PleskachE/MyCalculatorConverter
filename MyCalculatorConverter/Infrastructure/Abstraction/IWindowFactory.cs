@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MyСalculatorConverter.Infrastructure.Interfaces
+namespace MyСalculatorConverter.Infrastructure.Abstraction
 {
     public interface IWindowFactory
     {
