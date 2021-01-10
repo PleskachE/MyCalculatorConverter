@@ -55,6 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Algorithms\Abstraction\ICalculationAlgorithm.cs" />
+    <Compile Include="Algorithms\Division.cs" />
+    <Compile Include="Algorithms\Multiply.cs" />
+    <Compile Include="Algorithms\Subtraction.cs" />
+    <Compile Include="Algorithms\Summation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
