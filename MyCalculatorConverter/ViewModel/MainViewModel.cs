@@ -20,12 +20,6 @@ namespace MyСalculatorConverter.ViewModel
 
         private IWindowFactory _windowFactory = new WindowFactory();
 
-        private Visibility _visSimpleCalc;
-        private Visibility _visEngineeringCalc;
-
-        private string _outputText;
-        private string _inputText;
-
         private Number _result;
         private Number _leftNumber = new Number();
         private Number _rightNumber = new Number();
@@ -100,6 +94,7 @@ namespace MyСalculatorConverter.ViewModel
         public RelayCommand DeleteAllCommand { get; set; }
         public RelayCommand DeleteOneNumberCommand { get; set; }
 
+        private Visibility _visSimpleCalc;
         public Visibility VisSimpleCalc
         {
             get
@@ -113,6 +108,7 @@ namespace MyСalculatorConverter.ViewModel
             }
         }
 
+        private Visibility _visEngineeringCalc;
         public Visibility VisEngineeringCalc
         {
             get
@@ -126,6 +122,7 @@ namespace MyСalculatorConverter.ViewModel
             }
         }
 
+        private string _outputText;
         public string OutputText
         {
             get
@@ -139,6 +136,7 @@ namespace MyСalculatorConverter.ViewModel
             }
         }
 
+        private string _inputText;
         public string InputText
         {
             get
