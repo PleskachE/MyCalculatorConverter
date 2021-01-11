@@ -48,127 +48,130 @@
                     <Label>Грады</Label>
                 </StackPanel>
             </Border>
-            <Button Grid.Row="1" Grid.Column="0" Style="{DynamicResource WorkingButtonStyle}"/>
+            <Button
+                Grid.Row="1"
+                Grid.Column="0"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="1"
                 Grid.Column="1"
-                Content="Inv" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="Inv"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="1"
                 Grid.Column="2"
-                Content="ln" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="ln"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="1"
                 Grid.Column="3"
-                Content="(" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="("
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="1"
                 Grid.Column="4"
-                Content=")" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content=")"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="2"
                 Grid.Column="0"
-                Content="Int" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="Int"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="2"
                 Grid.Column="1"
-                Content="sinh" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="sinh"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="2"
                 Grid.Column="2"
-                Content="sin" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="sin"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="2"
                 Grid.Column="3"
-                Content="x^2" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="x^2"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="2"
                 Grid.Column="4"
-                Content="n!" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="n!"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="3"
                 Grid.Column="0"
-                Content="dms" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="dms"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="3"
                 Grid.Column="1"
-                Content="cosh" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="cosh"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="3"
                 Grid.Column="2"
-                Content="cos" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="cos"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="3"
                 Grid.Column="3"
-                Content="x^y" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="x^y"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="3"
                 Grid.Column="4"
-                Content="y^x" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="y^x"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="4"
                 Grid.Column="0"
-                Content="3.14" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="3.14"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="4"
                 Grid.Column="1"
-                Content="tanh" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="tanh"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="4"
                 Grid.Column="2"
-                Content="tan" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="tan"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="4"
                 Grid.Column="3"
-                Content="3^x" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="3^x"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="4"
                 Grid.Column="4"
-                Content="x^3" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="x^3"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="5"
                 Grid.Column="0"
-                Content="F-E" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="F-E"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="5"
                 Grid.Column="1"
-                Content="Exp" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="Exp"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="5"
                 Grid.Column="2"
-                Content="Mod" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="Mod"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="5"
                 Grid.Column="3"
-                Content="Log" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="Log"
+                Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="5"
                 Grid.Column="4"
-                Content="10^x" 
-                Style="{DynamicResource WorkingButtonStyle}"/>
+                Content="10^x"
+                Style="{DynamicResource WorkingButtonStyle}" />
         </Grid>
 
         <Grid Grid.Column="1">

@@ -29,166 +29,166 @@
         </Grid.RowDefinitions>
         <Border CornerRadius="5">
             <Button
-            Grid.Row="0"
-            Grid.Column="0"
-            Content="MC" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
-            </Border>
+                Grid.Row="0"
+                Grid.Column="0"
+                Content="MC"
+                Style="{DynamicResource WorkingButtonStyle}" />
+        </Border>
         <Button
             Grid.Row="0"
             Grid.Column="1"
-            Content="MR" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="MR"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="0"
             Grid.Column="2"
-            Content="MS" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="MS"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="0"
             Grid.Column="3"
-            Content="M+" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="M+"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="0"
             Grid.Column="4"
-            Content="M-" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="M-"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="1"
             Grid.Column="0"
-            Content="--" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="--"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="1"
             Grid.Column="1"
             Command="{Binding DeleteAllCommand}"
-            Content="C" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="C"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="1"
             Grid.Column="2"
             Command="{Binding DeleteOneNumberCommand}"
-            Content="CE" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="CE"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="1"
             Grid.Column="3"
-            Content="+-" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="+-"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="1"
             Grid.Column="4"
-            Content="^" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="^"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="0"
             Command="{Binding SevenInputCommand}"
-            Content="7" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="7"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="1"
             Command="{Binding EightInputCommand}"
-            Content="8" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="8"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="2"
             Command="{Binding NineInputCommand}"
-            Content="9" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="9"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="3"
             Command="{Binding DivideInputCommand}"
-            Content="/" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="/"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="4"
-            Content="%" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="%"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="0"
             Command="{Binding FourInputCommand}"
-            Content="4" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="4"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="1"
             Command="{Binding FiveInputCommand}"
-            Content="5" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="5"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="2"
             Command="{Binding SixInputCommand}"
-            Content="6" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="6"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="3"
             Command="{Binding MultiplyInputCommand}"
-            Content="*" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="*"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="4"
-            Content="1/x" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="1/x"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.Column="0"
             Command="{Binding OneInputCommand}"
-            Content="1" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="1"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.Column="1"
             Command="{Binding TwoInputCommand}"
-            Content="2" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="2"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.Column="2"
             Command="{Binding ThreeInputCommand}"
-            Content="3" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="3"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.Column="3"
             Command="{Binding MinusInputCommand}"
-            Content="-" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="-"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.RowSpan="2"
             Grid.Column="4"
             Command="{Binding EqualsInputCommand}"
-            Content="=" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="="
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="5"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Command="{Binding ZeroInputCommand}"
-            Content="0" 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content="0"
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="5"
             Grid.Column="2"
             Command="{Binding DotInputCommand}"
-            Content="," 
-            Style="{DynamicResource NumberButtonStyle}"/>
+            Content=","
+            Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="5"
             Grid.Column="3"
             Command="{Binding PlusInputCommand}"
-            Content="+" 
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="+"
+            Style="{DynamicResource WorkingButtonStyle}" />
     </Grid>
 
 </UserControl>
