@@ -53,6 +53,10 @@ namespace MyСalculatorConverter.ViewModel
         {
             VisSimpleCalc = Visibility.Visible;
             VisEngineeringCalc = Visibility.Hidden;
+            HeightWindow = SystemConstants.HeightWindow;
+            WidthtWindow = SystemConstants.WidthWindow;
+            MinHeightWindow = SystemConstants.MinHeightWindow;
+            MinWidthtWindow = SystemConstants.MinWidthWindow;
         }
 
         public bool CanExecuteOpenSimpleCalculatorCommand(object parameter)
@@ -64,6 +68,10 @@ namespace MyСalculatorConverter.ViewModel
         {
             VisSimpleCalc = Visibility.Hidden;
             VisEngineeringCalc = Visibility.Visible;
+            HeightWindow = SystemConstants.HeightWindow;
+            WidthtWindow = SystemConstants.MinWidthWindowEngineeringForm;
+            MinHeightWindow = SystemConstants.MinHeightWindow;
+            MinWidthtWindow = SystemConstants.MinWidthWindowEngineeringForm;
         }
 
         public bool CanExecuteOpenEngineeringCalculatorCommand(object parameter)
@@ -74,6 +82,70 @@ namespace MyСalculatorConverter.ViewModel
         #endregion
 
         #region Properties
+
+        private int _heightWindow = 0;
+        public int HeightWindow
+        {
+            get
+            {
+                if (_heightWindow == 0)
+                    _heightWindow = SystemConstants.HeightWindow;
+                return _heightWindow;
+            }
+            set
+            {
+                _heightWindow = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _widthWindow = 0;
+        public int WidthtWindow
+        {
+            get
+            {
+                if (_widthWindow == 0)
+                    _widthWindow = SystemConstants.WidthWindow;
+                return _widthWindow;
+            }
+            set
+            {
+                _widthWindow = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _minHeightWindow = 0;
+        public int MinHeightWindow
+        {
+            get
+            {
+                if (_minHeightWindow == 0)
+                    _minHeightWindow = SystemConstants.MinHeightWindow;
+                return _minHeightWindow;
+            }
+            set
+            {
+                _minHeightWindow = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _minWidthWindow = 0;
+        public int MinWidthtWindow
+        {
+            get
+            {
+                if (_minWidthWindow == 0)
+                    _minWidthWindow = SystemConstants.MinWidthWindow;
+                return _minWidthWindow;
+            }
+            set
+            {
+                _minWidthWindow = value;
+                OnPropertyChanged();
+            }
+        }
 
         public RelayCommand OpenSimpleCalculatorCommand { get; set; }
         public RelayCommand OpenEngineeringCalculatorCommand { get; set; }
