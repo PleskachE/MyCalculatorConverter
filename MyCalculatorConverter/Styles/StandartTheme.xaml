@@ -3,28 +3,56 @@
                     xmlns:local="clr-namespace:MyCalculatorConverter.Styles">
 
     <LinearGradientBrush x:Key="WorkingBrush" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="Black" />
-        <GradientStop Offset="1" Color="LightGray" />
+        <GradientStop Color="CadetBlue" />
+        <GradientStop Offset="1" Color="LightBlue" />
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="NumberBrush" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="Black" />
-        <GradientStop Offset="1" Color="LightGray" />
+        <GradientStop Color="LightBlue" />
+        <GradientStop Offset="1" Color="AliceBlue" />
     </LinearGradientBrush>
 
     <Style x:Key="WorkingButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="GreenYellow" />
-        <Setter Property="BorderBrush" Value="Blue" />
-        <Setter Property="BorderThickness" Value="3" />
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="border">
+                        <Rectangle
+                            Fill="{StaticResource WorkingBrush}"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="3" 
+                            RadiusX="5"
+                            RadiusY="5"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontSize" Value="18" />
         <Setter Property="Margin" Value="5"/>
     </Style>
 
-    <Style x:Key="NubergButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="GreenYellow" />
-        <Setter Property="BorderBrush" Value="Blue" />
-        <Setter Property="BorderThickness" Value="3" />
-        <Setter Property="FontSize" Value="16" />
+    <Style x:Key="NumberButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="border">
+                        <Rectangle
+                            Fill="{StaticResource NumberBrush}"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="3" 
+                            RadiusX="5"
+                            RadiusY="5"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontSize" Value="18" />
         <Setter Property="Margin" Value="5"/>
     </Style>
 
