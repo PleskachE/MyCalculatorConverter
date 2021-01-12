@@ -64,7 +64,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Constants\SystemConstants.cs" />
+    <Compile Include="Infrastructure\SizesWindows.cs" />
+    <Compile Include="Infrastructure\SystemConstants.cs" />
     <Compile Include="Converters\NumbersConverter.cs" />
     <Compile Include="Infrastructure\Abstraction\IWindowFactory.cs" />
     <Compile Include="Infrastructure\RelayCommand.cs" />
@@ -108,7 +109,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Styles\StandartTheme.xaml">
       <SubType>Designer</SubType>
