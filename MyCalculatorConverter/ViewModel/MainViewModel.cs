@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -200,6 +201,20 @@ namespace MyСalculatorConverter.ViewModel
             }
         }
 
+        private string _journal;
+        public string Journal
+        {
+            get 
+            { 
+                return _journal; 
+            }
+            set
+            {
+                _journal = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region InputNumbersCommands
@@ -360,11 +375,14 @@ namespace MyСalculatorConverter.ViewModel
             }
             else { _rightNumber.Value = 0; }
 
+            Journal += "\n" + OutputText;
+
             _result = _calculationAlgorithm.Result(_leftNumber, _rightNumber);
             _leftNumber = _result;
             var text = NumbersConverter.DoubleToStringConvert(_result.Value);
             InputText = "";
             OutputText = text;
+            Journal += " = " + OutputText;
             _workingSymbalInput = false;
             _equalsInput = true;
             _dontInput = false;
