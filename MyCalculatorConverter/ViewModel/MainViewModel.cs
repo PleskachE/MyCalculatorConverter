@@ -13,6 +13,8 @@ using MyСalculatorConverter.Infrastructure;
 using MyСalculatorConverter.Infrastructure.Abstraction;
 using MyСalculatorConverter.Model;
 using MyСalculatorConverter.ViewModel.Abstraction;
+using ViewManagementLibrary;
+using ViewManagementLibrary.Abstractions;
 
 namespace MyСalculatorConverter.ViewModel
 {
@@ -32,7 +34,7 @@ namespace MyСalculatorConverter.ViewModel
         private bool _dontInput = false;
         private bool _equalsInput = true;
 
-        private SizesWindows _sizeMainViewModel = new SizesWindows();
+        private IMainView _mainView;
 
         #endregion
 
@@ -57,9 +59,8 @@ namespace MyСalculatorConverter.ViewModel
             VisSimpleCalc = Visibility.Visible;
             VisEngineeringCalc = Visibility.Hidden;
 
-            Application.Current.MainWindow.SizeToContent = SizeToContent.WidthAndHeight;
-            MinHeightWindow = _sizeMainViewModel.MinHeightWindow;
-            MinWidthtWindow = _sizeMainViewModel.MinWidthWindow;
+            _mainView = new MainSimpleCalculatorView();
+            Application.Current.MainWindow = _mainView.ChangeWindow(Application.Current.MainWindow);
         }
 
         public bool CanExecuteOpenSimpleCalculatorCommand(object parameter)
@@ -72,9 +73,8 @@ namespace MyСalculatorConverter.ViewModel
             VisSimpleCalc = Visibility.Hidden;
             VisEngineeringCalc = Visibility.Visible;
 
-            Application.Current.MainWindow.SizeToContent = SizeToContent.WidthAndHeight;
-            MinHeightWindow = _sizeMainViewModel.MinHeightWindow;
-            MinWidthtWindow = _sizeMainViewModel.MinWidthWindowEngineeringForm;
+            _mainView = new MainEngineeringCalculatorView();
+            Application.Current.MainWindow = _mainView.ChangeWindow(Application.Current.MainWindow);
         }
 
         public bool CanExecuteOpenEngineeringCalculatorCommand(object parameter)
@@ -86,15 +86,11 @@ namespace MyСalculatorConverter.ViewModel
 
         #region Properties
 
-        private int _minHeightWindow = 0;
+        private int _minHeightWindow = 380;
         public int MinHeightWindow
         {
             get
             {
-                if (_minHeightWindow == 0)
-                {
-                    _minHeightWindow = _sizeMainViewModel.MinHeightWindow;
-                }
                 return _minHeightWindow;
             }
             set
@@ -104,20 +100,27 @@ namespace MyСalculatorConverter.ViewModel
             }
         }
 
-        private int _minWidthWindow = 0;
+        private int _minWidthWindow = 450;
         public int MinWidthtWindow
         {
             get
             {
-                if (_minWidthWindow == 0)
-                {
-                    _minWidthWindow = _sizeMainViewModel.MinWidthWindow;
-                }
                 return _minWidthWindow;
             }
             set
             {
                 _minWidthWindow = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _title = "SimpleCalculator";
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
                 OnPropertyChanged();
             }
         }

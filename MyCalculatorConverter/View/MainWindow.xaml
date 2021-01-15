@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:MyСalculatorConverter.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:view="clr-namespace:MyCalculatorConverter.View"
-    Title="Calculator"
+    Title="{Binding Title ,Mode=OneWay}"
     Width="auto"
     Height="auto"
     SizeToContent="WidthAndHeight"

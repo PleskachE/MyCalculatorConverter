@@ -64,7 +64,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrastructure\SizesWindows.cs" />
     <Compile Include="Infrastructure\SystemConstants.cs" />
     <Compile Include="Converters\NumbersConverter.cs" />
     <Compile Include="Infrastructure\Abstraction\IWindowFactory.cs" />
@@ -129,6 +128,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ViewManagementLibrary\ViewManagementLibrary.csproj">
+      <Project>{E9CBD32A-8110-430B-9BF0-95C0B12EF0F2}</Project>
+      <Name>ViewManagementLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
