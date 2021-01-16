@@ -13,8 +13,8 @@ using MyСalculatorConverter.Infrastructure;
 using MyСalculatorConverter.Infrastructure.Abstraction;
 using MyСalculatorConverter.Model;
 using MyСalculatorConverter.ViewModel.Abstraction;
-using ViewManagementLibrary;
-using ViewManagementLibrary.Abstractions;
+using MyСalculatorConverter.ViewManagement;
+using MyСalculatorConverter.ViewManagement.Abstractions;
 
 namespace MyСalculatorConverter.ViewModel
 {

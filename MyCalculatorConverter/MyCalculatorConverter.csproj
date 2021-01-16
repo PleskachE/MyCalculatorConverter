@@ -70,6 +70,10 @@
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Infrastructure\WindowFactory.cs" />
     <Compile Include="Model\Number.cs" />
+    <Compile Include="ViewManagment\Abstractions\IMainView.cs" />
+    <Compile Include="ViewManagment\Abstractions\MainView.cs" />
+    <Compile Include="ViewManagment\MainEngineeringCalculatorView.cs" />
+    <Compile Include="ViewManagment\MainSimpleCalculatorView.cs" />
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\EngineeringCalculatorView.xaml.cs">
@@ -128,12 +132,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ViewManagementLibrary\ViewManagementLibrary.csproj">
-      <Project>{E9CBD32A-8110-430B-9BF0-95C0B12EF0F2}</Project>
-      <Name>ViewManagementLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
