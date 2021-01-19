@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace MyСalculatorConverter.ViewManagement.Abstractions
 {
-    public abstract class MainView : IMainView, INotifyPropertyChanged
+    public abstract class MainView : INotifyPropertyChanged
     {
 
         #region Property

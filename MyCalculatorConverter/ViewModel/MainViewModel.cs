@@ -35,8 +35,6 @@ namespace MyСalculatorConverter.ViewModel
         private bool _dontInput = false;
         private bool _equalsInput = true;
 
-        private IMainView _mainView;
-
         #endregion
 
         #region Ctors
@@ -47,6 +45,7 @@ namespace MyСalculatorConverter.ViewModel
 
             Display = new Display();
             Journal = new Journal();
+            MainView = new MainSimpleCalculatorView();
 
             VisSimpleCalc = Visibility.Visible;
             VisEngineeringCalc = Visibility.Hidden;
@@ -61,8 +60,8 @@ namespace MyСalculatorConverter.ViewModel
             VisSimpleCalc = Visibility.Visible;
             VisEngineeringCalc = Visibility.Hidden;
 
-            _mainView = new MainSimpleCalculatorView();
-            Application.Current.MainWindow = _mainView.ChangeWindow(Application.Current.MainWindow);
+            MainView = new MainSimpleCalculatorView();
+            Application.Current.MainWindow = MainView.ChangeWindow(Application.Current.MainWindow);
         }
 
         public bool CanExecuteOpenSimpleCalculatorCommand(object parameter)
@@ -75,8 +74,8 @@ namespace MyСalculatorConverter.ViewModel
             VisSimpleCalc = Visibility.Hidden;
             VisEngineeringCalc = Visibility.Visible;
 
-            _mainView = new MainEngineeringCalculatorView();
-            Application.Current.MainWindow = _mainView.ChangeWindow(Application.Current.MainWindow);
+            MainView = new MainEngineeringCalculatorView();
+            Application.Current.MainWindow = MainView.ChangeWindow(Application.Current.MainWindow);
         }
 
         public bool CanExecuteOpenEngineeringCalculatorCommand(object parameter)
@@ -92,44 +91,7 @@ namespace MyСalculatorConverter.ViewModel
 
         public Journal Journal { get; set; }
 
-        private int _minHeightWindow = 380;
-        public int MinHeightWindow
-        {
-            get
-            {
-                return _minHeightWindow;
-            }
-            set
-            {
-                _minHeightWindow = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _minWidthWindow = 450;
-        public int MinWidthtWindow
-        {
-            get
-            {
-                return _minWidthWindow;
-            }
-            set
-            {
-                _minWidthWindow = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _title = "SimpleCalculator";
-        public string Title
-        {
-            get { return _title; }
-            set
-            {
-                _title = value;
-                OnPropertyChanged();
-            }
-        }
+        public MainView MainView { get; set; }
 
         public RelayCommand OpenSimpleCalculatorCommand { get; set; }
         public RelayCommand OpenEngineeringCalculatorCommand { get; set; }

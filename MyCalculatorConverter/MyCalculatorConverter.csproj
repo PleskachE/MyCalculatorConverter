@@ -70,7 +70,6 @@
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Infrastructure\WindowFactory.cs" />
     <Compile Include="Model\Number.cs" />
-    <Compile Include="ViewManagment\Abstractions\IMainView.cs" />
     <Compile Include="ViewManagment\Abstractions\MainView.cs" />
     <Compile Include="ViewManagment\Display.cs" />
     <Compile Include="ViewManagment\Journal.cs" />
