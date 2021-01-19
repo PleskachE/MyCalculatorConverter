@@ -84,19 +84,22 @@
         <Button
             Grid.Row="2"
             Grid.Column="0"
-            Command="{Binding SevenInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="7"
             Content="7"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="1"
-            Command="{Binding EightInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="8"
             Content="8"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="2"
-            Command="{Binding NineInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="9"
             Content="9"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
@@ -113,19 +116,22 @@
         <Button
             Grid.Row="3"
             Grid.Column="0"
-            Command="{Binding FourInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="4"
             Content="4"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="1"
-            Command="{Binding FiveInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="5"
             Content="5"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="2"
-            Command="{Binding SixInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="6"
             Content="6"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
@@ -142,19 +148,22 @@
         <Button
             Grid.Row="4"
             Grid.Column="0"
-            Command="{Binding OneInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="1"
             Content="1"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.Column="1"
-            Command="{Binding TwoInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="2"
             Content="2"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.Column="2"
-            Command="{Binding ThreeInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="3"
             Content="3"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
@@ -174,13 +183,15 @@
             Grid.Row="5"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Command="{Binding ZeroInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="0"
             Content="0"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="5"
             Grid.Column="2"
-            Command="{Binding DotInputCommand}"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter=","
             Content=","
             Style="{DynamicResource NumberButtonStyle}" />
         <Button

@@ -95,23 +95,14 @@ namespace MyСalculatorConverter.ViewModel
 
         public RelayCommand OpenSimpleCalculatorCommand { get; set; }
         public RelayCommand OpenEngineeringCalculatorCommand { get; set; }
-        public RelayCommand ZeroInputCommand { get; set; }
-        public RelayCommand OneInputCommand { get; set; }
-        public RelayCommand TwoInputCommand { get; set; }
-        public RelayCommand ThreeInputCommand { get; set; }
-        public RelayCommand FourInputCommand { get; set; }
-        public RelayCommand FiveInputCommand { get; set; }
-        public RelayCommand SixInputCommand { get; set; }
-        public RelayCommand SevenInputCommand { get; set; }
-        public RelayCommand EightInputCommand { get; set; }
-        public RelayCommand NineInputCommand { get; set; }
+
+        public RelayCommand NumbersInputCommand { get; set; }
 
         public RelayCommand PlusInputCommand { get; set; }
         public RelayCommand MinusInputCommand { get; set; }
         public RelayCommand MultiplyInputCommand { get; set; }
         public RelayCommand DivideInputCommand { get; set; }
         public RelayCommand EqualsInputCommand { get; set; }
-        public RelayCommand DotInputCommand { get; set; }
 
         public RelayCommand DeleteAllCommand { get; set; }
         public RelayCommand DeleteOneNumberCommand { get; set; }
@@ -148,106 +139,15 @@ namespace MyСalculatorConverter.ViewModel
 
         #region InputNumbersCommands
 
-        private void ExecuteZeroInputCommand(object parameter)
+        private void ExecuteNumbersInputCommand(object parameter)
         {
             EqualsInput();
-            Display.NumbersInput("0");
+            var text = parameter as string;
+            Display.NumbersInput(text);
         }
-        public bool CanExecuteZeroInputCommand(object parameter)
+        public bool CanExecuteNumbersInputCommand(object parameter)
         {
             return Display.InputText.Length < SystemConstants.MaxCountInputSymabl;
-        }
-
-        private void ExecuteOneInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.InputText = "1";
-            Display.OutputText = "1";
-            Display.NumbersInput("1");
-        }
-        public bool CanExecuteOneInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
-        }
-
-        private void ExecuteTwoInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.NumbersInput("2");
-        }
-        public bool CanExecuteTwoInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
-        }
-
-        private void ExecuteThreeInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.NumbersInput("3");
-        }
-        public bool CanExecuteThreeInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
-        }
-
-        private void ExecuteFourInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.NumbersInput("4");
-        }
-        public bool CanExecuteFourInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
-        }
-
-        private void ExecuteFiveInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.NumbersInput("5");
-        }
-        public bool CanExecuteFiveInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
-        }
-
-        private void ExecuteSixInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.NumbersInput("6");
-        }
-        public bool CanExecuteSixInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
-        }
-
-        private void ExecuteSevenInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.NumbersInput("7");
-        }
-        public bool CanExecuteSevenInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
-        }
-
-        private void ExecuteEightInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.NumbersInput("8");
-        }
-        public bool CanExecuteEightInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
-        }
-
-        private void ExecuteNineInputCommand(object parameter)
-        {
-            EqualsInput();
-            Display.NumbersInput("9");
-        }
-        public bool CanExecuteNineInputCommand(object parameter)
-        {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         #endregion
@@ -324,16 +224,6 @@ namespace MyСalculatorConverter.ViewModel
             return (_equalsInput != true || Display.InputText.Length != 0);
         }
 
-        private void ExecuteDotInputCommand(object parameter)
-        {
-            _dontInput = true;
-            Display.NumbersInput(",");
-        }
-        public bool CanExecuteDotInputCommand(object parameter)
-        {
-            return (_dontInput != true & Display.InputText.Length != 0);
-        }
-
         #endregion
 
         #region ManagementCommands
@@ -370,23 +260,13 @@ namespace MyСalculatorConverter.ViewModel
             OpenEngineeringCalculatorCommand = new RelayCommand(ExecuteOpenEngineeringCalculatorCommand,
                 CanExecuteOpenEngineeringCalculatorCommand);
 
-            ZeroInputCommand = new RelayCommand(ExecuteZeroInputCommand, CanExecuteZeroInputCommand);
-            OneInputCommand = new RelayCommand(ExecuteOneInputCommand, CanExecuteOneInputCommand);
-            TwoInputCommand = new RelayCommand(ExecuteTwoInputCommand, CanExecuteTwoInputCommand);
-            ThreeInputCommand = new RelayCommand(ExecuteThreeInputCommand, CanExecuteThreeInputCommand);
-            FourInputCommand = new RelayCommand(ExecuteFourInputCommand, CanExecuteFourInputCommand);
-            FiveInputCommand = new RelayCommand(ExecuteFiveInputCommand, CanExecuteFiveInputCommand);
-            SixInputCommand = new RelayCommand(ExecuteSixInputCommand, CanExecuteSixInputCommand);
-            SevenInputCommand = new RelayCommand(ExecuteSevenInputCommand, CanExecuteSevenInputCommand);
-            EightInputCommand = new RelayCommand(ExecuteEightInputCommand, CanExecuteEightInputCommand);
-            NineInputCommand = new RelayCommand(ExecuteNineInputCommand, CanExecuteNineInputCommand);
+            NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);
 
             PlusInputCommand = new RelayCommand(ExecutePlusInputCommand, CanExecutePlusInputCommand);
             MinusInputCommand = new RelayCommand(ExecuteMinusInputCommand, CanExecuteMinusInputCommand);
             MultiplyInputCommand = new RelayCommand(ExecuteMultiplyInputCommand, CanExecuteMultiplyInputCommand);
             DivideInputCommand = new RelayCommand(ExecuteDivideInputCommand, CanExecuteDivideInputCommand);
             EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
-            DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
 
             DeleteAllCommand = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
             DeleteOneNumberCommand = new RelayCommand(ExecuteDeleteOneNumberCommand, CanExecuteDeleteOneNumberCommand);
