@@ -46,6 +46,7 @@ namespace MyСalculatorConverter.ViewModel
             GeneratingCommands();
 
             Display = new Display();
+            Journal = new Journal();
 
             VisSimpleCalc = Visibility.Visible;
             VisEngineeringCalc = Visibility.Hidden;
@@ -88,6 +89,8 @@ namespace MyСalculatorConverter.ViewModel
         #region Properties
 
         public Display Display { get; set; }
+
+        public Journal Journal { get; set; }
 
         private int _minHeightWindow = 380;
         public int MinHeightWindow
@@ -175,20 +178,6 @@ namespace MyСalculatorConverter.ViewModel
             set
             {
                 _visEngineeringCalc = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _journal;
-        public string Journal
-        {
-            get 
-            { 
-                return _journal; 
-            }
-            set
-            {
-                _journal = value;
                 OnPropertyChanged();
             }
         }
@@ -355,14 +344,15 @@ namespace MyСalculatorConverter.ViewModel
             }
             else { _rightNumber.Value = 0; }
 
-            Journal += "\n" + Display.OutputText;
+            Journal.InputLeftPart(Display.OutputText);
 
             _result = _calculationAlgorithm.Result(_leftNumber, _rightNumber);
             _leftNumber = _result;
             var text = NumbersConverter.DoubleToStringConvert(_result.Value);
             Display.InputText = "";
             Display.OutputText = text;
-            Journal += " = " + Display.OutputText;
+            Journal.InputRightPart(Display.OutputText);
+
             _workingSymbalInput = false;
             _equalsInput = true;
             _dontInput = false;
