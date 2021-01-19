@@ -77,12 +77,12 @@
                         <TextBlock
                             x:Name="OutputBlock"
                             FontSize="12"
-                            Text="{Binding OutputText, Mode=OneWay}" />
+                            Text="{Binding Display.OutputText, Mode=OneWay}" />
                         <TextBlock
                             x:Name="InputBlock"
                             FontSize="18"
                             FontWeight="Bold"
-                            Text="{Binding InputText, Mode=OneWay}" />
+                            Text="{Binding Display.InputText, Mode=OneWay}" />
                     </StackPanel>
                 </Border>
                 <Grid Grid.Row="2">

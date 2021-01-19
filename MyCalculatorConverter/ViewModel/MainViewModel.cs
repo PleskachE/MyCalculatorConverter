@@ -15,6 +15,7 @@ using MyСalculatorConverter.Model;
 using MyСalculatorConverter.ViewModel.Abstraction;
 using MyСalculatorConverter.ViewManagement;
 using MyСalculatorConverter.ViewManagement.Abstractions;
+using MyCalculatorConverter.ViewManagment;
 
 namespace MyСalculatorConverter.ViewModel
 {
@@ -44,7 +45,7 @@ namespace MyСalculatorConverter.ViewModel
         {
             GeneratingCommands();
 
-            DeleteOutput();
+            Display = new Display();
 
             VisSimpleCalc = Visibility.Visible;
             VisEngineeringCalc = Visibility.Hidden;
@@ -85,6 +86,8 @@ namespace MyСalculatorConverter.ViewModel
         #endregion
 
         #region Properties
+
+        public Display Display { get; set; }
 
         private int _minHeightWindow = 380;
         public int MinHeightWindow
@@ -176,34 +179,6 @@ namespace MyСalculatorConverter.ViewModel
             }
         }
 
-        private string _outputText;
-        public string OutputText
-        {
-            get
-            {
-                return _outputText;
-            }
-            set
-            {
-                _outputText = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _inputText;
-        public string InputText
-        {
-            get
-            {
-                return _inputText;
-            }
-            set
-            {
-                _inputText = value;
-                OnPropertyChanged();
-            }
-        }
-
         private string _journal;
         public string Journal
         {
@@ -225,101 +200,103 @@ namespace MyСalculatorConverter.ViewModel
         private void ExecuteZeroInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("0");
+            Display.NumbersInput("0");
         }
         public bool CanExecuteZeroInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl;
         }
 
         private void ExecuteOneInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("1");
+            Display.InputText = "1";
+            Display.OutputText = "1";
+            Display.NumbersInput("1");
         }
         public bool CanExecuteOneInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         private void ExecuteTwoInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("2");
+            Display.NumbersInput("2");
         }
         public bool CanExecuteTwoInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         private void ExecuteThreeInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("3");
+            Display.NumbersInput("3");
         }
         public bool CanExecuteThreeInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         private void ExecuteFourInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("4");
+            Display.NumbersInput("4");
         }
         public bool CanExecuteFourInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         private void ExecuteFiveInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("5");
+            Display.NumbersInput("5");
         }
         public bool CanExecuteFiveInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         private void ExecuteSixInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("6");
+            Display.NumbersInput("6");
         }
         public bool CanExecuteSixInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         private void ExecuteSevenInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("7");
+            Display.NumbersInput("7");
         }
         public bool CanExecuteSevenInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         private void ExecuteEightInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("8");
+            Display.NumbersInput("8");
         }
         public bool CanExecuteEightInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         private void ExecuteNineInputCommand(object parameter)
         {
             EqualsInput();
-            NumbersInput("9");
+            Display.NumbersInput("9");
         }
         public bool CanExecuteNineInputCommand(object parameter)
         {
-            return _inputText.Length < SystemConstants.MaxCountInputSymabl; ;
+            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl; ;
         }
 
         #endregion
@@ -372,37 +349,37 @@ namespace MyСalculatorConverter.ViewModel
 
         private void ExecuteEqualsInputCommand(object parameter)
         {
-            if (InputText.Length != 0)
+            if (Display.InputText.Length != 0)
             {
-                _rightNumber = new Number(NumbersConverter.StringToDoubleConvert(InputText));
+                _rightNumber = new Number(NumbersConverter.StringToDoubleConvert(Display.InputText));
             }
             else { _rightNumber.Value = 0; }
 
-            Journal += "\n" + OutputText;
+            Journal += "\n" + Display.OutputText;
 
             _result = _calculationAlgorithm.Result(_leftNumber, _rightNumber);
             _leftNumber = _result;
             var text = NumbersConverter.DoubleToStringConvert(_result.Value);
-            InputText = "";
-            OutputText = text;
-            Journal += " = " + OutputText;
+            Display.InputText = "";
+            Display.OutputText = text;
+            Journal += " = " + Display.OutputText;
             _workingSymbalInput = false;
             _equalsInput = true;
             _dontInput = false;
         }
         public bool CanExecuteEqualsInputCommand(object parameter)
         {
-            return (_equalsInput != true || InputText.Length != 0);
+            return (_equalsInput != true || Display.InputText.Length != 0);
         }
 
         private void ExecuteDotInputCommand(object parameter)
         {
             _dontInput = true;
-            NumbersInput(",");
+            Display.NumbersInput(",");
         }
         public bool CanExecuteDotInputCommand(object parameter)
         {
-            return (_dontInput != true & InputText.Length != 0);
+            return (_dontInput != true & Display.InputText.Length != 0);
         }
 
         #endregion
@@ -413,21 +390,21 @@ namespace MyСalculatorConverter.ViewModel
         {
             _leftNumber.Value = 0;
             _rightNumber.Value = 0;
-            DeleteOutput();
+            Display.DeleteOutput();
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
         {
-            return OutputText.Length != 0;
+            return Display.OutputText.Length != 0;
         }
 
         private void ExecuteDeleteOneNumberCommand(object parameter)
         {
-            InputText = InputText.Remove(InputText.Length - 1, 1);
-            OutputText = OutputText.Remove(OutputText.Length - 1, 1);
+            Display.InputText = Display.InputText.Remove(Display.InputText.Length - 1, 1);
+            Display.OutputText = Display.OutputText.Remove(Display.OutputText.Length - 1, 1);
         }
         public bool CanExecuteDeleteOneNumberCommand(object parameter)
         {
-            return InputText.Length != 0;
+            return Display.InputText.Length != 0;
         }
 
         #endregion
@@ -468,15 +445,9 @@ namespace MyСalculatorConverter.ViewModel
             if (_equalsInput == true)
             {
                 _equalsInput = false;
-                OutputText = "";
+                Display.OutputText = "";
                 _leftNumber.Value = 0;
             }
-        }
-
-        private void NumbersInput(string text)
-        {
-            InputText += text;
-            OutputText += text;
         }
 
         private void WorkingSymbalInput(string text)
@@ -485,22 +456,15 @@ namespace MyСalculatorConverter.ViewModel
             _equalsInput = false;
             _dontInput = false;
 
-            InputText = "";
-            OutputText += text;
+            Display.WorkingSymbalInput(text);
         }
 
         private void CheckingInput(Number number)
         {
-            if (InputText.Length > 0)
+            if (Display.InputText.Length > 0)
             {
-                _leftNumber = new Number(NumbersConverter.StringToDoubleConvert(InputText));
+                _leftNumber = new Number(NumbersConverter.StringToDoubleConvert(Display.InputText));
             }
-        }
-
-        private void DeleteOutput()
-        {
-            InputText = "";
-            OutputText = "";
         }
 
         #endregion

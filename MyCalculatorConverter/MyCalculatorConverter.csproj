@@ -72,6 +72,7 @@
     <Compile Include="Model\Number.cs" />
     <Compile Include="ViewManagment\Abstractions\IMainView.cs" />
     <Compile Include="ViewManagment\Abstractions\MainView.cs" />
+    <Compile Include="ViewManagment\Display.cs" />
     <Compile Include="ViewManagment\MainEngineeringCalculatorView.cs" />
     <Compile Include="ViewManagment\MainSimpleCalculatorView.cs" />
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
