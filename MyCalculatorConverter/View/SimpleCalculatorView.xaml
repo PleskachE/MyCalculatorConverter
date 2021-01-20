@@ -85,21 +85,21 @@
             Grid.Row="2"
             Grid.Column="0"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="7"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="7"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="1"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="8"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="8"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="2"
             Grid.Column="2"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="9"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="9"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
@@ -117,21 +117,21 @@
             Grid.Row="3"
             Grid.Column="0"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="4"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="4"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="1"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="5"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="5"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="3"
             Grid.Column="2"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="6"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="6"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
@@ -149,21 +149,21 @@
             Grid.Row="4"
             Grid.Column="0"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="1"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="1"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.Column="1"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="2"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="2"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="4"
             Grid.Column="2"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="3"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="3"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
@@ -184,14 +184,14 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter="0"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="0"
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="5"
             Grid.Column="2"
             Command="{Binding NumbersInputCommand}"
-            CommandParameter=","
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content=","
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
