@@ -8,7 +8,6 @@ using System.Windows;
 using MyCalculatorConverter.Algorithms;
 using MyCalculatorConverter.Algorithms.Abstraction;
 using MyCalculatorConverter.Converters;
-using MyCalculatorConverter.Infrastructure;
 using MyСalculatorConverter.Infrastructure;
 using MyСalculatorConverter.Infrastructure.Abstraction;
 using MyСalculatorConverter.Model;
@@ -147,7 +146,7 @@ namespace MyСalculatorConverter.ViewModel
         }
         public bool CanExecuteNumbersInputCommand(object parameter)
         {
-            return Display.InputText.Length < SystemConstants.MaxCountInputSymabl;
+            return Display.InputText.Length < 14; // временное решение, заменить на константу в файле ресурсов
         }
 
         #endregion

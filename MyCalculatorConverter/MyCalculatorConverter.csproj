@@ -68,7 +68,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrastructure\SystemConstants.cs" />
     <Compile Include="Converters\NumbersConverter.cs" />
     <Compile Include="Infrastructure\Abstraction\IWindowFactory.cs" />
     <Compile Include="Infrastructure\RelayCommand.cs" />
