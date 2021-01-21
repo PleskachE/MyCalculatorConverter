@@ -5,8 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using MyCalculatorConverter.Algorithms;
-using MyCalculatorConverter.Algorithms.Abstraction;
 using MyCalculatorConverter.Converters;
 using MyСalculatorConverter.Infrastructure;
 using MyСalculatorConverter.Infrastructure.Abstraction;
@@ -27,8 +25,6 @@ namespace MyСalculatorConverter.ViewModel
         private Number _result;
         private Number _leftNumber = new Number();
         private Number _rightNumber = new Number();
-
-        private ICalculationAlgorithm _calculationAlgorithm;
 
         private bool _workingSymbalInput;
         private bool _dontInput = false;

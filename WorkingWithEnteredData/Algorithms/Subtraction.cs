@@ -1,16 +1,16 @@
-﻿using MyCalculatorConverter.Algorithms.Abstraction;
+﻿using WorkingWithEnterdData.Algorithms.Abstraction;
 using MyСalculatorConverter.Model;
 
-namespace MyCalculatorConverter.Algorithms
+namespace WorkingWithEnterdData.Algorithms
 {
-    public class Division : ICalculationAlgorithm
+    public class Subtraction : ICalculationAlgorithm
     {
         public Number Result(Number leftNumber, Number rightNumber)
         {
             Number result;
             try
             {
-                result = leftNumber / rightNumber;
+                result = leftNumber - rightNumber;
             }
             catch
             {

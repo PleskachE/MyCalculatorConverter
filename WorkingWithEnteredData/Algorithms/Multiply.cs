@@ -1,7 +1,7 @@
-﻿using MyCalculatorConverter.Algorithms.Abstraction;
+﻿using WorkingWithEnterdData.Algorithms.Abstraction;
 using MyСalculatorConverter.Model;
 
-namespace MyCalculatorConverter.Algorithms
+namespace WorkingWithEnterdData.Algorithms
 {
     public class Multiply : ICalculationAlgorithm
     {

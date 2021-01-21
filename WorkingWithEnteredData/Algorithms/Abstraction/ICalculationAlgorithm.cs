@@ -1,6 +1,6 @@
 ﻿using MyСalculatorConverter.Model;
 
-namespace MyCalculatorConverter.Algorithms.Abstraction
+namespace WorkingWithEnterdData.Algorithms.Abstraction
 {
     public interface ICalculationAlgorithm
     {
