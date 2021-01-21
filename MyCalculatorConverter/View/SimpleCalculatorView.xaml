@@ -194,7 +194,7 @@
         <Button
             Grid.Row="5"
             Grid.Column="2"
-            Command="{Binding DontInputCommand}"
+            Command="{Binding DotInputCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content=","
             Style="{DynamicResource NumberButtonStyle}" />

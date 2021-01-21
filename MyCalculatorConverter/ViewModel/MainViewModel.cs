@@ -16,6 +16,9 @@ using WorkingWithEnteredData.DataHandlers.Abstractions;
 using WorkingWithEnteredData.DataHandlers;
 using WorkingWithEnteredData.Converters;
 using WorkingWithEnteredData.Common;
+using MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions;
+using MyCalculatorConverter.ViewManagment.ButtonManagers;
+using System.Diagnostics;
 
 namespace MyСalculatorConverter.ViewModel
 {
@@ -32,9 +35,7 @@ namespace MyСalculatorConverter.ViewModel
 
         private Operation _operation;
 
-        private bool _isWorkingSymbalInput;
-        private bool _isDontInput = false;
-        private bool _isEqualsInput = true;
+        private ButtonManager _buttonManager;
 
         #endregion
 
@@ -47,8 +48,8 @@ namespace MyСalculatorConverter.ViewModel
             Display = new Display();
             Journal = new Journal();
             MainView = new MainSimpleCalculatorView();
-
             _inputDataHandler = new Calculator();
+            _buttonManager = new EqualsEntered();
 
             VisSimpleCalc = Visibility.Visible;
             VisEngineeringCalc = Visibility.Hidden;
@@ -106,7 +107,7 @@ namespace MyСalculatorConverter.ViewModel
         public RelayCommand NumbersInputCommand { get; set; }
 
         public RelayCommand OperationInputCommand { get; set; }
-        public RelayCommand DontInputCommand { get; set; }
+        public RelayCommand DotInputCommand { get; set; }
         public RelayCommand EqualsInputCommand { get; set; }
 
         public RelayCommand DeleteAllCommand { get; set; }
@@ -146,70 +147,70 @@ namespace MyСalculatorConverter.ViewModel
 
         private void ExecuteNumbersInputCommand(object parameter)
         {
+            if(_buttonManager.IsEqualsInput == true)
+            {
+                DeleteAll();
+            }
+
             var text = parameter as string;
             Display.NumbersInput(text);
 
-            _isEqualsInput = false;
-            _isWorkingSymbalInput = false;
+            _buttonManager.IsEqualsInput = false;
         }
         public bool CanExecuteNumbersInputCommand(object parameter)
         {
             return Display.InputText.Length < 14; // временное решение, заменить на константу в файле ресурсов
         }
 
-        private void ExecuteDontInputCommand(object parameter)
+        private void ExecuteDotInputCommand(object parameter)
         {
             var text = parameter as string;
+            if (Display.InputText.Length == 0)
+            {
+                Display.AddNumber("0");
+            }
             Display.NumbersInput(text);
 
-            _isDontInput = true;
-            _isEqualsInput = true;
-            _isWorkingSymbalInput = true;
+            _buttonManager = new DottInput();
         }
-        public bool CanExecuteDontInputCommand(object parameter)
+        public bool CanExecuteDotInputCommand(object parameter)
         {
-            return _isDontInput != true;
+            return _buttonManager.IsDotInput != true;
         }
 
         #endregion
 
         #region SimpleCalculatorCommands
-        //неправильно работает!
+
         private void ExecuteOperationInputCommand(object parameter)
         {
-            _isWorkingSymbalInput = true;
-            _isDontInput = false;
-            _isEqualsInput = false;
-
-            if (Display.InputText != "")
+            if (Display.InputText.Length > 0)
             {
                 _inputDataHandler.LeftNumber = _numbersConverter.StringToDouble(Display.InputText);
             }
             _operation = _operationConverter.StringToOperation(parameter as string);
-
-            Display.WorkingSymbalInput(parameter as string);
+            WorkingSymbalInput(parameter as string);
         }
         public bool CanExecuteOperationInputCommand(object parameter)
         {
-            return _isWorkingSymbalInput != true; ;
+            return _buttonManager.IsWorkingSymbalInput != true; ;
         }
-        //не правильно работает
+        
         private void ExecuteEqualsInputCommand(object parameter)
         {
+            
             Journal.InputLeftPart(Display.OutputText);
             _inputDataHandler.RightNumber = _numbersConverter.StringToDouble(Display.InputText);
             var text = _inputDataHandler.Calculation(_operation).ToString();
-            Display.OutputText += (parameter as string) + text;
+            Display.EqualsInput(text);
             Journal.InputRightPart(text);
             _inputDataHandler.LeftNumber = _inputDataHandler.Result;
 
-            _isEqualsInput = true;
-            _isDontInput = false;
-            _isWorkingSymbalInput = false;
+            _buttonManager = new EqualsEntered();
         }
         public bool CanExecuteEqualsInputCommand(object parameter)
         {
-            return (_isEqualsInput != true || Display.InputText.Length != 0);
+            return (_buttonManager.IsEqualsInput != true || Display.InputText.Length != 0);
         }
 
         #endregion
@@ -251,7 +252,7 @@ namespace MyСalculatorConverter.ViewModel
             NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);
 
             OperationInputCommand = new RelayCommand(ExecuteOperationInputCommand, CanExecuteOperationInputCommand);
-            DontInputCommand = new RelayCommand(ExecuteDontInputCommand, CanExecuteDontInputCommand);
+            DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
             EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
 
             DeleteAllCommand = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
@@ -261,11 +262,19 @@ namespace MyСalculatorConverter.ViewModel
 
         private void WorkingSymbalInput(string text)
         {
-            _isWorkingSymbalInput = true;
-            _isEqualsInput = false;
-            _isDontInput = false;
-
+            _buttonManager = new OperationSymbalInpyt();
             Display.WorkingSymbalInput(text);
+        }
+
+        public void DeleteAll()
+        {
+            Display.DeleteOutput();
+
+            _inputDataHandler.RightNumber = 0;
+            _inputDataHandler.LeftNumber = 0;
+            _inputDataHandler.Result = 0;
+
+            _buttonManager = new EqualsEntered();
         }
 
         #endregion

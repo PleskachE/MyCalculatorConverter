@@ -67,7 +67,11 @@
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Infrastructure\WindowFactory.cs" />
     <Compile Include="Model\Number.cs" />
+    <Compile Include="ViewManagment\ButtonManagers\Abstraction\ButtonManager.cs" />
     <Compile Include="ViewManagment\Abstractions\MainView.cs" />
+    <Compile Include="ViewManagment\ButtonManagers\DottInput.cs" />
+    <Compile Include="ViewManagment\ButtonManagers\EqualsEntered.cs" />
+    <Compile Include="ViewManagment\ButtonManagers\OperationSymbalInpyt.cs" />
     <Compile Include="ViewManagment\Display.cs" />
     <Compile Include="ViewManagment\Journal.cs" />
     <Compile Include="ViewManagment\MainEngineeringCalculatorView.cs" />

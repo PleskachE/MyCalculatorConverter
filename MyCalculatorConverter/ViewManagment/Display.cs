@@ -70,6 +70,18 @@ namespace MyCalculatorConverter.ViewManagment
             OutputText += text;
         }
 
+        public void EqualsInput(string text)
+        {
+            InputText = "";
+            OutputText = text;
+        }
+
+        public void AddNumber(string text)
+        {
+            InputText = "";
+            OutputText += text;
+        }
+
         #endregion
     }
 }
