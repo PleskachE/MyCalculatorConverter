@@ -46,12 +46,11 @@
     <Compile Include="Algorithms\Multiply.cs" />
     <Compile Include="Algorithms\Subtraction.cs" />
     <Compile Include="Algorithms\Summation.cs" />
+    <Compile Include="Common\Operation.cs" />
     <Compile Include="DataHandlers\Abstractions\InputDataHandler.cs" />
     <Compile Include="DataHandlers\Calculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
