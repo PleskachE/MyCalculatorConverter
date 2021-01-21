@@ -63,7 +63,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\NumbersConverter.cs" />
     <Compile Include="Infrastructure\Abstraction\IWindowFactory.cs" />
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Infrastructure\WindowFactory.cs" />
@@ -111,7 +110,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WorkingWithEnteredData\WorkingWithEnteredData.csproj">
+      <Project>{BA5BAB1C-38C5-4402-B61C-26147847E420}</Project>
+      <Name>WorkingWithEnteredData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Styles\StandartTheme.xaml">
       <SubType>Designer</SubType>
@@ -129,6 +133,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

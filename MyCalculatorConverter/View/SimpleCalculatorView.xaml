@@ -105,7 +105,8 @@
         <Button
             Grid.Row="2"
             Grid.Column="3"
-            Command="{Binding DivideInputCommand}"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="/"
             Style="{DynamicResource WorkingButtonStyle}" />
         <Button
@@ -137,7 +138,8 @@
         <Button
             Grid.Row="3"
             Grid.Column="3"
-            Command="{Binding MultiplyInputCommand}"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="*"
             Style="{DynamicResource WorkingButtonStyle}" />
         <Button
@@ -169,7 +171,8 @@
         <Button
             Grid.Row="4"
             Grid.Column="3"
-            Command="{Binding MinusInputCommand}"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="-"
             Style="{DynamicResource WorkingButtonStyle}" />
         <Button
@@ -177,6 +180,7 @@
             Grid.RowSpan="2"
             Grid.Column="4"
             Command="{Binding EqualsInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="="
             Style="{DynamicResource WorkingButtonStyle}" />
         <Button
@@ -190,14 +194,15 @@
         <Button
             Grid.Row="5"
             Grid.Column="2"
-            Command="{Binding NumbersInputCommand}"
+            Command="{Binding DontInputCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content=","
             Style="{DynamicResource NumberButtonStyle}" />
         <Button
             Grid.Row="5"
             Grid.Column="3"
-            Command="{Binding PlusInputCommand}"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="+"
             Style="{DynamicResource WorkingButtonStyle}" />
     </Grid>

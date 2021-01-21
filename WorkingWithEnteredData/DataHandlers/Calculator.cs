@@ -13,39 +13,9 @@ namespace WorkingWithEnteredData.DataHandlers
 
         #endregion
 
-        #region Properties
-
-        private double _leftNumber = 0;
-        public double LeftNumber
-        {
-            get
-            {
-                return _leftNumber;
-            }
-            set
-            {
-                _leftNumber = value;
-            }
-        }
-
-        private double _rightNumber = 0;
-        public double RightNumber
-        {
-            get
-            {
-                return _rightNumber;
-            }
-            set
-            {
-                _rightNumber = value;
-            }
-        }
-
-        #endregion
-
         #region Methods
 
-        public double Calculation(Operation operation)
+        public override double Calculation(Operation operation)
         {
             switch (operation)
             {
@@ -62,8 +32,8 @@ namespace WorkingWithEnteredData.DataHandlers
                     _calculationAlgorithm = new Division();
                     break;
             }
-
-            return _calculationAlgorithm.Result(_leftNumber, _rightNumber);
+            Result = _calculationAlgorithm.Result(LeftNumber, RightNumber);
+            return Result;
         }
 
         #endregion
