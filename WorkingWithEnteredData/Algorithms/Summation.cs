@@ -1,20 +1,19 @@
 ﻿using WorkingWithEnterdData.Algorithms.Abstraction;
-using MyСalculatorConverter.Model;
 
 namespace WorkingWithEnterdData.Algorithms
 {
     public class Summation : ICalculationAlgorithm
     {
-        public Number Result(Number leftNumber, Number rightNumber)
+        public double Result(double leftNumber, double rightNumber)
         {
-            Number result;
+            double result;
             try
             {
                 result = leftNumber + rightNumber;
             }
             catch
             {
-                result = new Number(0);
+                result = 0;
             }
             return result;
         }

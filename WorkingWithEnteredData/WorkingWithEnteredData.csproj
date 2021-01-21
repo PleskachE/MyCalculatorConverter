@@ -53,11 +53,5 @@
   <ItemGroup>
     <Folder Include="Common\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyCalculatorConverter\MyCalculatorConverter.csproj">
-      <Project>{F41FA802-1B44-41D0-A01A-602604AD71F0}</Project>
-      <Name>MyCalculatorConverter</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
