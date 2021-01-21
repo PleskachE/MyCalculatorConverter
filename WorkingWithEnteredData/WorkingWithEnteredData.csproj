@@ -47,6 +47,8 @@
     <Compile Include="Algorithms\Subtraction.cs" />
     <Compile Include="Algorithms\Summation.cs" />
     <Compile Include="Common\Operation.cs" />
+    <Compile Include="Converters\NumbersConverter.cs" />
+    <Compile Include="Converters\OperationConverter.cs" />
     <Compile Include="DataHandlers\Abstractions\InputDataHandler.cs" />
     <Compile Include="DataHandlers\Calculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
