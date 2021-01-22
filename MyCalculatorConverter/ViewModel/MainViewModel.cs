@@ -16,6 +16,7 @@ using WorkingWithEnteredData.DataHandlers;
 using MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions;
 using MyCalculatorConverter.ViewManagment.ButtonManagers;
 using System.Diagnostics;
+using MyCalculatorConverter.Properties;
 
 namespace MyСalculatorConverter.ViewModel
 {
@@ -154,7 +155,7 @@ namespace MyСalculatorConverter.ViewModel
         }
         public bool CanExecuteNumbersInputCommand(object parameter)
         {
-            return Display.InputText.Length < 14; // временное решение, заменить на константу в файле ресурсов
+            return Display.InputText.Length < Int32.Parse(Resources.MaxCountSymbal);
         }
 
         private void ExecuteDotInputCommand(object parameter)

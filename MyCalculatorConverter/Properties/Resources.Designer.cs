@@ -61,11 +61,11 @@ namespace MyCalculatorConverter.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на 14.
         /// </summary>
-        public static string _int {
+        public static string MaxCountSymbal {
             get {
-                return ResourceManager.GetString("int", resourceCulture);
+                return ResourceManager.GetString("MaxCountSymbal", resourceCulture);
             }
         }
     }
