@@ -150,6 +150,7 @@ namespace MyСalculatorConverter.ViewModel
             Display.NumbersInput(text);
 
             _buttonManager.IsEqualsInput = false;
+            _buttonManager.IsWorkingSymbalInput = false;
         }
         public bool CanExecuteNumbersInputCommand(object parameter)
         {
@@ -169,7 +170,7 @@ namespace MyСalculatorConverter.ViewModel
         }
         public bool CanExecuteDotInputCommand(object parameter)
         {
-            return _buttonManager.IsDotInput != true;
+            return ((_buttonManager.IsDotInput != true) & (Display.InputText.Length != 0));
         }
 
         #endregion
