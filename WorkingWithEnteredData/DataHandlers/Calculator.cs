@@ -1,6 +1,7 @@
 ﻿using WorkingWithEnterdData.Algorithms;
 using WorkingWithEnterdData.Algorithms.Abstraction;
 using WorkingWithEnteredData.Common;
+using WorkingWithEnteredData.Converters;
 using WorkingWithEnteredData.DataHandlers.Abstractions;
 
 namespace WorkingWithEnteredData.DataHandlers
@@ -10,14 +11,21 @@ namespace WorkingWithEnteredData.DataHandlers
         #region Fields
 
         private ICalculationAlgorithm _calculationAlgorithm;
+        private OperationConverter _converter;
 
         #endregion
 
+        public Calculator()
+        {
+            _converter = new OperationConverter();
+        }
+
         #region Methods
 
-        public override double Calculation(Operation operation)
+        public override string Calculation(string operation)
         {
-            switch (operation)
+            Operation _operation = _converter.StringToOperation(operation);
+            switch (_operation)
             {
                 case Operation.Summation:
                     _calculationAlgorithm = new Summation();

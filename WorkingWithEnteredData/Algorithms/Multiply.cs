@@ -1,21 +1,25 @@
 ﻿using WorkingWithEnterdData.Algorithms.Abstraction;
+using WorkingWithEnteredData.Converters;
 
 namespace WorkingWithEnterdData.Algorithms
 {
     public class Multiply : ICalculationAlgorithm
     {
-        public double Result(double leftNumber, double rightNumber)
+        private NumbersConverter _converter = new NumbersConverter();
+        public string Result(string leftNumber, string rightNumber)
         {
-            double result;
+            double _leftNumber = _converter.StringToDouble(leftNumber);
+            double _rightNumber = _converter.StringToDouble(rightNumber);
+            double _result;
             try
             {
-                result = leftNumber * rightNumber;
+                _result = _leftNumber * _rightNumber;
             }
             catch
             {
-                result = 0;
+                _result = 0;
             }
-            return result;
+            return _result.ToString();
         }
     }
 }

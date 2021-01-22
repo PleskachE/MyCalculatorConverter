@@ -1,13 +1,11 @@
 ﻿
-using WorkingWithEnteredData.Common;
-
 namespace WorkingWithEnteredData.DataHandlers.Abstractions
 {
     public abstract class InputDataHandler
     {
-        public virtual double Calculation(Operation operation) { return Result; }
-        public double LeftNumber { get; set; }
-        public double RightNumber { get; set; }
-        public double Result { get; set; }
+        public virtual string Calculation(string operation) { return Result; }
+        public string LeftNumber { get; set; }
+        public string RightNumber { get; set; }
+        public string Result { get; set; }
     }
 }

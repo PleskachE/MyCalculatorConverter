@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using MyСalculatorConverter.Infrastructure;
 using MyСalculatorConverter.Infrastructure.Abstraction;
-using MyСalculatorConverter.Model;
 using MyСalculatorConverter.ViewModel.Abstraction;
 using MyСalculatorConverter.ViewManagement;
 using MyСalculatorConverter.ViewManagement.Abstractions;
 using MyCalculatorConverter.ViewManagment;
 using WorkingWithEnteredData.DataHandlers.Abstractions;
 using WorkingWithEnteredData.DataHandlers;
-using WorkingWithEnteredData.Converters;
-using WorkingWithEnteredData.Common;
 using MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions;
 using MyCalculatorConverter.ViewManagment.ButtonManagers;
 using System.Diagnostics;
@@ -30,10 +27,7 @@ namespace MyСalculatorConverter.ViewModel
 
         private InputDataHandler _inputDataHandler;
 
-        private NumbersConverter _numbersConverter = new NumbersConverter();
-        private OperationConverter _operationConverter = new OperationConverter();
-
-        private Operation _operation;
+        private string _operation;
 
         private ButtonManager _buttonManager;
 
@@ -186,9 +180,9 @@ namespace MyСalculatorConverter.ViewModel
         {
             if (Display.InputText.Length > 0)
             {
-                _inputDataHandler.LeftNumber = _numbersConverter.StringToDouble(Display.InputText);
+                _inputDataHandler.LeftNumber = Display.InputText;
             }
-            _operation = _operationConverter.StringToOperation(parameter as string);
+            _operation = parameter as string;
             WorkingSymbalInput(parameter as string);
         }
         public bool CanExecuteOperationInputCommand(object parameter)
@@ -200,7 +194,7 @@ namespace MyСalculatorConverter.ViewModel
         {
             
             Journal.InputLeftPart(Display.OutputText);
-            _inputDataHandler.RightNumber = _numbersConverter.StringToDouble(Display.InputText);
+            _inputDataHandler.RightNumber = Display.InputText;
             var text = _inputDataHandler.Calculation(_operation).ToString();
             Display.EqualsInput(text);
             Journal.InputRightPart(text);
@@ -219,8 +213,8 @@ namespace MyСalculatorConverter.ViewModel
 
         private void ExecuteDeleteAllCommand(object parameter)
         {
-            _inputDataHandler.LeftNumber = 0;
-            _inputDataHandler.RightNumber = 0;
+            _inputDataHandler.LeftNumber = "";
+            _inputDataHandler.RightNumber = "";
             Display.DeleteOutput();
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
@@ -270,9 +264,9 @@ namespace MyСalculatorConverter.ViewModel
         {
             Display.DeleteOutput();
 
-            _inputDataHandler.RightNumber = 0;
-            _inputDataHandler.LeftNumber = 0;
-            _inputDataHandler.Result = 0;
+            _inputDataHandler.RightNumber = "";
+            _inputDataHandler.LeftNumber = "";
+            _inputDataHandler.Result = "";
 
             _buttonManager = new EqualsEntered();
         }
