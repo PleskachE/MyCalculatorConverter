@@ -59,7 +59,7 @@
                     Background="Gray"
                     BorderThickness="3"
                     CornerRadius="5">
-                    <TextBlock Text="{Binding Journal.Text, Mode=OneWay}"/>
+                    <ListView ItemsSource="{Binding Journal.TextList, Mode=OneWay}"/>
                 </Border>
             </Grid>
             <Grid Name="CalculatorGrid" Grid.Column="0">

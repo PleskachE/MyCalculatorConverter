@@ -1,40 +1,35 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.Collections;
+using System.Collections.ObjectModel;
 
 namespace MyCalculatorConverter.ViewManagment
 {
-    public class Journal : INotifyPropertyChanged
+    public class Journal 
     {
 
         private string _text;
-        public string Text
-        {
-            get
-            {
-                return _text;
-            }
-            set
-            {
-                _text = value;
-                OnPropertyChanged("Text");
-            }
-        }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public IList TextList { get; set; }
 
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        public Journal()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+            TextList = new ObservableCollection<string>();
         }
 
         public void InputLeftPart(string text)
         {
-            Text += "\n" + text;
+            _text += "\n" + text;
         }
 
         public void InputRightPart(string text)
         {
-            Text += " = " + text;
+            _text += " = " + text;
+            TextList.Add(_text);
+            ClearText();
+        }
+
+        private void ClearText()
+        {
+            _text = "";
         }
 
     }
