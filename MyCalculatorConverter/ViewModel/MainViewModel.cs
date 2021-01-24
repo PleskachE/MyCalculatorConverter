@@ -15,7 +15,6 @@ using WorkingWithEnteredData.DataHandlers.Abstractions;
 using WorkingWithEnteredData.DataHandlers;
 using MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions;
 using MyCalculatorConverter.ViewManagment.ButtonManagers;
-using System.Diagnostics;
 using MyCalculatorConverter.Properties;
 
 namespace MyСalculatorConverter.ViewModel
@@ -165,7 +164,7 @@ namespace MyСalculatorConverter.ViewModel
             var text = parameter as string;
             if (Display.InputText.Length == 0)
             {
-                Display.AddNumber("0");
+                Display.WorkingSymbalInput("0");
             }
             Display.NumbersInput(text);
 
@@ -238,12 +237,12 @@ namespace MyСalculatorConverter.ViewModel
 
         private void ExecuteJournalTextChoiceCommand(object parametr)
         {
+            Display.DeleteOutput();
             var text = (parametr as string);
             Journal.RemoveNote(text);
             var index = text.IndexOf("=");
-            Display.OutputText = text.Substring(0, (index + 1));
             _inputDataHandler.RightNumber = text.Substring((++index), text.Length - index);
-            Display.InputText = text.Substring((++index), text.Length - index);
+            Display.AddNumber(text.Substring((++index), text.Length - index));
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
         {

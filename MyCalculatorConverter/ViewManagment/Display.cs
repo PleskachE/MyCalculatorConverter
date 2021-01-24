@@ -78,8 +78,8 @@ namespace MyCalculatorConverter.ViewManagment
 
         public void AddNumber(string text)
         {
-            InputText = "";
-            OutputText += text;
+            InputText = text;
+            OutputText = text;
         }
 
         #endregion
