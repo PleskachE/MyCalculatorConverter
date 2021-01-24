@@ -108,6 +108,8 @@ namespace MyСalculatorConverter.ViewModel
         public RelayCommand DeleteAllCommand { get; set; }
         public RelayCommand DeleteOneNumberCommand { get; set; }
 
+        public RelayCommand JournalTextChoiceCommand { get; set; }
+
         private Visibility _visSimpleCalc;
         public Visibility VisSimpleCalc
         {
@@ -234,6 +236,15 @@ namespace MyСalculatorConverter.ViewModel
             return Display.InputText.Length != 0;
         }
 
+        private void ExecuteJournalTextChoiceCommand(object parametr)
+        {
+            
+        }
+        public bool CanExecuteJournalTextChoiceCommand(object parametr)
+        {
+            return Journal.TextList.Count != 0;
+        }
+
         #endregion
 
         #region Methods
@@ -253,6 +264,7 @@ namespace MyСalculatorConverter.ViewModel
 
             DeleteAllCommand = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
             DeleteOneNumberCommand = new RelayCommand(ExecuteDeleteOneNumberCommand, CanExecuteDeleteOneNumberCommand);
+            JournalTextChoiceCommand = new RelayCommand(ExecuteJournalTextChoiceCommand, CanExecuteJournalTextChoiceCommand);
         }
 
 
