@@ -238,7 +238,12 @@ namespace MyСalculatorConverter.ViewModel
 
         private void ExecuteJournalTextChoiceCommand(object parametr)
         {
-            
+            var text = (parametr as string);
+            Journal.RemoveNote(text);
+            var index = text.IndexOf("=");
+            Display.OutputText = text.Substring(0, (index + 1));
+            _inputDataHandler.RightNumber = text.Substring((++index), text.Length - index);
+            Display.InputText = text.Substring((++index), text.Length - index);
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
         {
