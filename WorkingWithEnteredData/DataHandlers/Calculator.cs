@@ -11,20 +11,22 @@ namespace WorkingWithEnteredData.DataHandlers
         #region Fields
 
         private ICalculationAlgorithm _calculationAlgorithm;
-        private OperationConverter _converter;
+        private OperationConverter _operationConverter;
+        private NumbersConverter _numbersConverter;
 
         #endregion
 
         public Calculator()
         {
-            _converter = new OperationConverter();
+            _operationConverter = new OperationConverter();
+            _numbersConverter = new NumbersConverter();
         }
 
         #region Methods
 
         public override string Calculation(string operation)
         {
-            Operation _operation = _converter.StringToOperation(operation);
+            Operation _operation = _operationConverter.StringToOperation(operation);
             switch (_operation)
             {
                 case Operation.Summation:
@@ -40,7 +42,8 @@ namespace WorkingWithEnteredData.DataHandlers
                     _calculationAlgorithm = new Division();
                     break;
             }
-            Result = _calculationAlgorithm.Result(LeftNumber, RightNumber);
+            var _result = _calculationAlgorithm.Result(_numbersConverter.StringToDouble(LeftNumber), _numbersConverter.StringToDouble(RightNumber));
+            Result = _result.ToString();
             return Result;
         }
 

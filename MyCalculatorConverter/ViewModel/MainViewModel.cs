@@ -25,7 +25,7 @@ namespace MyСalculatorConverter.ViewModel
 
         private IWindowFactory _windowFactory = new WindowFactory();
 
-        private InputDataHandler _inputDataHandler;
+        public InputDataHandler InputDataHandler;
 
         private string _operation;
 
@@ -41,8 +41,9 @@ namespace MyСalculatorConverter.ViewModel
 
             Display = new Display();
             Journal = new Journal();
+
             MainView = new MainSimpleCalculatorView();
-            _inputDataHandler = new Calculator();
+            InputDataHandler = new Calculator();
             _buttonManager = new EqualsEntered();
 
             VisSimpleCalc = Visibility.Visible;
@@ -61,7 +62,7 @@ namespace MyСalculatorConverter.ViewModel
             MainView = new MainSimpleCalculatorView();
             Application.Current.MainWindow = MainView.ChangeWindow(Application.Current.MainWindow);
 
-            _inputDataHandler = new Calculator();
+            InputDataHandler = new Calculator();
         }
 
         public bool CanExecuteOpenSimpleCalculatorCommand(object parameter)
@@ -77,7 +78,7 @@ namespace MyСalculatorConverter.ViewModel
             MainView = new MainEngineeringCalculatorView();
             Application.Current.MainWindow = MainView.ChangeWindow(Application.Current.MainWindow);
 
-            _inputDataHandler = new Calculator();
+            InputDataHandler = new Calculator();
         }
 
         public bool CanExecuteOpenEngineeringCalculatorCommand(object parameter)
@@ -90,9 +91,7 @@ namespace MyСalculatorConverter.ViewModel
         #region Properties
 
         public Display Display { get; set; }
-
         public Journal Journal { get; set; }
-
         public MainView MainView { get; set; }
 
         public RelayCommand OpenSimpleCalculatorCommand { get; set; }
@@ -148,8 +147,7 @@ namespace MyСalculatorConverter.ViewModel
                 DeleteAll();
             }
 
-            var text = parameter as string;
-            Display.NumbersInput(text);
+            Display.NumbersInput(parameter as string);
 
             _buttonManager.IsEqualsInput = false;
             _buttonManager.IsWorkingSymbalInput = false;
@@ -183,7 +181,7 @@ namespace MyСalculatorConverter.ViewModel
         {
             if (Display.InputText.Length > 0)
             {
-                _inputDataHandler.LeftNumber = Display.InputText;
+                InputDataHandler.LeftNumber = Display.InputText;
             }
             _operation = parameter as string;
             WorkingSymbalInput(parameter as string);
@@ -195,13 +193,13 @@ namespace MyСalculatorConverter.ViewModel
         
         private void ExecuteEqualsInputCommand(object parameter)
         {
-            
+
             Journal.InputLeftPart(Display.OutputText);
-            _inputDataHandler.RightNumber = Display.InputText;
-            var text = _inputDataHandler.Calculation(_operation).ToString();
+            InputDataHandler.RightNumber = Display.InputText;
+            var text = InputDataHandler.Calculation(_operation).ToString();
             Display.EqualsInput(text);
             Journal.InputRightPart(text);
-            _inputDataHandler.LeftNumber = _inputDataHandler.Result;
+            InputDataHandler.LeftNumber = InputDataHandler.Result;
 
             _buttonManager = new EqualsEntered();
         }
@@ -216,8 +214,8 @@ namespace MyСalculatorConverter.ViewModel
 
         private void ExecuteDeleteAllCommand(object parameter)
         {
-            _inputDataHandler.LeftNumber = "";
-            _inputDataHandler.RightNumber = "";
+            InputDataHandler.LeftNumber = "";
+            InputDataHandler.RightNumber = "";
             Display.DeleteOutput();
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
@@ -241,7 +239,7 @@ namespace MyСalculatorConverter.ViewModel
             var text = (parametr as string);
             Journal.RemoveNote(text);
             var index = text.IndexOf("=");
-            _inputDataHandler.RightNumber = text.Substring((++index), text.Length - index);
+            InputDataHandler.RightNumber = text.Substring((++index), text.Length - index);
             Display.AddNumber(text.Substring((++index), text.Length - index));
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
@@ -282,9 +280,9 @@ namespace MyСalculatorConverter.ViewModel
         {
             Display.DeleteOutput();
 
-            _inputDataHandler.RightNumber = "";
-            _inputDataHandler.LeftNumber = "";
-            _inputDataHandler.Result = "";
+            InputDataHandler.RightNumber = "";
+            InputDataHandler.LeftNumber = "";
+            InputDataHandler.Result = "";
 
             _buttonManager = new EqualsEntered();
         }

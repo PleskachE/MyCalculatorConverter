@@ -3,6 +3,6 @@ namespace WorkingWithEnterdData.Algorithms.Abstraction
 {
     public interface ICalculationAlgorithm
     {
-        string Result(string leftNumber, string rightNumber);
+        double Result(double leftNumber, double rightNumber);
     }
 }
