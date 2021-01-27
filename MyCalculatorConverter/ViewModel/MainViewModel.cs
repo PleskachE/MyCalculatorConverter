@@ -43,6 +43,8 @@ namespace MyСalculatorConverter.ViewModel
             Journal = new Journal();
 
             MainView = new MainSimpleCalculatorView();
+            Application.Current.MainWindow = MainView.ChangeWindow(Application.Current.MainWindow);
+
             InputDataHandler = new Calculator();
             _buttonManager = new EqualsEntered();
 
