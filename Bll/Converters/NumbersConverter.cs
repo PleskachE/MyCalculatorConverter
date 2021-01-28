@@ -1,5 +1,6 @@
-﻿
-namespace WorkingWithEnteredData.Converters
+﻿using Model;
+
+namespace Bll.Converters
 {
     public class NumbersConverter
     {

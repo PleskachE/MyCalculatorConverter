@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BA5BAB1C-38C5-4402-B61C-26147847E420}</ProjectGuid>
+    <ProjectGuid>{E127FD70-1438-4819-B357-6FB8C5E6BB26}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WorkingWithEnteredData</RootNamespace>
-    <AssemblyName>WorkingWithEnteredData</AssemblyName>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,16 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\Abstraction\ICalculationAlgorithm.cs" />
-    <Compile Include="Algorithms\Division.cs" />
-    <Compile Include="Algorithms\Multiply.cs" />
-    <Compile Include="Algorithms\Subtraction.cs" />
-    <Compile Include="Algorithms\Summation.cs" />
+    <Compile Include="Abstraction\BaseOperation.cs" />
     <Compile Include="Common\Operation.cs" />
-    <Compile Include="Converters\NumbersConverter.cs" />
-    <Compile Include="Converters\OperationConverter.cs" />
-    <Compile Include="DataHandlers\Abstractions\InputDataHandler.cs" />
-    <Compile Include="DataHandlers\Calculator.cs" />
+    <Compile Include="Common\Priority.cs" />
+    <Compile Include="Number.cs" />
+    <Compile Include="Operations\ClosingParenthesis.cs" />
+    <Compile Include="Operations\Division.cs" />
+    <Compile Include="Operations\Exponentiation.cs" />
+    <Compile Include="Operations\Multiply.cs" />
+    <Compile Include="Operations\OpeningParenthesis.cs" />
+    <Compile Include="Operations\Subtraction.cs" />
+    <Compile Include="Operations\Summation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

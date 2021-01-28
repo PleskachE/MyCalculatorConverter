@@ -56,8 +56,8 @@
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Журнал:" />
                 <ListView
-                    Grid.Row="1"
                     Name="JournalListView"
+                    Grid.Row="1"
                     Background="Gray"
                     BorderThickness="3"
                     ItemsSource="{Binding Journal.TextList, Mode=OneWay}">

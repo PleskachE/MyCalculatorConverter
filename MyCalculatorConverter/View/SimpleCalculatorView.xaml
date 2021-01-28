@@ -29,9 +29,9 @@
         <Button
             Grid.Row="0"
             Grid.Column="0"
-            Content="#"
             Command="{Binding JournalClearCommand}"
-            Style="{DynamicResource WorkingButtonStyle}"/>
+            Content="#"
+            Style="{DynamicResource WorkingButtonStyle}" />
         <Button
             Grid.Row="0"
             Grid.Column="1"
@@ -52,6 +52,8 @@
         <Button
             Grid.Row="0"
             Grid.Column="4"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="^"
             Style="{DynamicResource WorkingButtonStyle}" />
         <Button
@@ -118,6 +120,8 @@
         <Button
             Grid.Row="2"
             Grid.Column="4"
+            Command="{Binding OperationsWithSingleNumberCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="1/x"
             Style="{DynamicResource WorkingButtonStyle}" />
         <Button

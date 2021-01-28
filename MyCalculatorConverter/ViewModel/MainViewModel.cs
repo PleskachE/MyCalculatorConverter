@@ -11,11 +11,11 @@ using MyСalculatorConverter.ViewModel.Abstraction;
 using MyСalculatorConverter.ViewManagement;
 using MyСalculatorConverter.ViewManagement.Abstractions;
 using MyCalculatorConverter.ViewManagment;
-using WorkingWithEnteredData.DataHandlers.Abstractions;
-using WorkingWithEnteredData.DataHandlers;
 using MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions;
 using MyCalculatorConverter.ViewManagment.ButtonManagers;
 using MyCalculatorConverter.Properties;
+using Bll.DataHandlers.Abstractions;
+using Bll.DataHandlers;
 
 namespace MyСalculatorConverter.ViewModel
 {
@@ -26,8 +26,6 @@ namespace MyСalculatorConverter.ViewModel
         private IWindowFactory _windowFactory = new WindowFactory();
 
         public InputDataHandler InputDataHandler;
-
-        private string _operation;
 
         private ButtonManager _buttonManager;
 
@@ -98,6 +96,7 @@ namespace MyСalculatorConverter.ViewModel
 
         public RelayCommand OpenSimpleCalculatorCommand { get; set; }
         public RelayCommand OpenEngineeringCalculatorCommand { get; set; }
+        public RelayCommand OperationsWithSingleNumberCommand { get; set; }
 
         public RelayCommand NumbersInputCommand { get; set; }
 
@@ -182,11 +181,11 @@ namespace MyСalculatorConverter.ViewModel
 
         private void ExecuteOperationInputCommand(object parameter)
         {
-            if (Display.InputText.Length > 0)
+            
+            if (Display.InputText.Length == 0)
             {
-                InputDataHandler.LeftNumber = Display.InputText;
+                WorkingSymbalInput("0");
             }
-            _operation = parameter as string;
             WorkingSymbalInput(parameter as string);
         }
         public bool CanExecuteOperationInputCommand(object parameter)
@@ -198,11 +197,11 @@ namespace MyСalculatorConverter.ViewModel
         {
 
             Journal.InputLeftPart(Display.OutputText);
-            InputDataHandler.RightNumber = Display.InputText;
-            var text = InputDataHandler.Calculation(_operation).ToString();
-            Display.EqualsInput(text);
-            Journal.InputRightPart(text);
-            InputDataHandler.LeftNumber = InputDataHandler.Result;
+            var text = Display.OutputText.Replace(" ", "");
+            var result = InputDataHandler.Calculation(text).ToString();
+            Display.EqualsInput(result);
+            Journal.InputRightPart(result);
+            Display.InputText = result;
 
             _buttonManager = new EqualsEntered();
         }
@@ -213,12 +212,25 @@ namespace MyСalculatorConverter.ViewModel
 
         #endregion
 
+        #region OperationsWithSingleNumber
+
+        private void ExecuteOperationsWithSingleNumberCommand(object parameter)
+        {
+            var text = parameter as string;
+            
+
+        }
+        public bool CanExecuteOperationsWithSingleNumberCommand(object parameter)
+        {
+            return Display.InputText.Length != 0; 
+        }
+
+        #endregion
+
         #region ManagementCommands
 
         private void ExecuteDeleteAllCommand(object parameter)
         {
-            InputDataHandler.LeftNumber = "";
-            InputDataHandler.RightNumber = "";
             Display.DeleteOutput();
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
@@ -242,7 +254,6 @@ namespace MyСalculatorConverter.ViewModel
             var text = (parametr as string);
             Journal.RemoveNote(text);
             var index = text.IndexOf("=");
-            InputDataHandler.RightNumber = text.Substring((++index), text.Length - index);
             Display.AddNumber(text.Substring((++index), text.Length - index));
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
@@ -273,6 +284,7 @@ namespace MyСalculatorConverter.ViewModel
             NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);
 
             OperationInputCommand = new RelayCommand(ExecuteOperationInputCommand, CanExecuteOperationInputCommand);
+            OperationsWithSingleNumberCommand = new RelayCommand(ExecuteOperationsWithSingleNumberCommand, CanExecuteOperationsWithSingleNumberCommand);
             DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
             EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
 
@@ -292,11 +304,6 @@ namespace MyСalculatorConverter.ViewModel
         public void DeleteAll()
         {
             Display.DeleteOutput();
-
-            InputDataHandler.RightNumber = "";
-            InputDataHandler.LeftNumber = "";
-            InputDataHandler.Result = "";
-
             _buttonManager = new EqualsEntered();
         }
 
