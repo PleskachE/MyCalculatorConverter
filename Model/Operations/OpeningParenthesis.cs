@@ -10,7 +10,7 @@ namespace Model.Operations
         public OpeningParenthesis()
         {
             Operation = Operation.Division;
-            Priority = Priority.High;
+            Priority = Priority.Top;
             Value = "(";
         }
     }
