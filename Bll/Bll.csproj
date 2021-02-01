@@ -45,13 +45,18 @@
     <Compile Include="Converters\OperationConverter.cs" />
     <Compile Include="DataHandlers\Abstractions\InputDataHandler.cs" />
     <Compile Include="DataHandlers\Calculator.cs" />
+    <Compile Include="Model\Abstraction\BaseSymbal.cs" />
+    <Compile Include="Model\Common\Operation.cs" />
+    <Compile Include="Model\Common\Priority.cs" />
+    <Compile Include="Model\Number.cs" />
+    <Compile Include="Model\Operations\ClosingParenthesis.cs" />
+    <Compile Include="Model\Operations\Division.cs" />
+    <Compile Include="Model\Operations\Exponentiation.cs" />
+    <Compile Include="Model\Operations\Multiply.cs" />
+    <Compile Include="Model\Operations\OpeningParenthesis.cs" />
+    <Compile Include="Model\Operations\Subtraction.cs" />
+    <Compile Include="Model\Operations\Summation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{E127FD70-1438-4819-B357-6FB8C5E6BB26}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

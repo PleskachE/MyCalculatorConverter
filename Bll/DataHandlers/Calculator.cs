@@ -1,8 +1,8 @@
 ﻿using Bll.Converters;
 using Bll.DataHandlers.Abstractions;
-using Model;
-using Model.Abstraction;
-using Model.Common;
+using Bll.Model;
+using Bll.Model.Abstraction;
+using Bll.Model.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
