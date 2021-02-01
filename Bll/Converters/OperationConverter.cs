@@ -5,9 +5,9 @@ namespace Bll.Converters
 {
     public class OperationConverter
     {
-        public BaseOperation StringToOperation(string text)
+        public BaseSymbal StringToOperation(string text)
         {
-            BaseOperation operation = null;
+            BaseSymbal operation = null;
 
             switch (text)
             {

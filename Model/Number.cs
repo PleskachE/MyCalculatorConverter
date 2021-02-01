@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class Number : BaseOperation
+    public class Number : BaseSymbal
     {
 
         public Number() { Value = ""; }

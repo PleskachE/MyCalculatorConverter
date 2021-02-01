@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\BaseOperation.cs" />
+    <Compile Include="Abstraction\BaseSymbal.cs" />
     <Compile Include="Common\Operation.cs" />
     <Compile Include="Common\Priority.cs" />
     <Compile Include="Number.cs" />

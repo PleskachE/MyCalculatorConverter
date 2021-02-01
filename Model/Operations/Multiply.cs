@@ -1,10 +1,9 @@
 ﻿using Model.Abstraction;
 using Model.Common;
-using System;
 
 namespace Model.Operations
 {
-    public class Multiply : BaseOperation
+    public class Multiply : BaseSymbal
     {
         public Operation Operation { get; set; }
 
@@ -17,11 +16,11 @@ namespace Model.Operations
 
         public override string Result(string leftNumber, string rightNumber)
         {
-            double result = 0;
-            double _left = 0;
-            double _right = 0;
-            Double.TryParse(leftNumber, out _left);
-            Double.TryParse(rightNumber, out _right);
+            decimal result = 0;
+            decimal _left = 0;
+            decimal _right = 0;
+            decimal.TryParse(leftNumber, out _left);
+            decimal.TryParse(rightNumber, out _right);
             result = (_left * _right);
             return result.ToString();
         }

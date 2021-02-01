@@ -4,7 +4,7 @@ using System;
 
 namespace Model.Operations
 {
-    public class Exponentiation : BaseOperation
+    public class Exponentiation : BaseSymbal
     {
         public Operation Operation { get; set; }
 
@@ -17,12 +17,12 @@ namespace Model.Operations
 
         public override string Result(string leftNumber, string rightNumber)
         {
-            double result = 0;
-            double _left = 0;
-            double _right = 0;
-            Double.TryParse(leftNumber, out _left);
-            Double.TryParse(rightNumber, out _right);
-            result = Math.Pow(_left,_right);
+            decimal result = 0;
+            decimal _left = 0;
+            decimal _right = 0;
+            decimal.TryParse(leftNumber, out _left);
+            decimal.TryParse(rightNumber, out _right);
+            result = (decimal)Math.Pow((double)_left,(double)_right);
             return result.ToString();
         }
     }

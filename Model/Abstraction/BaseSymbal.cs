@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace Model.Abstraction
 {
-    public abstract class BaseOperation : INotifyPropertyChanged
+    public abstract class BaseSymbal : INotifyPropertyChanged
     {
         private string _value;
         public string Value

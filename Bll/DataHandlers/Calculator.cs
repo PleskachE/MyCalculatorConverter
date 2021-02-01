@@ -14,10 +14,9 @@ namespace Bll.DataHandlers
         #region Fields
 
         private OperationConverter _operationConverter;
-        private NumbersConverter _numbersConverter;
         private readonly List<string> _operations = new List<string> { "+", "-", "*", "/", "^" };
-        private List<BaseOperation> _listOfReturn;
-        private List<BaseOperation> _operationStack;
+        private List<BaseSymbal> _listOfReturn;
+        private List<BaseSymbal> _operationStack;
 
         #endregion
 
@@ -26,7 +25,6 @@ namespace Bll.DataHandlers
         public Calculator()
         {
             _operationConverter = new OperationConverter();
-            _numbersConverter = new NumbersConverter();
         }
 
         #endregion
@@ -35,8 +33,8 @@ namespace Bll.DataHandlers
 
         public string Calculation(string text)
         {
-            _listOfReturn = new List<BaseOperation>();
-            _operationStack = new List<BaseOperation>();
+            _listOfReturn = new List<BaseSymbal>();
+            _operationStack = new List<BaseSymbal>();
             _listOfReturn.Add(new Number());
             DataProcessing(text);
             return Result();
@@ -70,11 +68,7 @@ namespace Bll.DataHandlers
                 }
                 else if (_operations.Contains(text[currentIndex].ToString()) == false)
                 {
-                    if (_listOfReturn.Last().GetType().ToString() != "MyCalculatorConverter.Model.Number" ||
-                        _operationStack.Count == 0 ||
-                        _operations.Contains(text[currentIndex - 1].ToString()) == true ||
-                        _operationStack.Last().Value == "(" ||
-                        _operationStack.Last().Value == ")")
+                    if ()
                     {
                         _listOfReturn.Add(new Number());
                         _listOfReturn.Last().Value += (text[currentIndex].ToString());

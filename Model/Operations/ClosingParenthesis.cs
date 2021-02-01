@@ -3,7 +3,7 @@ using Model.Common;
 
 namespace Model.Operations
 {
-    public class ClosingParenthesis : BaseOperation
+    public class ClosingParenthesis : BaseSymbal
     {
         public Operation Operation { get; set; }
 

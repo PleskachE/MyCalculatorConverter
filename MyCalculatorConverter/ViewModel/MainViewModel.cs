@@ -195,7 +195,6 @@ namespace MyСalculatorConverter.ViewModel
         
         private void ExecuteEqualsInputCommand(object parameter)
         {
-
             Journal.InputLeftPart(Display.OutputText);
             var text = Display.OutputText.Replace(" ", "");
             var result = InputDataHandler.Calculation(text).ToString();

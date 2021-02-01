@@ -1,13 +1,12 @@
-﻿using Model;
-
+﻿
 namespace Bll.Converters
 {
     public class NumbersConverter
     {
-        public double StringToDouble(string text)
+        public decimal StringToDouble(string text)
         {
-            double result = 0;
-            double.TryParse(text, out result);
+            decimal result = 0;
+            decimal.TryParse(text, out result);
             return result;
         }
     }
