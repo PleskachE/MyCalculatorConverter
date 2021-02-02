@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace Bll.Model.Abstraction
 {
-    public abstract class BaseSymbal : INotifyPropertyChanged
+    public abstract class BaseSymbal : INotifyPropertyChanged, IBaseSymbal
     {
         private string _value;
         public string Value

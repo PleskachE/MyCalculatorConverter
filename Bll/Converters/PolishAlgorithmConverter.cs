@@ -16,7 +16,7 @@ namespace Bll.Converters
         private List<BaseSymbal> _listOfReturn;
         private List<BaseSymbal> _operationStack;
 
-        private IPartAlgorithm _symbalHandler;
+        private PartAlgorithm _symbalHandler;
 
         #endregion
 
@@ -93,8 +93,8 @@ namespace Bll.Converters
         private void GetResultConvert(string symbal)
         {
             _symbalHandler.Processing(symbal);
-            _operationStack = _symbalHandler.GetOperationStack();
-            _listOfReturn = _symbalHandler.GetListOfReturn();
+            _operationStack = _symbalHandler.OperationStack;
+            _listOfReturn = _symbalHandler.ListOfReturn;
         }
 
         private string CheckingFirstChar(string text)

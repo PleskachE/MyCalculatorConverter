@@ -6,13 +6,11 @@ using System.Linq;
 
 namespace Bll.Model.PartsAlghoritm
 {
-    public class OperationHandler : IPartAlgorithm
+    public class OperationHandler : PartAlgorithm
     {
         #region Fields
 
-        private OperationConverter _operationConverter;
-        private List<BaseSymbal> _operationStack;
-        private List<BaseSymbal> _listOfReturn;
+        private OperationConverter _operationConverter = new OperationConverter();
 
         #endregion
 
@@ -20,46 +18,35 @@ namespace Bll.Model.PartsAlghoritm
 
         public OperationHandler(List<BaseSymbal> listOfReturn, List<BaseSymbal> operationStack)
         {
-            _operationConverter = new OperationConverter();
-            _listOfReturn = listOfReturn;
-            _operationStack = operationStack;
+            OperationStack = operationStack;
+            ListOfReturn = listOfReturn;
         }
 
         #endregion
 
         #region Methods
 
-        public void Processing(string symbal)
+        public override void Processing(string symbal)
         {
             var operation = _operationConverter.StringToOperation(symbal);
-            if (_operationStack.Count == 0)
+            if (OperationStack.Count == 0)
             {
-                _operationStack.Add(operation);
+                OperationStack.Add(operation);
             }
             else
             {
-                var lastOperation = _operationStack.Last();
-                if (operation.Priority == Priority.High && lastOperation.Priority == Priority.Low || _operationStack.Last().Value == "(")
+                var lastOperation = OperationStack.Last();
+                if (operation.Priority == Priority.High && lastOperation.Priority == Priority.Low || OperationStack.Last().Value == "(")
                 {
-                    _operationStack.Add(operation);
+                    OperationStack.Add(operation);
                 }
                 else
                 {
-                    _listOfReturn.Add(_operationStack.Last());
-                    _operationStack.RemoveAt(_operationStack.Count - 1);
-                    _operationStack.Add(operation);
+                    ListOfReturn.Add(OperationStack.Last());
+                    OperationStack.RemoveAt(OperationStack.Count - 1);
+                    OperationStack.Add(operation);
                 }
             }
-        }
-
-        public List<BaseSymbal> GetListOfReturn()
-        {
-            return _listOfReturn;
-        }
-
-        public List<BaseSymbal> GetOperationStack()
-        {
-            return _operationStack;
         }
 
         #endregion

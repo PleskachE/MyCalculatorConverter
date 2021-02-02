@@ -5,13 +5,11 @@ using System.Collections.Generic;
 
 namespace Bll.Model.PartsAlghoritm
 {
-    public class OpenParenthesisHandler : IPartAlgorithm
+    public class OpenParenthesisHandler : PartAlgorithm
     {
         #region Fields
 
-        private OperationConverter _operationConverter;
-        private List<BaseSymbal> _operationStack;
-        private List<BaseSymbal> _listOfReturn;
+        private OperationConverter _operationConverter = new OperationConverter();
 
         #endregion
 
@@ -19,29 +17,18 @@ namespace Bll.Model.PartsAlghoritm
 
         public OpenParenthesisHandler(List<BaseSymbal> listOfReturn, List<BaseSymbal> operationStack)
         {
-            _operationConverter = new OperationConverter();
-            _listOfReturn = listOfReturn;
-            _operationStack = operationStack;
+            OperationStack = operationStack;
+            ListOfReturn = listOfReturn;
         }
 
         #endregion
 
         #region Methods
 
-        public void Processing(string symbal)
+        public override void Processing(string symbal)
         {
             var operation = _operationConverter.StringToOperation(symbal);
-            _operationStack.Add(operation);
-        }
-
-        public List<BaseSymbal> GetListOfReturn()
-        {
-            return _listOfReturn;
-        }
-
-        public List<BaseSymbal> GetOperationStack()
-        {
-            return _operationStack;
+            OperationStack.Add(operation);
         }
 
         #endregion

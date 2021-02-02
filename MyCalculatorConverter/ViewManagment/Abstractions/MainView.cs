@@ -1,10 +1,11 @@
-﻿using System.ComponentModel;
+﻿using MyCalculatorConverter.ViewManagment.Abstractions;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace MyСalculatorConverter.ViewManagement.Abstractions
 {
-    public abstract class MainView : INotifyPropertyChanged
+    public abstract class MainView : INotifyPropertyChanged, IMainView
     {
 
         #region Property

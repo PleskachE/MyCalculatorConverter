@@ -47,7 +47,9 @@
     <Compile Include="DataHandlers\Abstractions\InputDataHandler.cs" />
     <Compile Include="DataHandlers\Calculator.cs" />
     <Compile Include="Model\Abstraction\BaseSymbal.cs" />
+    <Compile Include="Model\Abstraction\IBaseSymbal.cs" />
     <Compile Include="Model\Abstraction\IPartAlgorithm.cs" />
+    <Compile Include="Model\Abstraction\PartAlgorithm.cs" />
     <Compile Include="Model\Common\Operation.cs" />
     <Compile Include="Model\Common\Priority.cs" />
     <Compile Include="Model\Number.cs" />
