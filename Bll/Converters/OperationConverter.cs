@@ -1,5 +1,6 @@
-﻿using Model.Abstraction;
-using Model.Operations;
+﻿using Bll.Model;
+using Bll.Model.Abstraction;
+using Bll.Model.Operations;
 
 namespace Bll.Converters
 {
@@ -31,6 +32,10 @@ namespace Bll.Converters
                     break;
                 case ")":
                     operation = new ClosingParenthesis();
+                    break;
+                default:
+                    operation = new Number();
+                    operation.Value += text;
                     break;
             }
 

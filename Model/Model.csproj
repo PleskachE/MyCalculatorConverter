@@ -41,17 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\BaseSymbal.cs" />
-    <Compile Include="Common\Operation.cs" />
-    <Compile Include="Common\Priority.cs" />
-    <Compile Include="Number.cs" />
-    <Compile Include="Operations\ClosingParenthesis.cs" />
-    <Compile Include="Operations\Division.cs" />
-    <Compile Include="Operations\Exponentiation.cs" />
-    <Compile Include="Operations\Multiply.cs" />
-    <Compile Include="Operations\OpeningParenthesis.cs" />
-    <Compile Include="Operations\Subtraction.cs" />
-    <Compile Include="Operations\Summation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

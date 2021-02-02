@@ -10,7 +10,7 @@ namespace Bll.Model.Operations
         public Subtraction()
         {
             Operation = Operation.Division;
-            Priority = Priority.High;
+            Priority = Priority.Low;
             Value = "-";
         }
 

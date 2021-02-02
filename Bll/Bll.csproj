@@ -43,9 +43,11 @@
   <ItemGroup>
     <Compile Include="Converters\NumbersConverter.cs" />
     <Compile Include="Converters\OperationConverter.cs" />
+    <Compile Include="Converters\PolishAlgorithmConverter.cs" />
     <Compile Include="DataHandlers\Abstractions\InputDataHandler.cs" />
     <Compile Include="DataHandlers\Calculator.cs" />
     <Compile Include="Model\Abstraction\BaseSymbal.cs" />
+    <Compile Include="Model\Abstraction\IPartAlgorithm.cs" />
     <Compile Include="Model\Common\Operation.cs" />
     <Compile Include="Model\Common\Priority.cs" />
     <Compile Include="Model\Number.cs" />
@@ -56,6 +58,10 @@
     <Compile Include="Model\Operations\OpeningParenthesis.cs" />
     <Compile Include="Model\Operations\Subtraction.cs" />
     <Compile Include="Model\Operations\Summation.cs" />
+    <Compile Include="Model\PartsAlghoritm\ClosingParenthesisHandler.cs" />
+    <Compile Include="Model\PartsAlghoritm\OpenParenthesisHandler.cs" />
+    <Compile Include="Model\PartsAlghoritm\OperandHandler.cs" />
+    <Compile Include="Model\PartsAlghoritm\OperationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
