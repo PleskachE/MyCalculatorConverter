@@ -110,6 +110,8 @@ namespace MyСalculatorConverter.ViewModel
         public RelayCommand JournalTextChoiceCommand { get; set; }
         public RelayCommand JournalClearCommand { get; set; }
 
+        public RelayCommand ParenthesisInputCommand { get; set; }
+
         private Visibility _visSimpleCalc;
         public Visibility VisSimpleCalc
         {
@@ -143,13 +145,8 @@ namespace MyСalculatorConverter.ViewModel
         #region InputNumbersCommands
 
         private void ExecuteNumbersInputCommand(object parameter)
-        {
-            if(_buttonManager.IsEqualsInput == true)
-            {
-                DeleteAll();
-            }
-
-            Display.NumbersInput(parameter as string);
+        { 
+             Display.NumbersInput(parameter as string);
 
             _buttonManager.IsEqualsInput = false;
             _buttonManager.IsWorkingSymbalInput = false;
@@ -226,6 +223,24 @@ namespace MyСalculatorConverter.ViewModel
 
         #endregion
 
+        #region ParenthesisCommand
+
+        private void ExecuteParenthesisInputCommand(object parameter)
+        {
+            if (_buttonManager.IsEqualsInput == true)
+            {
+                DeleteAll();
+            }
+            Display.NumbersInput(parameter as string);
+        }
+
+        public bool CanExecuteParenthesisInputCommand(object parameter)
+        {
+            return true;
+        }
+
+        #endregion
+
         #region ManagementCommands
 
         private void ExecuteDeleteAllCommand(object parameter)
@@ -291,6 +306,8 @@ namespace MyСalculatorConverter.ViewModel
             DeleteOneNumberCommand = new RelayCommand(ExecuteDeleteOneNumberCommand, CanExecuteDeleteOneNumberCommand);
             JournalTextChoiceCommand = new RelayCommand(ExecuteJournalTextChoiceCommand, CanExecuteJournalTextChoiceCommand);
             JournalClearCommand = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
+
+            ParenthesisInputCommand = new RelayCommand(ExecuteParenthesisInputCommand, CanExecuteParenthesisInputCommand);
         }
 
 

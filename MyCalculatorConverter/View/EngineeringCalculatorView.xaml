@@ -65,11 +65,15 @@
             <Button
                 Grid.Row="1"
                 Grid.Column="3"
+                Command="{Binding ParenthesisInputCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
                 Content="("
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
                 Grid.Row="1"
                 Grid.Column="4"
+                Command="{Binding ParenthesisInputCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
                 Content=")"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
