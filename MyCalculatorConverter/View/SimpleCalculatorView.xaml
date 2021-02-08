@@ -120,8 +120,8 @@
         <Button
             Grid.Row="2"
             Grid.Column="4"
-            Command="{Binding OperationsWithSingleNumberCommand}"
-            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="1/"
             Content="1/x"
             Style="{DynamicResource WorkingButtonStyle}" />
         <Button

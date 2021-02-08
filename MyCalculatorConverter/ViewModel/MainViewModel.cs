@@ -183,6 +183,10 @@ namespace MyСalculatorConverter.ViewModel
             {
                 WorkingSymbalInput("0");
             }
+            if((parameter as string) == "1/")
+            {
+                Display.DeleteOutput();
+            }
             WorkingSymbalInput(parameter as string);
         }
         public bool CanExecuteOperationInputCommand(object parameter)
@@ -204,21 +208,6 @@ namespace MyСalculatorConverter.ViewModel
         public bool CanExecuteEqualsInputCommand(object parameter)
         {
             return (_buttonManager.IsEqualsInput != true || Display.InputText.Length != 0);
-        }
-
-        #endregion
-
-        #region OperationsWithSingleNumber
-
-        private void ExecuteOperationsWithSingleNumberCommand(object parameter)
-        {
-            var text = parameter as string;
-            
-
-        }
-        public bool CanExecuteOperationsWithSingleNumberCommand(object parameter)
-        {
-            return Display.InputText.Length != 0; 
         }
 
         #endregion
@@ -246,6 +235,7 @@ namespace MyСalculatorConverter.ViewModel
         private void ExecuteDeleteAllCommand(object parameter)
         {
             Display.DeleteOutput();
+            _buttonManager = new EqualsEntered();
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
         {
@@ -298,7 +288,6 @@ namespace MyСalculatorConverter.ViewModel
             NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);
 
             OperationInputCommand = new RelayCommand(ExecuteOperationInputCommand, CanExecuteOperationInputCommand);
-            OperationsWithSingleNumberCommand = new RelayCommand(ExecuteOperationsWithSingleNumberCommand, CanExecuteOperationsWithSingleNumberCommand);
             DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
             EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
 
