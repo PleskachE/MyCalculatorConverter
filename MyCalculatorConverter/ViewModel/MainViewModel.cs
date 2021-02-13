@@ -178,7 +178,6 @@ namespace MyСalculatorConverter.ViewModel
 
         private void ExecuteOperationInputCommand(object parameter)
         {
-            
             if (Display.InputText.Length == 0)
             {
                 WorkingSymbalInput("0");
