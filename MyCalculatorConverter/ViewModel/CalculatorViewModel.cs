@@ -191,7 +191,6 @@ namespace MyCalculatorConverter.ViewModel
         {
             Display.DeleteOutput();
             var text = (parametr as string);
-            Journal.RemoveNote(text);
             var index = text.IndexOf("=");
             Display.AddNumber(text.Substring((++index), text.Length - index));
         }

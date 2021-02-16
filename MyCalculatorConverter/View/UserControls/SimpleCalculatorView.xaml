@@ -4,70 +4,125 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MyCalculatorConverter.ViewModel"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local1="clr-namespace:MyCalculatorConverter.ViewModel"
-    Height="auto"
+    xmlns:local1="clr-namespace:MyCalculatorConverter.ViewModel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="auto"
+    Height="auto"
     mc:Ignorable="d">
 
     <UserControl.InputBindings>
-        <KeyBinding Key="NumPad0"  Command="{Binding NumbersInputCommand}"
-          CommandParameter="0"  />
-        <KeyBinding Key="NumPad1" Command="{Binding NumbersInputCommand}"
-            CommandParameter="1"/>
-        <KeyBinding Key="NumPad2" Command="{Binding NumbersInputCommand}"
-            CommandParameter="2"/>
-        <KeyBinding Key="NumPad3" Command="{Binding NumbersInputCommand}"
-            CommandParameter="3"/>
-        <KeyBinding Key="NumPad4" Command="{Binding NumbersInputCommand}"
-            CommandParameter="4"/>
-        <KeyBinding Key="NumPad5" Command="{Binding NumbersInputCommand}"
-            CommandParameter="5"/>
-        <KeyBinding Key="NumPad6" Command="{Binding NumbersInputCommand}"
-            CommandParameter="6"/>
-        <KeyBinding Key="NumPad7" Command="{Binding NumbersInputCommand}"
-            CommandParameter="7"/>
-        <KeyBinding Key="NumPad8" Command="{Binding NumbersInputCommand}"
-            CommandParameter="8"/>
-        <KeyBinding Key="NumPad9" Command="{Binding NumbersInputCommand}"
-            CommandParameter="9"/>
+        <KeyBinding
+            Key="NumPad0"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="0" />
+        <KeyBinding
+            Key="NumPad1"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="1" />
+        <KeyBinding
+            Key="NumPad2"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="2" />
+        <KeyBinding
+            Key="NumPad3"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="3" />
+        <KeyBinding
+            Key="NumPad4"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="4" />
+        <KeyBinding
+            Key="NumPad5"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="5" />
+        <KeyBinding
+            Key="NumPad6"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="6" />
+        <KeyBinding
+            Key="NumPad7"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="7" />
+        <KeyBinding
+            Key="NumPad8"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="8" />
+        <KeyBinding
+            Key="NumPad9"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="9" />
 
-        <KeyBinding Key="D0"  Command="{Binding NumbersInputCommand}"
-          CommandParameter="0"  />
-        <KeyBinding Key="D1" Command="{Binding NumbersInputCommand}"
-            CommandParameter="1"/>
-        <KeyBinding Key="D2" Command="{Binding NumbersInputCommand}"
-            CommandParameter="2"/>
-        <KeyBinding Key="D3" Command="{Binding NumbersInputCommand}"
-            CommandParameter="3"/>
-        <KeyBinding Key="D4" Command="{Binding NumbersInputCommand}"
-            CommandParameter="4"/>
-        <KeyBinding Key="D5" Command="{Binding NumbersInputCommand}"
-            CommandParameter="5"/>
-        <KeyBinding Key="D6" Command="{Binding NumbersInputCommand}"
-            CommandParameter="6"/>
-        <KeyBinding Key="D7" Command="{Binding NumbersInputCommand}"
-            CommandParameter="7"/>
-        <KeyBinding Key="D8" Command="{Binding NumbersInputCommand}"
-            CommandParameter="8"/>
-        <KeyBinding Key="D9" Command="{Binding NumbersInputCommand}"
-            CommandParameter="9"/>
+        <KeyBinding
+            Key="D0"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="0" />
+        <KeyBinding
+            Key="D1"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="1" />
+        <KeyBinding
+            Key="D2"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="2" />
+        <KeyBinding
+            Key="D3"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="3" />
+        <KeyBinding
+            Key="D4"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="4" />
+        <KeyBinding
+            Key="D5"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="5" />
+        <KeyBinding
+            Key="D6"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="6" />
+        <KeyBinding
+            Key="D7"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="7" />
+        <KeyBinding
+            Key="D8"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="8" />
+        <KeyBinding
+            Key="D9"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="9" />
 
-        <KeyBinding Key="Add" Command="{Binding OperationInputCommand}"
-            CommandParameter="+"/>
-        <KeyBinding Key="Divide" Command="{Binding OperationInputCommand}"
-            CommandParameter="/"/>
-        <KeyBinding Key="Multiply" Command="{Binding OperationInputCommand}"
-            CommandParameter="*"/>
-        <KeyBinding Key="Subtract" Command="{Binding OperationInputCommand}"
-            CommandParameter="-"/>
-        
-        <KeyBinding Key="OemMinus" Command="{Binding OperationInputCommand}"
-            CommandParameter="-"/>
-        <KeyBinding Key="OemPlus" Command="{Binding OperationInputCommand}"
-            CommandParameter="+"/>
+        <KeyBinding
+            Key="Add"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="+" />
+        <KeyBinding
+            Key="Divide"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="/" />
+        <KeyBinding
+            Key="Multiply"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="*" />
+        <KeyBinding
+            Key="Subtract"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="-" />
 
-        <KeyBinding Key="Enter" Command="{Binding EqualsInputCommand}"
-            CommandParameter="="/>
+        <KeyBinding
+            Key="OemMinus"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="-" />
+        <KeyBinding
+            Key="OemPlus"
+            Command="{Binding OperationInputCommand}"
+            CommandParameter="+" />
+
+        <KeyBinding
+            Key="Enter"
+            Command="{Binding EqualsInputCommand}"
+            CommandParameter="=" />
     </UserControl.InputBindings>
 
     <Grid Margin="10">

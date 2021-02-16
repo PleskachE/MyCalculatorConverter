@@ -1,5 +1,4 @@
-﻿
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace MyCalculatorConverter.ViewManagment
 {
@@ -25,16 +24,6 @@ namespace MyCalculatorConverter.ViewManagment
             _text += " = " + text;
             TextList.Add(_text);
             ClearText();
-        }
-
-        public void RemoveNote(string text)
-        {
-            bool isChecked = true;
-            while(isChecked == true)
-            {
-                TextList.Remove(text);
-                isChecked = TextList.Contains(text);
-            }
         }
 
         private void ClearText()
