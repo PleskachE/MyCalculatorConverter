@@ -7,8 +7,6 @@ using MyCalculatorConverter.ViewManagment;
 using MyCalculatorConverter.ViewManagment.ButtonManagers;
 using MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions;
 using MyСalculatorConverter.Infrastructure;
-using MyСalculatorConverter.Infrastructure.Abstraction;
-using MyСalculatorConverter.ViewManagement.Abstractions;
 using MyСalculatorConverter.ViewModel;
 using MyСalculatorConverter.ViewModel.Abstraction;
 using System;

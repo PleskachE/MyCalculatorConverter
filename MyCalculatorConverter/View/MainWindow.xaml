@@ -26,10 +26,9 @@
             Height="25"
             VerticalAlignment="Top">
             <MenuItem Header="Режим">
-                <MenuItem Header="Калькулятор">
-                    <Button Command="{Binding OpenSimpleCalculatorCommand}" Content="Обычный" />
-                    <Button Command="{Binding OpenEngineeringCalculatorCommand}" Content="Инженерный" />
-                </MenuItem>
+                <MenuItem 
+                    Header="Калькулятор" 
+                    Command="{Binding OpenCalculatorCommand}"/>
                 <MenuItem Header="Преобразователь" />
                 <Separator />
                 <MenuItem Header="Выход" />

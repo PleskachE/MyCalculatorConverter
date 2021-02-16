@@ -8,8 +8,6 @@ using System.Windows;
 using MyСalculatorConverter.Infrastructure;
 using MyСalculatorConverter.Infrastructure.Abstraction;
 using MyСalculatorConverter.ViewModel.Abstraction;
-using MyСalculatorConverter.ViewManagement;
-using MyСalculatorConverter.ViewManagement.Abstractions;
 using MyCalculatorConverter.ViewManagment;
 using MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions;
 using MyCalculatorConverter.ViewManagment.ButtonManagers;
