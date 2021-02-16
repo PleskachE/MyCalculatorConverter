@@ -80,8 +80,6 @@
     <Compile Include="ViewManagment\ButtonManagers\OperationSymbalInpyt.cs" />
     <Compile Include="ViewManagment\Display.cs" />
     <Compile Include="ViewManagment\Journal.cs" />
-    <Compile Include="ViewManagment\MainEngineeringCalculatorView.cs" />
-    <Compile Include="ViewManagment\MainSimpleCalculatorView.cs" />
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
     <Compile Include="ViewModel\CalculatorViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

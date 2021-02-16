@@ -43,6 +43,8 @@ namespace MyCalculatorConverter.ViewModel
 
             _buttonManager = new EqualsEntered();
             _executor = new Calculator();
+
+            ChangeSizesWindow(Int32.Parse(Resources.MinHeightSimpleCalc), Int32.Parse(Resources.MinWidthSimpleCalc));
         }
 
         #endregion
@@ -216,9 +218,11 @@ namespace MyCalculatorConverter.ViewModel
             {
                 case "Simple":
                     Keyboard = new SimpleCalculatorView();
+                    ChangeSizesWindow(Int32.Parse(Resources.MinHeightSimpleCalc), Int32.Parse(Resources.MinWidthSimpleCalc));
                     break;
                 case "Engineering":
                     Keyboard = new EngineeringCalculatorView();
+                    ChangeSizesWindow(Int32.Parse(Resources.MinHeightEngineeringCalc), Int32.Parse(Resources.MinWidthEngineeringCalc));
                     break;
             }
         }
@@ -260,6 +264,14 @@ namespace MyCalculatorConverter.ViewModel
         {
             Display.DeleteOutput();
             _buttonManager = new EqualsEntered();
+        }
+
+        private void ChangeSizesWindow(int minHeight, int minWidth)
+        {
+            Application.Current.MainWindow.Height = minHeight;
+            Application.Current.MainWindow.Width = minWidth;
+            Application.Current.MainWindow.MinHeight = minHeight;
+            Application.Current.MainWindow.MinWidth = minWidth;
         }
 
         #endregion

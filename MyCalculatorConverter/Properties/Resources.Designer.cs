@@ -68,5 +68,50 @@ namespace MyCalculatorConverter.Properties {
                 return ResourceManager.GetString("MaxCountSymbal", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 400.
+        /// </summary>
+        public static string MinHeightEngineeringCalc {
+            get {
+                return ResourceManager.GetString("MinHeightEngineeringCalc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 400.
+        /// </summary>
+        public static string MinHeightSimpleCalc {
+            get {
+                return ResourceManager.GetString("MinHeightSimpleCalc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 900.
+        /// </summary>
+        public static string MinWidthEngineeringCalc {
+            get {
+                return ResourceManager.GetString("MinWidthEngineeringCalc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 600.
+        /// </summary>
+        public static string MinWidthSimpleCalc {
+            get {
+                return ResourceManager.GetString("MinWidthSimpleCalc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Calculator_Converter.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
     }
 }

@@ -65,6 +65,39 @@ namespace MyСalculatorConverter.ViewModel
             }
         }
 
+        private string _title;
+        public string Title 
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _minHeightWindow = int.Parse(Resources.MinHeightSimpleCalc);
+        public int MinHeightWindow
+        {
+            get { return _minHeightWindow; }
+            set
+            {
+                _minHeightWindow = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _minWidthtWindow = int.Parse(Resources.MinWidthSimpleCalc);
+        public int MinWidthtWindow
+        {
+            get { return _minWidthtWindow; }
+            set
+            {
+                _minWidthtWindow = value;
+                OnPropertyChanged();
+            }
+        }
+
         public RelayCommand OpenCalculatorCommand { get; set; }
 
         #endregion

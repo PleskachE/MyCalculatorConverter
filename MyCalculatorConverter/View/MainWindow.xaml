@@ -5,9 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MyСalculatorConverter.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MCC"
-    Width="800"
-    Height="450"
+    Title="{Binding Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+    Width="{Binding MinWidthtWindow , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+    Height="{Binding MinHeightWindow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+    MinWidth="{Binding MinWidthtWindow , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+    MinHeight="{Binding MinHeightWindow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
     mc:Ignorable="d">
 
     <Window.DataContext>
