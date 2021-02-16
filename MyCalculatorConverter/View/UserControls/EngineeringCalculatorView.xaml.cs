@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyCalculatorConverter.View
+namespace MyCalculatorConverter.View.UserControls
 {
     /// <summary>
-    /// Логика взаимодействия для SimpleCalculatorView.xaml
+    /// Логика взаимодействия для EngineeringCalculatorView.xaml
     /// </summary>
-    public partial class SimpleCalculatorView : UserControl
+    public partial class EngineeringCalculatorView : UserControl
     {
-        public SimpleCalculatorView()
+        public EngineeringCalculatorView()
         {
             InitializeComponent();
         }

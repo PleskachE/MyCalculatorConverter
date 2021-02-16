@@ -1,5 +1,5 @@
 ﻿using Bll.Converters;
-using Bll.DataHandlers.Abstractions;
+using Bll.Executers.Abstractions;
 using Bll.Model;
 using Bll.Model.Abstraction;
 using Bll.Model.Common;
@@ -7,9 +7,9 @@ using Bll.Model.Common;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bll.DataHandlers
+namespace Bll.Executers
 {
-    public class Calculator : InputDataHandler
+    public class Calculator : IExecuter
     {
         #region Fields
 

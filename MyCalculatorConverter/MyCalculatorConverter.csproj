@@ -83,14 +83,18 @@
     <Compile Include="ViewManagment\MainEngineeringCalculatorView.cs" />
     <Compile Include="ViewManagment\MainSimpleCalculatorView.cs" />
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
+    <Compile Include="ViewModel\CalculatorViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="View\EngineeringCalculatorView.xaml.cs">
+    <Compile Include="View\CalculatorView.xaml.cs">
+      <DependentUpon>CalculatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\EngineeringCalculatorView.xaml.cs">
       <DependentUpon>EngineeringCalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SimpleCalculatorView.xaml.cs">
+    <Compile Include="View\UserControls\SimpleCalculatorView.xaml.cs">
       <DependentUpon>SimpleCalculatorView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -126,7 +130,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EngineeringCalculatorView.xaml">
+    <Page Include="View\CalculatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\EngineeringCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,7 +142,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SimpleCalculatorView.xaml">
+    <Page Include="View\UserControls\SimpleCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
