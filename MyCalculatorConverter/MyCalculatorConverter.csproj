@@ -85,7 +85,7 @@
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
     <Compile Include="ViewModel\CalculatorViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="View\CalculatorView.xaml.cs">
+    <Compile Include="View\ContentControls\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\EngineeringCalculatorView.xaml.cs">
@@ -130,7 +130,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CalculatorView.xaml">
+    <Page Include="View\ContentControls\CalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

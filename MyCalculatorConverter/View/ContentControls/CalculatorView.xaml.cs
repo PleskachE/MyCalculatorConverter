@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MyCalculatorConverter.View
+namespace MyCalculatorConverter.View.ContentControls
 {
     /// <summary>
     /// Логика взаимодействия для CalculatorView.xaml

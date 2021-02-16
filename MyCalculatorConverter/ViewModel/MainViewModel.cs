@@ -17,7 +17,7 @@ using MyCalculatorConverter.Properties;
 using Bll.Executers.Abstractions;
 using Bll.Executers;
 using System.Windows.Controls;
-using MyCalculatorConverter.View;
+using MyCalculatorConverter.View.ContentControls;
 
 namespace MyСalculatorConverter.ViewModel
 {
