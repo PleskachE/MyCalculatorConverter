@@ -74,6 +74,7 @@ namespace MyCalculatorConverter.ViewModel
         public RelayCommand JournalTextChoiceCommand { get; set; }
         public RelayCommand JournalClearCommand { get; set; }
 
+        public RelayCommand ChangingTypeCalculatorCommand { get; set; }
 
         #endregion
 
@@ -208,6 +209,24 @@ namespace MyCalculatorConverter.ViewModel
             return Journal.TextList.Count != 0;
         }
 
+        private void ExecuteChangingTypeCalculatorCommand(object parametr)
+        {
+            var text = parametr as string;
+            switch (text)
+            {
+                case "Simple":
+                    Keyboard = new SimpleCalculatorView();
+                    break;
+                case "Engineering":
+                    Keyboard = new EngineeringCalculatorView();
+                    break;
+            }
+        }
+        public bool CanExecuteChangingTypeCalculatorCommand(object parametr)
+        {
+            return true;
+        }
+
         #endregion
 
         #region Methods
@@ -226,6 +245,8 @@ namespace MyCalculatorConverter.ViewModel
             JournalClearCommand = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
 
             ParenthesisInputCommand = new RelayCommand(ExecuteParenthesisInputCommand, CanExecuteParenthesisInputCommand);
+
+            ChangingTypeCalculatorCommand = new RelayCommand(ExecuteChangingTypeCalculatorCommand, CanExecuteChangingTypeCalculatorCommand);
         }
 
 

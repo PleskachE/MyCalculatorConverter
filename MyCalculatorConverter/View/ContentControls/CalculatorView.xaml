@@ -23,12 +23,29 @@
             Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Журнал:" />
+            <StackPanel
+                Grid.Row="0"
+                HorizontalAlignment="Left" 
+                Orientation="Horizontal">
+                <RadioButton 
+                    Margin="5" 
+                    IsChecked="True"
+                    Content="Simple"
+                    Command="{Binding ChangingTypeCalculatorCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"/>
+                <RadioButton 
+                    Margin="5"
+                    Content="Engineering"
+                    Command="{Binding ChangingTypeCalculatorCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"/>
+            </StackPanel>
+            <Label Grid.Row="1" Content="Журнал:" />
             <ListView
                 Name="JournalListView"
-                Grid.Row="1"
+                Grid.Row="2"
                 Background="Gray"
                 BorderThickness="3"
                 ItemsSource="{Binding Journal.TextList, Mode=OneWay}">
