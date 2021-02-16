@@ -39,12 +39,15 @@
                 BorderThickness="3"
                 CornerRadius="3">
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <RadioButton Margin="5" />
-                    <Label>Градусы</Label>
-                    <RadioButton Margin="5" />
-                    <Label>Радианы</Label>
-                    <RadioButton Margin="5" />
-                    <Label>Грады</Label>
+                    <RadioButton 
+                        Margin="5"
+                        Content="Градусы"/>
+                    <RadioButton 
+                        Margin="5"
+                        Content="Радианы"/>
+                    <RadioButton 
+                        Margin="5" 
+                        Content="Грады"/>
                 </StackPanel>
             </Border>
             <Button
