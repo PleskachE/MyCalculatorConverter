@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyCalculatorConverter.Properties {
+namespace Apps.WPFVersionCC.Properties {
     using System;
     
     

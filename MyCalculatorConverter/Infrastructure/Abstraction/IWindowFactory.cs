@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MyСalculatorConverter.Infrastructure.Abstraction
+namespace Apps.WPFVersionCC.Infrastructure.Abstraction
 {
     public interface IWindowFactory
     {

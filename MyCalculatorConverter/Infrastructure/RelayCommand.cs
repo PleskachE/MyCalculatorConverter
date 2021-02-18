@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MyСalculatorConverter.Infrastructure
+namespace Apps.WPFVersionCC.Infrastructure
 {
     public class RelayCommand : ICommand
     {

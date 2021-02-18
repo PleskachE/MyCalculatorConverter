@@ -1,5 +1,5 @@
 ﻿
-namespace MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions
+namespace Apps.WPFVersionCC.ViewManagment.ButtonManagers.Abstractions
 {
     public abstract class ButtonManager
     {

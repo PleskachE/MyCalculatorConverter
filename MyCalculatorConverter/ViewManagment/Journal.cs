@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace MyCalculatorConverter.ViewManagment
+namespace Apps.WPFVersionCC.ViewManagment
 {
     public class Journal 
     {

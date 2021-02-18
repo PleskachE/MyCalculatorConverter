@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyCalculatorConverter.View.UserControls
+namespace Apps.WPFVersionCC.View.UserControls
 {
     /// <summary>
     /// Логика взаимодействия для EngineeringCalculatorView.xaml

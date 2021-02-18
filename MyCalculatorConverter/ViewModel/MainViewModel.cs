@@ -5,19 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using MyСalculatorConverter.Infrastructure;
-using MyСalculatorConverter.Infrastructure.Abstraction;
-using MyСalculatorConverter.ViewModel.Abstraction;
-using MyCalculatorConverter.ViewManagment;
-using MyCalculatorConverter.ViewManagment.ButtonManagers.Abstractions;
-using MyCalculatorConverter.ViewManagment.ButtonManagers;
-using MyCalculatorConverter.Properties;
+using Apps.WPFVersionCC.Infrastructure;
+using Apps.WPFVersionCC.Infrastructure.Abstraction;
+using Apps.WPFVersionCC.ViewModel.Abstraction;
+using Apps.WPFVersionCC.ViewManagment;
+using Apps.WPFVersionCC.ViewManagment.ButtonManagers.Abstractions;
+using Apps.WPFVersionCC.ViewManagment.ButtonManagers;
+using Apps.WPFVersionCC.Properties;
 using Bll.Executers.Abstractions;
 using Bll.Executers;
 using System.Windows.Controls;
-using MyCalculatorConverter.View.ContentControls;
+using Apps.WPFVersionCC.View.ContentControls;
 
-namespace MyСalculatorConverter.ViewModel
+namespace Apps.WPFVersionCC.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {

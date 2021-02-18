@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MyCalculatorConverter.ViewManagment
+namespace Apps.WPFVersionCC.ViewManagment
 {
     public class Display : INotifyPropertyChanged
     {

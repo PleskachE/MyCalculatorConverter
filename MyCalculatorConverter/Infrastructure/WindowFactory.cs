@@ -1,8 +1,8 @@
-﻿using MyСalculatorConverter.Infrastructure.Abstraction;
+﻿using Apps.WPFVersionCC.Infrastructure.Abstraction;
 
 using System.Windows;
 
-namespace MyСalculatorConverter.Infrastructure
+namespace Apps.WPFVersionCC.Infrastructure
 {
     internal sealed class WindowFactory : IWindowFactory
     {
