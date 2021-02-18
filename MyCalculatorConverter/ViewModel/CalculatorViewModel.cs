@@ -139,6 +139,7 @@ namespace Apps.WPFVersionCC.ViewModel
             Display.InputText = result;
 
             _buttonManager = new EqualsEntered();
+            _buttonManager.IsDotInput = true;
         }
         public bool CanExecuteEqualsInputCommand(object parameter)
         {
