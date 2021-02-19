@@ -1,5 +1,5 @@
 ﻿
-namespace Bll.Model.Abstraction
+namespace Bll.Calculator.Model.Abstraction
 {
     public interface IPartAlgorithm
     {

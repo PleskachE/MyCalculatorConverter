@@ -1,7 +1,7 @@
-﻿using Bll.Model.Abstraction;
-using Bll.Model.Common;
+﻿using Bll.Calculator.Model.Abstraction;
+using Bll.Calculator.Model.Common;
 
-namespace Bll.Model.Operations
+namespace Bll.Calculator.Model.Operations
 {
     public class Multiply : BaseSymbal
     {

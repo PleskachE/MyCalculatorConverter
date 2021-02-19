@@ -1,9 +1,9 @@
-﻿using Bll.Converters;
-using Bll.Model.Abstraction;
+﻿using Bll.Calculator.Converters;
+using Bll.Calculator.Model.Abstraction;
 
 using System.Collections.Generic;
 
-namespace Bll.Model.PartsAlghoritm
+namespace Bll.Calculator.Model.PartsAlghoritm
 {
     public class OpenParenthesisHandler : PartAlgorithm
     {

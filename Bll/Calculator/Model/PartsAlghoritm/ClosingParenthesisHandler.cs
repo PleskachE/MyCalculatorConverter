@@ -1,9 +1,9 @@
-﻿using Bll.Model.Abstraction;
+﻿using Bll.Calculator.Model.Abstraction;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bll.Model.PartsAlghoritm
+namespace Bll.Calculator.Model.PartsAlghoritm
 {
     public class ClosingParenthesisHandler : PartAlgorithm
     {

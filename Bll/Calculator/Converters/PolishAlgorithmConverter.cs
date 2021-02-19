@@ -1,12 +1,12 @@
-﻿using Bll.Model;
-using Bll.Model.Abstraction;
-using Bll.Model.Common;
-using Bll.Model.PartsAlghoritm;
+﻿using Bll.Calculator.Model;
+using Bll.Calculator.Model.Abstraction;
+using Bll.Calculator.Model.Common;
+using Bll.Calculator.Model.PartsAlghoritm;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bll.Converters
+namespace Bll.Calculator.Converters
 {
     public class PolishAlgorithmConverter
     {

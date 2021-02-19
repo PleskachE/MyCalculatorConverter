@@ -1,8 +1,8 @@
-﻿using Bll.Converters;
+﻿using Bll.Calculator.Converters;
 using Bll.Executers.Abstractions;
-using Bll.Model;
-using Bll.Model.Abstraction;
-using Bll.Model.Common;
+using Bll.Calculator.Model;
+using Bll.Calculator.Model.Abstraction;
+using Bll.Calculator.Model.Common;
 
 using System.Collections.Generic;
 using System.Linq;

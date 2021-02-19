@@ -1,5 +1,5 @@
 ﻿
-namespace Bll.Converters
+namespace Bll.Calculator.Converters
 {
     public class NumbersConverter
     {

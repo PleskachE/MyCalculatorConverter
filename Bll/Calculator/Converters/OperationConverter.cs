@@ -1,8 +1,8 @@
-﻿using Bll.Model;
-using Bll.Model.Abstraction;
-using Bll.Model.Operations;
+﻿using Bll.Calculator.Model;
+using Bll.Calculator.Model.Abstraction;
+using Bll.Calculator.Model.Operations;
 
-namespace Bll.Converters
+namespace Bll.Calculator.Converters
 {
     public class OperationConverter
     {

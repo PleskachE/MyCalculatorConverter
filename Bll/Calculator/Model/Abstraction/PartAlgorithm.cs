@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Bll.Model.Abstraction
+namespace Bll.Calculator.Model.Abstraction
 {
     public abstract class PartAlgorithm : INotifyPropertyChanged, IPartAlgorithm
     {

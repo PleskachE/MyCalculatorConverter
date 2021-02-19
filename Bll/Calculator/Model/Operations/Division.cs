@@ -1,17 +1,17 @@
-﻿using Bll.Model.Abstraction;
-using Bll.Model.Common;
+﻿using Bll.Calculator.Model.Abstraction;
+using Bll.Calculator.Model.Common;
 
-namespace Bll.Model.Operations
+namespace Bll.Calculator.Model.Operations
 {
-    public class Subtraction : BaseSymbal
+    public class Division : BaseSymbal
     {
         public Operation Operation { get; set; }
 
-        public Subtraction()
+        public Division()
         {
             Operation = Operation.Division;
-            Priority = Priority.Low;
-            Value = "-";
+            Priority = Priority.High;
+            Value = "/";
         }
 
         public override string Result(string leftNumber, string rightNumber)
@@ -21,7 +21,7 @@ namespace Bll.Model.Operations
             decimal _right = 0;
             decimal.TryParse(leftNumber, out _left);
             decimal.TryParse(rightNumber, out _right);
-            result = (_left - _right);
+            result = (_left / _right);
             return result.ToString();
         }
     }
