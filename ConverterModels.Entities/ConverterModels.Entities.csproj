@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</ProjectGuid>
+    <ProjectGuid>{B977D022-F257-45A4-B65F-EC8F1B57778D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ValueConverterModel</RootNamespace>
-    <AssemblyName>ValueConverterModel</AssemblyName>
+    <RootNamespace>ConverterModels.Entities</RootNamespace>
+    <AssemblyName>ConverterModels.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,13 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\BaseUnitSystem.cs" />
-    <Compile Include="Abstraction\BaseCalculusSystem.cs" />
-    <Compile Include="Abstraction\ISystem.cs" />
-    <Compile Include="Abstraction\IUnitSystem.cs" />
-    <Compile Include="Abstraction\BaseSystem.cs" />
-    <Compile Include="Common\TypesCalculusSystems.cs" />
+    <Compile Include="LengthCalculus.cs" />
+    <Compile Include="MemoryCalculus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Units\Centimeter.cs" />
+    <Compile Include="Units\Decimeter.cs" />
+    <Compile Include="Units\Ft.cs" />
+    <Compile Include="Units\Inch.cs" />
+    <Compile Include="Units\Kilometer.cs" />
+    <Compile Include="Units\Metre.cs" />
+    <Compile Include="Units\Mile.cs" />
+    <Compile Include="Units\Millimeter.cs" />
+    <Compile Include="Units\Yard.cs" />
+    <Compile Include="WeightsCalculus.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ValueConverterModel\ConverterModels.Abstraction.csproj">
+      <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
+      <Name>ConverterModels.Abstraction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

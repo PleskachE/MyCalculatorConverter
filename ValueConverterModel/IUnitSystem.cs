@@ -1,5 +1,4 @@
-﻿
-namespace ValueConverterModel.Abstraction
+﻿namespace ConverterModels.Abstraction
 {
     public interface IUnitSystem
     {

@@ -1,5 +1,4 @@
-﻿
-namespace ValueConverterModel.Common
+﻿namespace ConverterModels.Abstraction
 {
     public enum TypesCalculusSystems
     {
