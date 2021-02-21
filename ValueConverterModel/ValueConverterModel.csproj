@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\BaseUnitOfMeasurement.cs" />
+    <Compile Include="Abstraction\BaseUnitSystem.cs" />
     <Compile Include="Abstraction\BaseCalculusSystem.cs" />
-    <Compile Include="Abstraction\ISystemOfMeasurement.cs" />
-    <Compile Include="Abstraction\IUnitOfMeasurement.cs" />
-    <Compile Include="Abstraction\BaseSystemOfMeasurement.cs" />
+    <Compile Include="Abstraction\ISystem.cs" />
+    <Compile Include="Abstraction\IUnitSystem.cs" />
+    <Compile Include="Abstraction\BaseSystem.cs" />
     <Compile Include="Common\TypesCalculusSystems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

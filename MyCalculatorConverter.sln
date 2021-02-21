@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{16F7E9EF-9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfVersionCC", "Apps\WPFVersionCC\WpfVersionCC.csproj", "{F41FA802-1B44-41D0-A01A-602604AD71F0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{91599E79-2F97-4222-9CBD-25D0667BBF2C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{91599E79-2F97-4222-9CBD-25D0667BBF2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueConverterModel", "ValueConverterModel\ValueConverterModel.csproj", "{6DBA95E1-6829-4C89-97D3-C520A610E5A6}"
 EndProject

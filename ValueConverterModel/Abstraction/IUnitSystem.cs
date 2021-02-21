@@ -1,7 +1,7 @@
 ﻿
 namespace ValueConverterModel.Abstraction
 {
-    public interface IUnitOfMeasurement
+    public interface IUnitSystem
     {
         decimal RelationToReferenceUnit(decimal ValueReferenceUnit);
     }

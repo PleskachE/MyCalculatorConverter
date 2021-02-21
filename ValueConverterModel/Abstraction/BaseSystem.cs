@@ -2,9 +2,9 @@
 
 namespace ValueConverterModel.Abstraction
 {
-    public abstract class BaseSystemOfMeasurement 
+    public abstract class BaseSystem 
     {
         public string Name { get; set; }
-        public ICollection<IUnitOfMeasurement> UnitOfMeasurements { get; set; }
+        public ICollection<IUnitSystem> UnitOfMeasurements { get; set; }
     }
 }
