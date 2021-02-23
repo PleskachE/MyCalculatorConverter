@@ -1,4 +1,5 @@
 ﻿using Bll.Executers.Abstractions;
+using Bll.ValueConverters;
 using ConverterModels.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,12 @@ namespace Bll.Executers
     {
         public LenghtConverter()
         {
-            System = new LengthCalculus()
+            SystemCalculus = new LengthCalculus();
+        }
+
+        public string Calculation(string text)
+        {
+           
         }
     }
 }

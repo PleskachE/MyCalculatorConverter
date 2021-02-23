@@ -67,6 +67,7 @@
     <Compile Include="Calculator\Model\PartsAlghoritm\OperationHandler.cs" />
     <Compile Include="Executers\LenghtConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueConverters\UnitsConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConverterModels.Entities\ConverterModels.Entities.csproj">
@@ -78,5 +79,6 @@
       <Name>ConverterModels.Abstraction</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
