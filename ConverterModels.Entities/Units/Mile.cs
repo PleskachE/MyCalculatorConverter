@@ -10,9 +10,20 @@ namespace ConverterModels.Entities.Units
             Name = "Миля";
         }
 
-        public override decimal RelationToReferenceUnit(decimal unitValue)
+        public Mile(decimal value)
         {
-            return (Decimal.Parse("160934.4") * unitValue);
+            Name = "Миля";
+            Value = value;
+        }
+
+        public override decimal RelationToReferenceUnit()
+        {
+            return (Decimal.Parse("160934.4") * Value);
+        }
+
+        public override decimal RelationToThisUnit(decimal unitValue)
+        {
+            return (unitValue / Decimal.Parse("160934.4"));
         }
     }
 }

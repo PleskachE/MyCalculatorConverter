@@ -9,9 +9,20 @@ namespace ConverterModels.Entities.Units
             Name = "Милиметр";
         }
 
-        public override decimal RelationToReferenceUnit(decimal unitValue)
+        public Millimeter(decimal value)
         {
-            return (10 * unitValue);
+            Name = "Милиметр";
+            Value = value;
+        }
+
+        public override decimal RelationToReferenceUnit()
+        {
+            return (Value / 10);
+        }
+
+        public override decimal RelationToThisUnit(decimal unitValue)
+        {
+            return (unitValue * 10);
         }
     }
 }

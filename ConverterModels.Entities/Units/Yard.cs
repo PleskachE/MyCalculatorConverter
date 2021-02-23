@@ -10,9 +10,20 @@ namespace ConverterModels.Entities.Units
             Name = "Ярд";
         }
 
-        public override decimal RelationToReferenceUnit(decimal unitValue)
+        public Yard(decimal value)
         {
-            return (Decimal.Parse("91.44") * unitValue);
+            Name = "Ярд";
+            Value = value;
+        }
+
+        public override decimal RelationToReferenceUnit()
+        {
+            return (Decimal.Parse("91.44") * Value);
+        }
+
+        public override decimal RelationToThisUnit(decimal unitValue)
+        {
+            return (unitValue / Decimal.Parse("91.44"));
         }
     }
 }

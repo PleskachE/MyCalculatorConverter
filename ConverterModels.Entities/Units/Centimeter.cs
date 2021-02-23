@@ -10,7 +10,19 @@ namespace ConverterModels.Entities.Units
             isReferenceUnit = true;
         }
 
-        public override decimal RelationToReferenceUnit(decimal unitValue)
+        public Centimeter(decimal value)
+        {
+            Name = "Сантиметр";
+            Value = value;
+            isReferenceUnit = true;
+        }
+
+        public override decimal RelationToReferenceUnit()
+        {
+            return Value;
+        }
+
+        public override decimal RelationToThisUnit(decimal unitValue)
         {
             return unitValue;
         }

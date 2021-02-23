@@ -2,6 +2,7 @@
 {
     public interface IUnitSystem
     {
-        decimal RelationToReferenceUnit(decimal ValueReferenceUnit);
+        decimal RelationToReferenceUnit();
+        decimal RelationToThisUnit(decimal unitValue);
     }
 }

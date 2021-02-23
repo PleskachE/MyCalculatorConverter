@@ -10,9 +10,20 @@ namespace ConverterModels.Entities.Units
             Name = "Дюйм";
         }
 
-        public override decimal RelationToReferenceUnit(decimal unitValue)
+        public Inch(decimal value)
         {
-            return (Decimal.Parse("2.54") * unitValue);
+            Name = "Дюйм";
+            Value = value;
+        }
+
+        public override decimal RelationToReferenceUnit()
+        {
+            return (Decimal.Parse("2.54") * Value);
+        }
+
+        public override decimal RelationToThisUnit(decimal unitValue)
+        {
+            return (unitValue / Decimal.Parse("2.54"));
         }
     }
 }

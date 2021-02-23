@@ -45,6 +45,7 @@
     <Compile Include="Calculator\Converters\OperationConverter.cs" />
     <Compile Include="Calculator\Converters\PolishAlgorithmConverter.cs" />
     <Compile Include="Executers\Abstractions\IExecuter.cs" />
+    <Compile Include="Executers\Abstractions\ValueConverter.cs" />
     <Compile Include="Executers\Calculator.cs" />
     <Compile Include="Calculator\Model\Abstraction\BaseSymbal.cs" />
     <Compile Include="Calculator\Model\Abstraction\IBaseSymbal.cs" />
@@ -64,10 +65,18 @@
     <Compile Include="Calculator\Model\PartsAlghoritm\OpenParenthesisHandler.cs" />
     <Compile Include="Calculator\Model\PartsAlghoritm\OperandHandler.cs" />
     <Compile Include="Calculator\Model\PartsAlghoritm\OperationHandler.cs" />
+    <Compile Include="Executers\LenghtConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ValueConverters\" />
+    <ProjectReference Include="..\ConverterModels.Entities\ConverterModels.Entities.csproj">
+      <Project>{B977D022-F257-45A4-B65F-EC8F1B57778D}</Project>
+      <Name>ConverterModels.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ValueConverterModel\ConverterModels.Abstraction.csproj">
+      <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
+      <Name>ConverterModels.Abstraction</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

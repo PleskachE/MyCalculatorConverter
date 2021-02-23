@@ -10,9 +10,20 @@ namespace ConverterModels.Entities.Units
             Name = "Фут";
         }
 
-        public override decimal RelationToReferenceUnit(decimal unitValue)
+        public Ft(decimal value)
         {
-            return (Decimal.Parse("30.48") * unitValue);
+            Name = "Фут";
+            Value = value;
+        }
+
+        public override decimal RelationToReferenceUnit()
+        {
+            return (Decimal.Parse("30.48") * Value);
+        }
+
+        public override decimal RelationToThisUnit(decimal unitValue)
+        {
+            return (unitValue / Decimal.Parse("30.48"));
         }
     }
 }

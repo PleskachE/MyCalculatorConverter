@@ -9,9 +9,20 @@ namespace ConverterModels.Entities.Units
             Name = "Метр";
         }
 
-        public override decimal RelationToReferenceUnit(decimal unitValue)
+        public Metre(decimal value)
         {
-            return (100 / unitValue);
+            Name = "Метр";
+            Value = value;
+        }
+
+        public override decimal RelationToReferenceUnit()
+        {
+            return (100 * Value);
+        }
+
+        public override decimal RelationToThisUnit(decimal unitValue)
+        {
+            return (unitValue / 100);
         }
     }
 }

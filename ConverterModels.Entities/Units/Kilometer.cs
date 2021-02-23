@@ -9,9 +9,20 @@ namespace ConverterModels.Entities.Units
             Name = "Километр";
         }
 
-        public override decimal RelationToReferenceUnit(decimal unitValue)
+        public Kilometer(decimal value)
         {
-            return (100000 / unitValue);
+            Name = "Километр";
+            Value = value;
+        }
+
+        public override decimal RelationToReferenceUnit()
+        {
+            return (100000 * Value);
+        }
+
+        public override decimal RelationToThisUnit(decimal unitValue)
+        {
+            return (unitValue / 100000);
         }
     }
 }
