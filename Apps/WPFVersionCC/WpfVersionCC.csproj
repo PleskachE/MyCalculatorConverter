@@ -84,6 +84,9 @@
     <Compile Include="View\ContentControls\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ContentControls\ValueConverterView.xaml.cs">
+      <DependentUpon>ValueConverterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\EngineeringCalculatorView.xaml.cs">
       <DependentUpon>EngineeringCalculatorView.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ContentControls\CalculatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ContentControls\ValueConverterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
