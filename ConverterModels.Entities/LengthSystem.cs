@@ -26,7 +26,7 @@ namespace ConverterModels.Entities
             };
         }
 
-        public IUnitSystem GetReferenceUnit()
+        public BaseUnitSystem GetReferenceUnit()
         {
             return Units.ToList().Find(x => x.isReferenceUnit == true);
         }

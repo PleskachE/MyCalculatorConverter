@@ -45,7 +45,6 @@
     <Compile Include="Calculator\Converters\OperationConverter.cs" />
     <Compile Include="Calculator\Converters\PolishAlgorithmConverter.cs" />
     <Compile Include="Executers\Abstractions\IExecuter.cs" />
-    <Compile Include="Executers\Abstractions\ValueConverter.cs" />
     <Compile Include="Executers\Calculator.cs" />
     <Compile Include="Calculator\Model\Abstraction\BaseSymbal.cs" />
     <Compile Include="Calculator\Model\Abstraction\IBaseSymbal.cs" />
@@ -65,9 +64,9 @@
     <Compile Include="Calculator\Model\PartsAlghoritm\OpenParenthesisHandler.cs" />
     <Compile Include="Calculator\Model\PartsAlghoritm\OperandHandler.cs" />
     <Compile Include="Calculator\Model\PartsAlghoritm\OperationHandler.cs" />
-    <Compile Include="Executers\LenghtConverter.cs" />
+    <Compile Include="Executers\ConverterUnitsMeasurement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueConverters\UnitsConverter.cs" />
+    <Compile Include="ValueConverters\UnitsParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConverterModels.Entities\ConverterModels.Entities.csproj">

@@ -5,14 +5,14 @@ using System.Linq;
 
 namespace Bll.ValueConverters
 {
-    public static class UnitsConverter
+    public static class UnitsParser
     {
         private static BaseUnitSystem[] _units = new BaseUnitSystem[2];
 
-        public static void ProcessingExpression(string text)
+        public static void Parse(string text)
         {
-            var firstElem = text.Substring(0, text.LastIndexOf("-"));
-            var lastElem = text.Substring(text.LastIndexOf("-") + 2, (text.Count()- firstElem.Count() - 1));
+            var firstElem = text.Substring(0, text.LastIndexOf("="));
+            var lastElem = text.Substring(text.LastIndexOf("=") + 2, (text.Count()- firstElem.Count() - 1));
             _units[0] = CreatingNewUnit(firstElem);
             _units[1] = CreatingNewUnit(lastElem);
         }
