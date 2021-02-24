@@ -6,12 +6,12 @@ namespace ConverterModels.Entities.Units
     {
         public Metre()
         {
-            Name = "Метр";
+            Name = "Metre";
         }
 
         public Metre(decimal value)
         {
-            Name = "Метр";
+            Name = "Metre";
             Value = value;
         }
 

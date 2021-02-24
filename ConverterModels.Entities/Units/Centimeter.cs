@@ -6,13 +6,13 @@ namespace ConverterModels.Entities.Units
     {
         public Centimeter()
         {
-            Name = "Сантиметр";
+            Name = "Centimeter";
             isReferenceUnit = true;
         }
 
         public Centimeter(decimal value)
         {
-            Name = "Сантиметр";
+            Name = "Centimeter";
             Value = value;
             isReferenceUnit = true;
         }

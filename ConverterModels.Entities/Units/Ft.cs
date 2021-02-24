@@ -7,12 +7,12 @@ namespace ConverterModels.Entities.Units
     {
         public Ft()
         {
-            Name = "Фут";
+            Name = "Ft";
         }
 
         public Ft(decimal value)
         {
-            Name = "Фут";
+            Name = "Ft";
             Value = value;
         }
 

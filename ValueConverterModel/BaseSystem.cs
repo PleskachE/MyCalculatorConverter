@@ -6,6 +6,6 @@ namespace ConverterModels.Abstraction
     {
         public string Name { get; set; }
         public ICollection<BaseUnitSystem> Units { get; set; }
-        public TypesCalculusSystems TypesSystems { get; set; }
+        public TypesMeasurementSystems TypesSystems { get; set; }
     }
 }

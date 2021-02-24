@@ -45,7 +45,7 @@
     <Compile Include="BaseUnitSystem.cs" />
     <Compile Include="ISystem.cs" />
     <Compile Include="IUnitSystem.cs" />
-    <Compile Include="Common\TypesCalculusSystems.cs" />
+    <Compile Include="Common\TypesMeasurementSystems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

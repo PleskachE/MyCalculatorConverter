@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConverterModels.Entities
 {
-    public class MemoryCalculus : BaseSystem, ISystem
+    public class MemorySystem : BaseSystem, ISystem
     {
         public IUnitSystem GetReferenceUnit()
         {

@@ -6,12 +6,12 @@ namespace ConverterModels.Entities.Units
     {
         public Kilometer()
         {
-            Name = "Километр";
+            Name = "Kilometer";
         }
 
         public Kilometer(decimal value)
         {
-            Name = "Километр";
+            Name = "Kilometer";
             Value = value;
         }
 

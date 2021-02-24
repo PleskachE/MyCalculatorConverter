@@ -7,12 +7,12 @@ namespace ConverterModels.Entities.Units
     {
         public Mile()
         {
-            Name = "Миля";
+            Name = "Mile";
         }
 
         public Mile(decimal value)
         {
-            Name = "Миля";
+            Name = "Mile";
             Value = value;
         }
 

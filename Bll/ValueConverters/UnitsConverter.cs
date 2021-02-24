@@ -35,7 +35,7 @@ namespace Bll.ValueConverters
                     resUnit = new Centimeter(Decimal.Parse(textValue));
                     break;
                 case "Decimeter":
-                    resUnit = new Centimeter(Decimal.Parse(textValue));
+                    resUnit = new Decimeter(Decimal.Parse(textValue));
                     break;
                 case "Metre":
                     resUnit = new Metre(Decimal.Parse(textValue));

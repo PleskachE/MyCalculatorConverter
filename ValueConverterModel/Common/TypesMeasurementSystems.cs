@@ -1,6 +1,6 @@
 ﻿namespace ConverterModels.Abstraction
 {
-    public enum TypesCalculusSystems
+    public enum TypesMeasurementSystems
     {
         LengthSystem,
         SystemWeights,

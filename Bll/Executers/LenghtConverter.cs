@@ -13,7 +13,7 @@ namespace Bll.Executers
     {
         public LenghtConverter()
         {
-            SystemCalculus = new LengthCalculus();
+            SystemCalculus = new LengthSystem();
         }
 
         public string Calculation(string text)

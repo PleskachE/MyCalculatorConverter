@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace ConverterModels.Entities
 {
-    public class LengthCalculus : BaseSystem, ISystem
+    public class LengthSystem : BaseSystem, ISystem
     {
-        public LengthCalculus()
+        public LengthSystem()
         {
             Name = "Система мер длинны";
-            TypesSystems = TypesCalculusSystems.LengthSystem;
+            TypesSystems = TypesMeasurementSystems.LengthSystem;
             Units = new List<BaseUnitSystem>()
             {
                 new Millimeter(),

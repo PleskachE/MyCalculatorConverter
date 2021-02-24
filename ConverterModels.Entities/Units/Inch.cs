@@ -7,12 +7,12 @@ namespace ConverterModels.Entities.Units
     {
         public Inch()
         {
-            Name = "Дюйм";
+            Name = "Inch";
         }
 
         public Inch(decimal value)
         {
-            Name = "Дюйм";
+            Name = "Inch";
             Value = value;
         }
 

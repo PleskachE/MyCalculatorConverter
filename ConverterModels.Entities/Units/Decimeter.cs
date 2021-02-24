@@ -6,12 +6,12 @@ namespace ConverterModels.Entities.Units
     {
         public Decimeter()
         {
-            Name = "Дециметр";
+            Name = "Decimeter";
         }
 
         public Decimeter(decimal value)
         {
-            Name = "Дециметр";
+            Name = "Decimeter";
             Value = value;
         }
 

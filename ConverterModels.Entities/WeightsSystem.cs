@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConverterModels.Entities
 {
-    public class WeightsCalculus : BaseSystem, ISystem
+    public class WeightsSystem : BaseSystem, ISystem
     {
         public IUnitSystem GetReferenceUnit()
         {
