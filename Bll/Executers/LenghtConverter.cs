@@ -18,7 +18,7 @@ namespace Bll.Executers
 
         public string Calculation(string text)
         {
-           
+            return null;
         }
     }
 }

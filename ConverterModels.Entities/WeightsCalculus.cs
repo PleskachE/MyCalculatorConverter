@@ -9,5 +9,9 @@ namespace ConverterModels.Entities
 {
     public class WeightsCalculus : BaseSystem, ISystem
     {
+        public IUnitSystem GetReferenceUnit()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

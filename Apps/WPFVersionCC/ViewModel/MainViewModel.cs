@@ -32,6 +32,7 @@ namespace Apps.WPFVersionCC.ViewModel
         public MainViewModel()
         {
             GeneratingCommands();
+            _title = "Calculator";
         }
 
         #endregion
