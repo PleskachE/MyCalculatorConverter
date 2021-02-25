@@ -81,6 +81,7 @@
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
     <Compile Include="ViewModel\CalculatorViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ValueConverterViewModel.cs" />
     <Compile Include="View\ContentControls\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
     </Compile>
@@ -160,6 +161,14 @@
     <ProjectReference Include="..\..\Bll\Bll.csproj">
       <Project>{5B1E4EFF-838A-4A5D-A865-833930C614CE}</Project>
       <Name>Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ConverterModels.Entities\ConverterModels.Entities.csproj">
+      <Project>{B977D022-F257-45A4-B65F-EC8F1B57778D}</Project>
+      <Name>ConverterModels.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ValueConverterModel\ConverterModels.Abstraction.csproj">
+      <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
+      <Name>ConverterModels.Abstraction</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,22 +7,11 @@ namespace Bll.Executers
 {
     public class ConverterUnitsMeasurement : IExecuter
     {
-        public ISystem SystemMeasuring { get; set; }
+        public BaseSystem SystemMeasuring { get; set; }
 
-        public ConverterUnitsMeasurement(TypesMeasurementSystems system)
+        public ConverterUnitsMeasurement(BaseSystem system)
         {
-            switch(system)
-            {
-                case TypesMeasurementSystems.LengthSystem :
-                    SystemMeasuring = new LengthSystem();
-                    break;
-                case TypesMeasurementSystems.SystemMemory:
-                    SystemMeasuring = new MemorySystem();
-                    break;
-                case TypesMeasurementSystems.SystemWeights:
-                    SystemMeasuring = new WeightsSystem();
-                    break;
-            }
+            SystemMeasuring = system;
         }
 
         public string Calculation(string text)

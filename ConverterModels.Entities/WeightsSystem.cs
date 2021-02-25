@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace ConverterModels.Entities
 {
-    public class WeightsSystem : BaseSystem, ISystem
+    public class WeightsSystem : BaseSystem
     {
-        public BaseUnitSystem GetReferenceUnit()
+
+        public WeightsSystem()
+        {
+            Name = "Система мер массы";
+        }
+
+        public override BaseUnitSystem GetReferenceUnit()
         {
             throw new NotImplementedException();
         }

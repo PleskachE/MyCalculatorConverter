@@ -29,7 +29,8 @@
                 <MenuItem 
                     Header="Калькулятор" 
                     Command="{Binding OpenCalculatorCommand}"/>
-                <MenuItem Header="Преобразователь" />
+                <MenuItem Header="Преобразователь" 
+                    Command="{Binding OpenValueConverterCommand}"/>      />
                 <Separator />
                 <MenuItem Header="Выход" />
             </MenuItem>

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MyCalculatorConverter.View.ContentControls
+namespace Apps.WPFVersionCC.View.ContentControls
 {
     /// <summary>
     /// Логика взаимодействия для ValueConverterView.xaml

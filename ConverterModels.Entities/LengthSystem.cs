@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ConverterModels.Entities
 {
-    public class LengthSystem : BaseSystem, ISystem
+    public class LengthSystem : BaseSystem
     {
         public LengthSystem()
         {
@@ -26,7 +26,7 @@ namespace ConverterModels.Entities
             };
         }
 
-        public BaseUnitSystem GetReferenceUnit()
+        public override BaseUnitSystem GetReferenceUnit()
         {
             return Units.ToList().Find(x => x.isReferenceUnit == true);
         }

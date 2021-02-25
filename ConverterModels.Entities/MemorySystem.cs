@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ConverterModels.Entities
 {
-    public class MemorySystem : BaseSystem, ISystem
+    public class MemorySystem : BaseSystem
     {
-        public BaseUnitSystem GetReferenceUnit()
+        public override BaseUnitSystem GetReferenceUnit()
         {
             throw new NotImplementedException();
         }

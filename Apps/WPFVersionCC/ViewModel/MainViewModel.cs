@@ -32,7 +32,6 @@ namespace Apps.WPFVersionCC.ViewModel
         public MainViewModel()
         {
             GeneratingCommands();
-            _title = "Calculator";
         }
 
         #endregion
@@ -41,10 +40,22 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void ExecuteOpenCalculatorCommand(object parameter)
         {
+            Title = "Calculator";
             WorkingPlace = new CalculatorView();
         }
 
         public bool CanExecuteOpenCalculatorCommand(object parameter)
+        {
+            return true;
+        }
+
+        private void ExecuteOpenValueConverterCommand(object parameter)
+        {
+            Title = "ValueConverter";
+            WorkingPlace = new ValueConverterView();
+        }
+
+        public bool CanExecuteOpenValueConverterCommand(object parameter)
         {
             return true;
         }
@@ -64,7 +75,7 @@ namespace Apps.WPFVersionCC.ViewModel
             }
         }
 
-        private string _title;
+        private string _title = "Calculator";
         public string Title 
         {
             get { return _title; }
@@ -98,6 +109,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
 
         public RelayCommand OpenCalculatorCommand { get; set; }
+        public RelayCommand OpenValueConverterCommand { get; set; }
 
         #endregion
 
@@ -106,6 +118,7 @@ namespace Apps.WPFVersionCC.ViewModel
         private void GeneratingCommands()
         {
             OpenCalculatorCommand = new RelayCommand(ExecuteOpenCalculatorCommand, CanExecuteOpenCalculatorCommand);
+            OpenValueConverterCommand = new RelayCommand(ExecuteOpenValueConverterCommand, CanExecuteOpenValueConverterCommand);
         }
 
         #endregion

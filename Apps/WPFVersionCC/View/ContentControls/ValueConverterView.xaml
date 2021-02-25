@@ -1,16 +1,48 @@
-﻿<ContentControl x:Class="MyCalculatorConverter.View.ContentControls.ValueConverterView"
+﻿<ContentControl x:Class="Apps.WPFVersionCC.View.ContentControls.ValueConverterView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyCalculatorConverter.View.ContentControls"
+        xmlns:local="clr-namespace:Apps.WPFVersionCC.ViewModel"
         mc:Ignorable="d"
         Height="auto" Width="800">
-    
-    
+
+    <ContentControl.DataContext>
+        <local:ValueConverterViewModel />
+    </ContentControl.DataContext>
     
     
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ComboBox 
+            Grid.Row="0"
+            Margin="10"
+            ItemsSource="{Binding Systems, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+            DisplayMemberPath="Name"
+            SelectedItem="{Binding CurrentSystem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid Grid.Row="1"
+              Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ComboBox
+                Grid.Column="0"
+                Margin="10"
+                ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                DisplayMemberPath="Name"
+                SelectedItem="{Binding CurrentFirstUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <ComboBox
+                Grid.Column="1"
+                Margin="10"
+                ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                DisplayMemberPath="Name"
+                SelectedItem="{Binding CurrentResulttUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
         
     </Grid>
 </ContentControl>
