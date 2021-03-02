@@ -1,7 +1,9 @@
 ﻿using ConverterModels.Abstraction;
+using System.ComponentModel;
 
 namespace ConverterModels.Entities.Units
 {
+    [Description("Kilometer")]
     public class Kilometer : BaseUnitSystem
     {
         public Kilometer()

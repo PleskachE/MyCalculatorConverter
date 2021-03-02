@@ -1,8 +1,10 @@
 ﻿using ConverterModels.Abstraction;
 using System;
+using System.ComponentModel;
 
 namespace ConverterModels.Entities.Units
 {
+    [Description("Yard")]
     public class Yard : BaseUnitSystem
     {
         public Yard()

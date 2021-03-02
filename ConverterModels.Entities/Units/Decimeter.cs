@@ -1,7 +1,9 @@
 ﻿using ConverterModels.Abstraction;
+using System.ComponentModel;
 
 namespace ConverterModels.Entities.Units
 {
+    [Description("Decimeter")]
     public class Decimeter : BaseUnitSystem
     {
         public Decimeter()
