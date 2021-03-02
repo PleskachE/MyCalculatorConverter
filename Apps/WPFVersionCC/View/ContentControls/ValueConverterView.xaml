@@ -17,31 +17,50 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ComboBox 
-            Grid.Row="0"
+        <StackPanel
+             Grid.Row="0"
+            Orientation="Vertical">
+            <TextBlock
+                Margin="10"
+                Text="{Binding }"/>
+            <ComboBox 
             Margin="10"
             ItemsSource="{Binding Systems, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
             DisplayMemberPath="Name"
             SelectedItem="{Binding CurrentSystem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+        
         <Grid Grid.Row="1"
               Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ComboBox
+            <StackPanel
                 Grid.Column="0"
+                Orientation="Vertical">
+                <TextBox
+                Margin="10"
+                Text="{Binding }"/>
+                <ComboBox
                 Margin="10"
                 ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 DisplayMemberPath="Name"
                 SelectedItem="{Binding CurrentFirstUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
 
-            <ComboBox
+            <StackPanel
                 Grid.Column="1"
+                Orientation="Vertical">
+                <TextBlock
+                Margin="10"
+                Text="{Binding }"/>
+                <ComboBox
                 Margin="10"
                 ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 DisplayMemberPath="Name"
                 SelectedItem="{Binding CurrentResulttUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
         </Grid>
         
     </Grid>
