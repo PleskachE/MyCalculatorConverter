@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using Common;
 using System.ComponentModel;
+using System.IO;
+using System.Collections.Generic;
 
 namespace Bll.ValueConverters
 {
@@ -30,17 +32,44 @@ namespace Bll.ValueConverters
             BaseUnitSystem resUnit = null;
 
             Type type = Type.GetType("BaseUnitSystem");
-            var types = GetAssembly().GetTypes().ToList().FindAll(x => x.GetInterface("BaseUnitSystem") != type);
-            var res = types.ToList().Find(x => x.GetAttribute<DescriptionAttribute>().Description == text);
+            var res = GetType(GetAssembly()
+                            .GetTypes()
+                            .ToList()
+                            .FindAll(x => x.GetInterface("BaseUnitSystem") != type), text);
+
             resUnit = (BaseUnitSystem)Activator.CreateInstance(res);
             resUnit.Value = Decimal.Parse(textValue);
             return resUnit;
         }
         private static Assembly GetAssembly()
         {
-            string path = @"C:\Users\Sony\source\repos\ReflectionConsole\Animals.Entities\bin\Debug\Animals.Entities.dll";
-            var assembly = Assembly.LoadFrom(path);
+            string path =  ResourceBll.ValuesConverterEntitiesPath;
+            Assembly assembly = null;
+            try
+            {
+                assembly = Assembly.LoadFrom(path);
+            }
+            catch 
+            {
+                throw new DirectoryNotFoundException($"Directory {path} was not found");
+            }
             return assembly;
+        }
+
+        private static Type GetType(IEnumerable<Type> types, string text)
+        {
+            Type result = null;
+            try
+            {
+                result = types
+                    .ToList()
+                    .Find(x => x.GetAttribute<DescriptionAttribute>().Description == text);
+            }
+            catch
+            {
+
+            }
+            return result;
         }
     }
 }
