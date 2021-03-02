@@ -1,4 +1,5 @@
-﻿using Apps.WPFVersionCC.ViewManagment;
+﻿using Apps.WPFVersionCC.Infrastructure;
+using Apps.WPFVersionCC.ViewManagment;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
 using Bll.Executers;
 using Bll.Executers.Abstractions;
@@ -34,6 +35,7 @@ namespace Apps.WPFVersionCC.ViewModel
                 new WeightsSystem(),
                 new MemorySystem()
             };
+            ConvertCommand = new RelayCommand(ExecuteConvertCommand, CanExecuteConvertCommand);
         }
 
         #endregion
@@ -75,32 +77,95 @@ namespace Apps.WPFVersionCC.ViewModel
                 OnPropertyChanged();
             }
         }
-        private BaseUnitSystem _currentResulttUnit;
-        public BaseUnitSystem CurrentResulttUnit
+        private BaseUnitSystem _currentResultUnit;
+        public BaseUnitSystem CurrentResultUnit
         {
             get
             {
-                if (_currentResulttUnit == null)
+                if (_currentResultUnit == null)
                 {
-                    _currentResulttUnit = CurrentSystem.GetReferenceUnit();
+                    _currentResultUnit = CurrentSystem.GetReferenceUnit();
                 }
-                return _currentResulttUnit;
+                return _currentResultUnit;
             }
             set
             {
-                _currentResulttUnit = value;
+                _currentResultUnit = value;
                 OnPropertyChanged();
             }
         }
 
         public ICollection<BaseSystem> Systems { get; }
 
-        public Display Display { get; set; }
-        public Journal Journal { get; set; }
+        private string _currentFirstUnitText;
+        public string CurrentFirstUnitText
+        {
+            get
+            {
+                if (_currentFirstUnitText == null)
+                {
+                    _currentFirstUnitText = "0";
+                }
+                return _currentFirstUnitText;
+            }
+            set
+            {
+                _currentFirstUnitText = value;
+                OnPropertyChanged();
+            }
+        }
+        private string _currentResultUnitText;
+        public string CurrentResultUnitText
+        {
+            get
+            {
+                if (_currentResultUnitText == null)
+                {
+                    _currentResultUnitText = "0";
+                }
+                return _currentResultUnitText;
+            }
+            set
+            {
+                _currentResultUnitText = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _resultText;
+        public string ResultText
+        {
+            get
+            {
+                if (_resultText == null)
+                {
+                    _resultText = "";
+                }
+                return _resultText;
+            }
+            set
+            {
+                _resultText = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public RelayCommand ConvertCommand { get; set; }
 
         #endregion
 
         #region Commands
+
+        private void ExecuteConvertCommand(object parameter)
+        {
+            var text = CurrentFirstUnitText + CurrentFirstUnit.Name + "=" + CurrentResultUnit.Name;
+            ResultText = _executor.Calculation(text);
+        }
+
+        public bool CanExecuteConvertCommand(object parameter)
+        {
+            return true;
+        }
 
         #endregion
 
