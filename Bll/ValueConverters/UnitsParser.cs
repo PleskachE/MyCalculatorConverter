@@ -1,7 +1,9 @@
-﻿using ConverterModels.Abstraction;
-using ConverterModels.Entities.Units;
+﻿using Models.ConverterModels.Abstraction;
 using System;
 using System.Linq;
+using System.Reflection;
+using Common;
+using System.ComponentModel;
 
 namespace Bll.ValueConverters
 {
@@ -26,37 +28,19 @@ namespace Bll.ValueConverters
             var textValue = text.Intersect(numbers).ToString();
             text.Remove(textValue.Length);
             BaseUnitSystem resUnit = null;
-            switch (text)
-            {
-                case "Millimeter":
-                    resUnit = new Millimeter(Decimal.Parse(textValue));
-                    break;
-                case "Centimeter":
-                    resUnit = new Centimeter(Decimal.Parse(textValue));
-                    break;
-                case "Decimeter":
-                    resUnit = new Decimeter(Decimal.Parse(textValue));
-                    break;
-                case "Metre":
-                    resUnit = new Metre(Decimal.Parse(textValue));
-                    break;
-                case "Kilometer":
-                    resUnit = new Kilometer(Decimal.Parse(textValue));
-                    break;
-                case "Inch":
-                    resUnit = new Inch(Decimal.Parse(textValue));
-                    break;
-                case "Ft":
-                    resUnit = new Ft(Decimal.Parse(textValue));
-                    break;
-                case "Yard":
-                    resUnit = new Yard(Decimal.Parse(textValue));
-                    break;
-                case "Mile":
-                    resUnit = new Mile(Decimal.Parse(textValue));
-                    break;
-            }
+
+            Type type = Type.GetType("BaseUnitSystem");
+            var types = GetAssembly().GetTypes().ToList().FindAll(x => x.GetInterface("BaseUnitSystem") != type);
+            var res = types.ToList().Find(x => x.GetAttribute<DescriptionAttribute>().Description == text);
+            resUnit = (BaseUnitSystem)Activator.CreateInstance(res);
+            resUnit.Value = Decimal.Parse(textValue);
             return resUnit;
+        }
+        private static Assembly GetAssembly()
+        {
+            string path = @"C:\Users\Sony\source\repos\ReflectionConsole\Animals.Entities\bin\Debug\Animals.Entities.dll";
+            var assembly = Assembly.LoadFrom(path);
+            return assembly;
         }
     }
 }

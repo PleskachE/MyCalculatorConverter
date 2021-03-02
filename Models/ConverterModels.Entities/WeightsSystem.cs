@@ -1,14 +1,20 @@
-﻿using ConverterModels.Abstraction;
+﻿using Models.ConverterModels.Abstraction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConverterModels.Entities
+namespace Models.ConverterModels.Entities
 {
-    public class MemorySystem : BaseSystem
+    public class WeightsSystem : BaseSystem
     {
+
+        public WeightsSystem()
+        {
+            Name = "Система мер массы";
+        }
+
         public override BaseUnitSystem GetReferenceUnit()
         {
             throw new NotImplementedException();

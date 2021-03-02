@@ -1,4 +1,6 @@
-﻿namespace ConverterModels.Abstraction
+﻿using Mdoels.ConverterModels.Abstraction;
+
+namespace Models.ConverterModels.Abstraction
 {
     public abstract class BaseUnitSystem : IUnitSystem
     {

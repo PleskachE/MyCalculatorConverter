@@ -1,7 +1,7 @@
-﻿using ConverterModels.Abstraction;
+﻿using Models.ConverterModels.Abstraction;
 using System.ComponentModel;
 
-namespace ConverterModels.Entities.Units
+namespace Models.ConverterModels.Entities.Units
 {
     [Description("Millimeter")]
     public class Millimeter : BaseUnitSystem

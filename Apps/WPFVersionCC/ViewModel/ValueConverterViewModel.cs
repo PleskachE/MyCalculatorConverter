@@ -2,8 +2,8 @@
 using Apps.WPFVersionCC.ViewModel.Abstraction;
 using Bll.Executers;
 using Bll.Executers.Abstractions;
-using ConverterModels.Abstraction;
-using ConverterModels.Entities;
+using Models.ConverterModels.Abstraction;
+using Models.ConverterModels.Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

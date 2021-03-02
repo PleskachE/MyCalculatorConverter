@@ -1,7 +1,6 @@
 ﻿using Bll.Executers.Abstractions;
 using Bll.ValueConverters;
-using ConverterModels.Abstraction;
-using ConverterModels.Entities;
+using Models.ConverterModels.Abstraction;
 
 namespace Bll.Executers
 {

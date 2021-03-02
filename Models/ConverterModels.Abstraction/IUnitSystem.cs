@@ -1,4 +1,4 @@
-﻿namespace ConverterModels.Abstraction
+﻿namespace Mdoels.ConverterModels.Abstraction
 {
     public interface IUnitSystem
     {

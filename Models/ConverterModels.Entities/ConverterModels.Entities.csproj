@@ -56,7 +56,7 @@
     <Compile Include="WeightsSystem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ValueConverterModel\ConverterModels.Abstraction.csproj">
+    <ProjectReference Include="..\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
       <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
       <Name>ConverterModels.Abstraction</Name>
     </ProjectReference>

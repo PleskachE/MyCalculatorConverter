@@ -1,8 +1,8 @@
-﻿using ConverterModels.Abstraction;
+﻿using Models.ConverterModels.Abstraction;
 using System;
 using System.ComponentModel;
 
-namespace ConverterModels.Entities.Units
+namespace Models.ConverterModels.Entities.Units
 {
     [Description("Inch")]
     public class Inch : BaseUnitSystem

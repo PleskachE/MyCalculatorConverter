@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Models.ConverterModels.Abstraction.Common;
+using System.Collections.Generic;
 
-namespace ConverterModels.Abstraction
+namespace Models.ConverterModels.Abstraction
 {
     public abstract class BaseSystem : ISystem
     {

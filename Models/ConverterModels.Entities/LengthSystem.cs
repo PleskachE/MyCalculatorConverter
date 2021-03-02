@@ -1,10 +1,11 @@
-﻿using ConverterModels.Abstraction;
-using ConverterModels.Entities.Units;
+﻿using Models.ConverterModels.Abstraction;
+using Models.ConverterModels.Abstraction.Common;
+using Models.ConverterModels.Entities.Units;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ConverterModels.Entities
+namespace Models.ConverterModels.Entities
 {
     public class LengthSystem : BaseSystem
     {

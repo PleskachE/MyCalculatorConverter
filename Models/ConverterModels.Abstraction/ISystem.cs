@@ -1,4 +1,4 @@
-﻿namespace ConverterModels.Abstraction
+﻿namespace Models.ConverterModels.Abstraction
 {
     public interface ISystem
     {
