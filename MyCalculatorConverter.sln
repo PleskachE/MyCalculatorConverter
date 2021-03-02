@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterModels.Abstraction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterModels.Entities", "ConverterModels.Entities\ConverterModels.Entities.csproj", "{B977D022-F257-45A4-B65F-EC8F1B57778D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{571A2DFD-D0F6-48FD-B94B-31F06C95126A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{B977D022-F257-45A4-B65F-EC8F1B57778D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B977D022-F257-45A4-B65F-EC8F1B57778D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B977D022-F257-45A4-B65F-EC8F1B57778D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{571A2DFD-D0F6-48FD-B94B-31F06C95126A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571A2DFD-D0F6-48FD-B94B-31F06C95126A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{571A2DFD-D0F6-48FD-B94B-31F06C95126A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571A2DFD-D0F6-48FD-B94B-31F06C95126A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
