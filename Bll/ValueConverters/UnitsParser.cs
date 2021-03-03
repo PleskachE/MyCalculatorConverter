@@ -29,7 +29,7 @@ namespace Bll.ValueConverters
 
         private static IUnitSystem CreatingNewUnit(string text)
         {
-            char[] numbers = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+            char[] numbers = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ',' };
             var chairs = text.Intersect(numbers);
             string textValue = "";
             foreach(var item in chairs)
