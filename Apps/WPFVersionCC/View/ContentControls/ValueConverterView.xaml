@@ -4,8 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Apps.WPFVersionCC.ViewModel"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="800"
+    Width="auto"
     Height="auto"
     mc:Ignorable="d">
 
@@ -13,50 +14,213 @@
         <local:ValueConverterViewModel />
     </ContentControl.DataContext>
 
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Vertical">
-            <TextBlock Margin="10" Text="{Binding ResultText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
-            <ComboBox
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid
+            Grid.Column="0"
+            Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border
+                Grid.Row="0"
                 Margin="10"
-                DisplayMemberPath="Name"
-                ItemsSource="{Binding Systems, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                SelectedItem="{Binding CurrentSystem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        </StackPanel>
-
-        <Grid Grid.Row="1" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Orientation="Vertical">
-                <TextBox Margin="10" Text="{Binding CurrentFirstUnitText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Background="SkyBlue"
+                BorderThickness="3"
+                CornerRadius="5">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock
+                        x:Name="OutputBlock"
+                        FontSize="12"
+                        Text="{Binding Display.OutputText, Mode=OneWay}" />
+                    <TextBlock
+                        x:Name="InputBlock"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Text="{Binding Display.InputText, Mode=OneWay}" />
+                </StackPanel>
+            </Border>
+            <Grid
+                Grid.Row="1"
+                Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="5">
+                    <Label
+                        Content="Input:"/>
+                </Border>
                 <ComboBox
-                    Margin="10"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="5"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                    SelectedItem="{Binding CurrentFirstUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
-
-            <StackPanel Grid.Column="1" Orientation="Vertical">
-                <TextBlock Margin="10" Text="{Binding CurrentResultUnitText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                    SelectedItem="{Binding CurrentFirstUnit}"/>
+                <Border
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="5">
+                    <Label
+                        Content="Output:"/>
+                </Border>
                 <ComboBox
-                    Margin="10"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="5"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                    SelectedItem="{Binding CurrentResultUnit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
-            <Button
-                Grid.Column="2"
-                Margin="10"
+                    SelectedItem="{Binding CurrentResultUnit}"/>
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button
+            Grid.Row="0"
+            Grid.Column="0"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="7"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="8"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="0"
+            Grid.Column="2"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="9"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="6"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="1"
+            Grid.Column="1"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="5"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="1"
+            Grid.Column="2"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="4"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="3"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="2"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="2"
+            Grid.Column="2"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="1"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="0"
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+            Grid.Row="3"
+            Grid.Column="2"
+            Command="{Binding DotInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content=","
+            Style="{DynamicResource NumberButtonStyle}" />
+                <Button
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Margin="5"
+                Content="Convert"
                 Command="{Binding ConvertCommand}"
-                Content="Convert" />
+                Style="{DynamicResource NumberButtonStyle}"/>
+            </Grid>
         </Grid>
-
+        <Grid
+            Grid.Column="1"
+            Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid 
+                Grid.Row="0"
+                Margin="5">
+                <ComboBox
+                    DisplayMemberPath="Name"
+                    ItemsSource="{Binding Systems, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                    SelectedItem="{Binding CurrentSystem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Margin="5">
+                <ListView
+                Name="JournalListView"
+                Grid.Row="2"
+                Background="Gray"
+                BorderThickness="3"
+                ItemsSource="{Binding Journal.TextList, Mode=OneWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding JournalTextChoiceCommand}" CommandParameter="{Binding ElementName=JournalListView, Path=SelectedItem}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ListView>
+            </Grid>
+        </Grid>
     </Grid>
+    
 </ContentControl>

@@ -167,6 +167,9 @@ namespace Apps.WPFVersionCC.ViewModel
             return true;
         }
 
+        public Display Display { get; set; }
+        public Journal Journal { get; set; }
+
         #endregion
 
         #region Methods
