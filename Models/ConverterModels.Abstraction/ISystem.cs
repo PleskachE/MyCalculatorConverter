@@ -2,6 +2,6 @@
 {
     public interface ISystem
     {
-        BaseUnitSystem GetReferenceUnit();
+        IUnitSystem GetReferenceUnit();
     }
 }

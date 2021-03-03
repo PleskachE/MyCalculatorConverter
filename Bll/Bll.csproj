@@ -82,10 +82,6 @@
       <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
       <Name>ConverterModels.Abstraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Models\ConverterModels.Entities\ConverterModels.Entities.csproj">
-      <Project>{B977D022-F257-45A4-B65F-EC8F1B57778D}</Project>
-      <Name>ConverterModels.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ResourceBll.resx">

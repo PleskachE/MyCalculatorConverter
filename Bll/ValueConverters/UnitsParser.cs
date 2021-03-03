@@ -1,8 +1,11 @@
 ﻿using Models.ConverterModels.Abstraction;
+
 using System;
 using System.Linq;
 using System.Reflection;
+
 using Common;
+
 using System.ComponentModel;
 using System.IO;
 using System.Collections.Generic;
@@ -11,33 +14,42 @@ namespace Bll.ValueConverters
 {
     public static class UnitsParser
     {
-        private static BaseUnitSystem[] _units = new BaseUnitSystem[2];
+        private static IUnitSystem[] _units = new IUnitSystem[2];
 
         public static void Parse(string text)
         {
             var firstElem = text.Substring(0, text.LastIndexOf("="));
-            var lastElem = text.Substring(text.LastIndexOf("=") + 2, (text.Count()- firstElem.Count() - 1));
+            var lastElem = text.Substring(text.LastIndexOf("=") + 1, text.Count() - firstElem.Count() - 1);
             _units[0] = CreatingNewUnit(firstElem);
             _units[1] = CreatingNewUnit(lastElem);
         }
 
-        public static BaseUnitSystem GetFirstUnit() { return _units[0]; }
-        public static BaseUnitSystem GetLastUnit() { return _units[1]; }
+        public static IUnitSystem GetFirstUnit() { return _units[0]; }
+        public static IUnitSystem GetLastUnit() { return _units[1]; }
 
-        private static BaseUnitSystem CreatingNewUnit(string text)
+        private static IUnitSystem CreatingNewUnit(string text)
         {
             char[] numbers = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
-            var textValue = text.Intersect(numbers).ToString();
-            text.Remove(textValue.Length);
-            BaseUnitSystem resUnit = null;
+            var chairs = text.Intersect(numbers);
+            string textValue = "";
+            foreach(var item in chairs)
+            {
+                textValue += item.ToString();
+            }
+            text = text.Remove(0, textValue.Length);
+            IUnitSystem resUnit = null;
 
-            Type type = Type.GetType("BaseUnitSystem");
+            Type type = Type.GetType("IUnitSystem");
             var res = GetType(GetAssembly()
                             .GetTypes()
                             .ToList()
-                            .FindAll(x => x.GetInterface("BaseUnitSystem") != type), text);
+                            .FindAll(x => x.GetInterface("IUnitSystem") != type), text);
 
-            resUnit = (BaseUnitSystem)Activator.CreateInstance(res);
+            resUnit = (IUnitSystem)Activator.CreateInstance(res);
+            if(textValue == "")
+            {
+                textValue = "0";
+            }
             resUnit.Value = Decimal.Parse(textValue);
             return resUnit;
         }
@@ -67,7 +79,9 @@ namespace Bll.ValueConverters
             }
             catch
             {
-
+                result = types
+                   .ToList()
+                   .Find(x => x.GetAttribute<DescriptionAttribute>().Description == "Default");
             }
             return result;
         }

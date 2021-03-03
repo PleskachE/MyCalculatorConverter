@@ -9,7 +9,7 @@ namespace Models.ConverterModels.Entities
 {
     public class MemorySystem : BaseSystem
     {
-        public override BaseUnitSystem GetReferenceUnit()
+        public override IUnitSystem GetReferenceUnit()
         {
             throw new NotImplementedException();
         }

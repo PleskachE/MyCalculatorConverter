@@ -7,8 +7,8 @@
     <ProjectGuid>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ValueConverterModel</RootNamespace>
-    <AssemblyName>ValueConverterModel</AssemblyName>
+    <RootNamespace>ConverterModels.Abstraction</RootNamespace>
+    <AssemblyName>ConverterModels.Abstraction</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseSystem.cs" />
-    <Compile Include="BaseUnitSystem.cs" />
     <Compile Include="ISystem.cs" />
     <Compile Include="IUnitSystem.cs" />
     <Compile Include="Common\TypesMeasurementSystems.cs" />

@@ -1,36 +1,36 @@
 ﻿using Models.ConverterModels.Abstraction;
 
-using System;
 using System.ComponentModel;
 
 namespace Models.ConverterModels.Entities.Units
 {
-    [Description("Yard")]
-    public class Yard : IUnitSystem
+    [Description("Default")]
+    public class DefaultUnit : IUnitSystem
     {
         public string Name { get; set; }
         public bool isReferenceUnit { get; set; }
         public decimal Value { get; set; }
 
-        public Yard()
+        public DefaultUnit()
         {
-            Name = "Yard";
+            Name = "Default";
+            isReferenceUnit = false;
         }
-
-        public Yard(decimal value)
+        public DefaultUnit(decimal value)
         {
-            Name = "Yard";
+            Name = "Default";
+            isReferenceUnit = false;
             Value = value;
         }
 
         public decimal RelationToReferenceUnit()
         {
-            return (Decimal.Parse("91.44") * Value);
+            return Value;
         }
 
         public decimal RelationToThisUnit(decimal unitValue)
         {
-            return (unitValue / Decimal.Parse("91.44"));
+            return unitValue;
         }
     }
 }

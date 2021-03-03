@@ -15,7 +15,7 @@ namespace Models.ConverterModels.Entities
             Name = "Система мер массы";
         }
 
-        public override BaseUnitSystem GetReferenceUnit()
+        public override IUnitSystem GetReferenceUnit()
         {
             throw new NotImplementedException();
         }

@@ -1,11 +1,16 @@
 ﻿using Models.ConverterModels.Abstraction;
+
 using System.ComponentModel;
 
 namespace Models.ConverterModels.Entities.Units
 {
     [Description("Millimeter")]
-    public class Millimeter : BaseUnitSystem
+    public class Millimeter : IUnitSystem
     {
+        public string Name { get; set; }
+        public bool isReferenceUnit { get; set; }
+        public decimal Value { get; set; }
+
         public Millimeter()
         {
             Name = "Millimeter";
@@ -17,12 +22,12 @@ namespace Models.ConverterModels.Entities.Units
             Value = value;
         }
 
-        public override decimal RelationToReferenceUnit()
+        public decimal RelationToReferenceUnit()
         {
             return (Value / 10);
         }
 
-        public override decimal RelationToThisUnit(decimal unitValue)
+        public decimal RelationToThisUnit(decimal unitValue)
         {
             return (unitValue * 10);
         }

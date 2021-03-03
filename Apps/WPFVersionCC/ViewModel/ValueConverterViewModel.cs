@@ -60,8 +60,8 @@ namespace Apps.WPFVersionCC.ViewModel
             }
         }
 
-        private BaseUnitSystem _currentFirstUnit;
-        public BaseUnitSystem CurrentFirstUnit
+        private IUnitSystem _currentFirstUnit;
+        public IUnitSystem CurrentFirstUnit
         {
             get
             {
@@ -77,8 +77,8 @@ namespace Apps.WPFVersionCC.ViewModel
                 OnPropertyChanged();
             }
         }
-        private BaseUnitSystem _currentResultUnit;
-        public BaseUnitSystem CurrentResultUnit
+        private IUnitSystem _currentResultUnit;
+        public IUnitSystem CurrentResultUnit
         {
             get
             {

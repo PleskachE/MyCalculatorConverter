@@ -61,7 +61,7 @@ namespace Bll {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на @&quot;C:\Users\Sony\source\repos\MyCalculatorConverter\Models\ConverterModels.Entities\bin\Debug\ConverterModels.Entities.dll&quot;.
+        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\Models\ConverterModels.Entities\bin\Debug\ConverterModels.Entities.dll.
         /// </summary>
         internal static string ValuesConverterEntitiesPath {
             get {

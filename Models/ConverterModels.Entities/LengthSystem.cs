@@ -13,7 +13,7 @@ namespace Models.ConverterModels.Entities
         {
             Name = "Система мер длинны";
             TypesSystems = TypesMeasurementSystems.LengthSystem;
-            Units = new List<BaseUnitSystem>()
+            Units = new List<IUnitSystem>()
             {
                 new Millimeter(),
                 new Centimeter(),
@@ -27,7 +27,7 @@ namespace Models.ConverterModels.Entities
             };
         }
 
-        public override BaseUnitSystem GetReferenceUnit()
+        public override IUnitSystem GetReferenceUnit()
         {
             return Units.ToList().Find(x => x.isReferenceUnit == true);
         }

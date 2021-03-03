@@ -1,12 +1,17 @@
 ﻿using Models.ConverterModels.Abstraction;
+
 using System;
 using System.ComponentModel;
 
 namespace Models.ConverterModels.Entities.Units
 {
     [Description("Ft")]
-    public class Ft : BaseUnitSystem
+    public class Ft : IUnitSystem
     {
+        public string Name { get; set; }
+        public bool isReferenceUnit { get; set; }
+        public decimal Value { get; set; }
+
         public Ft()
         {
             Name = "Ft";
@@ -18,12 +23,12 @@ namespace Models.ConverterModels.Entities.Units
             Value = value;
         }
 
-        public override decimal RelationToReferenceUnit()
+        public decimal RelationToReferenceUnit()
         {
             return (Decimal.Parse("30.48") * Value);
         }
 
-        public override decimal RelationToThisUnit(decimal unitValue)
+        public decimal RelationToThisUnit(decimal unitValue)
         {
             return (unitValue / Decimal.Parse("30.48"));
         }
