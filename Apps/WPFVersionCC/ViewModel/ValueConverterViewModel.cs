@@ -149,8 +149,9 @@ namespace Apps.WPFVersionCC.ViewModel
         {
             var text = Display.InputText + CurrentFirstUnit.Name + "=" + CurrentResultUnit.Name;
             var result = _executor.Calculation(text);
+            text = Display.InputText + CurrentFirstUnit.Name + "=" + result + CurrentResultUnit.Name;
             Display.AddNumber(result);
-            Journal.AddNote(result);
+            Journal.AddNote(text);
 
             _buttonManager = new EqualsEntered();
             _buttonManager.IsDotInput = true;
