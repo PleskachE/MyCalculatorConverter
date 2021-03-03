@@ -1,5 +1,8 @@
 ﻿using Apps.WPFVersionCC.Infrastructure;
+using Apps.WPFVersionCC.Properties;
 using Apps.WPFVersionCC.ViewManagment;
+using Apps.WPFVersionCC.ViewManagment.ButtonManagers;
+using Apps.WPFVersionCC.ViewManagment.ButtonManagers.Abstractions;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
 using Bll.Executers;
 using Bll.Executers.Abstractions;
@@ -21,6 +24,7 @@ namespace Apps.WPFVersionCC.ViewModel
         #region Fields
 
         private IExecuter _executor;
+        private ButtonManager _buttonManager;
 
         #endregion
 
@@ -28,14 +32,19 @@ namespace Apps.WPFVersionCC.ViewModel
 
         public ValueConverterViewModel()
         {
+            GeneratingCommands();
+
+            _buttonManager = new EqualsEntered();
             _executor = new ConverterUnitsMeasurement(_currentSystem);
+
+            Display = new Display();
+            Journal = new Journal();
             Systems = new List<BaseSystem>()
             {
                 new LengthSystem(),
                 new WeightsSystem(),
                 new MemorySystem()
             };
-            ConvertCommand = new RelayCommand(ExecuteConvertCommand, CanExecuteConvertCommand);
         }
 
         #endregion
@@ -97,82 +106,70 @@ namespace Apps.WPFVersionCC.ViewModel
 
         public ICollection<BaseSystem> Systems { get; }
 
-        private string _currentFirstUnitText;
-        public string CurrentFirstUnitText
-        {
-            get
-            {
-                if (_currentFirstUnitText == null)
-                {
-                    _currentFirstUnitText = "0";
-                }
-                return _currentFirstUnitText;
-            }
-            set
-            {
-                _currentFirstUnitText = value;
-                OnPropertyChanged();
-            }
-        }
-        private string _currentResultUnitText;
-        public string CurrentResultUnitText
-        {
-            get
-            {
-                if (_currentResultUnitText == null)
-                {
-                    _currentResultUnitText = "0";
-                }
-                return _currentResultUnitText;
-            }
-            set
-            {
-                _currentResultUnitText = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _resultText;
-        public string ResultText
-        {
-            get
-            {
-                if (_resultText == null)
-                {
-                    _resultText = "";
-                }
-                return _resultText;
-            }
-            set
-            {
-                _resultText = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public RelayCommand ConvertCommand { get; set; }
-
-        #endregion
-
-        #region Commands
-
-        private void ExecuteConvertCommand(object parameter)
-        {
-            var text = CurrentFirstUnitText + CurrentFirstUnit.Name + "=" + CurrentResultUnit.Name;
-            ResultText = _executor.Calculation(text);
-        }
-
-        public bool CanExecuteConvertCommand(object parameter)
-        {
-            return true;
-        }
+        public RelayCommand NumbersInputCommand { get; set; }
+        public RelayCommand DotInputCommand { get; set; }
+        public RelayCommand EqualsInputCommand { get; set; }
 
         public Display Display { get; set; }
         public Journal Journal { get; set; }
 
         #endregion
 
+        #region Commands
+
+        private void ExecuteNumbersInputCommand(object parameter)
+        {
+            Display.NumbersInput(parameter as string);
+
+            _buttonManager.IsEqualsInput = false;
+            _buttonManager.IsWorkingSymbalInput = false;
+        }
+        public bool CanExecuteNumbersInputCommand(object parameter)
+        {
+            return Display.InputText.Length < Int32.Parse(Resources.MaxCountSymbal);
+        }
+
+        private void ExecuteDotInputCommand(object parameter)
+        {
+            var text = parameter as string;
+            if (Display.InputText.Length == 0)
+            {
+                Display.WorkingSymbalInput("0");
+            }
+            Display.NumbersInput(text);
+
+            _buttonManager = new DottInput();
+        }
+        public bool CanExecuteDotInputCommand(object parameter)
+        {
+            return ((_buttonManager.IsDotInput != true) & (Display.InputText.Length != 0));
+        }
+
+        private void ExecuteEqualsInputCommand(object parameter)
+        {
+            var text = Display.InputText + CurrentFirstUnit.Name + "=" + CurrentResultUnit.Name;
+            var result = _executor.Calculation(text);
+            Display.AddNumber(result);
+            Journal.AddNote(result);
+
+            _buttonManager = new EqualsEntered();
+            _buttonManager.IsDotInput = true;
+        }
+        public bool CanExecuteEqualsInputCommand(object parameter)
+        {
+            return (_buttonManager.IsEqualsInput != true || Display.InputText.Length != 0);
+        }
+
+        #endregion
+
         #region Methods
+
+        private void GeneratingCommands()
+        {
+            NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);  
+            DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
+            EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
+        }
 
         #endregion
     }

@@ -180,13 +180,13 @@
             Content=","
             Style="{DynamicResource NumberButtonStyle}" />
                 <Button
-                Grid.Row="4"
-                Grid.Column="0"
-                Grid.ColumnSpan="3"
-                Margin="5"
-                Content="Convert"
-                Command="{Binding ConvertCommand}"
-                Style="{DynamicResource NumberButtonStyle}"/>
+            Grid.Row="4"
+            Grid.ColumnSpan="3"
+            Grid.Column="0"
+            Command="{Binding EqualsInputCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
+            Content="="
+            Style="{DynamicResource WorkingButtonStyle}" />
             </Grid>
         </Grid>
         <Grid

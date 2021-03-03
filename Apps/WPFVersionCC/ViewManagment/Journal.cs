@@ -26,6 +26,11 @@ namespace Apps.WPFVersionCC.ViewManagment
             ClearText();
         }
 
+        public void AddNote(string text)
+        {
+            TextList.Add(text);
+        }
+
         private void ClearText()
         {
             _text = "";
