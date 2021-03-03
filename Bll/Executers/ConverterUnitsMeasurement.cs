@@ -20,7 +20,7 @@ namespace Bll.Executers
             var resUnit = UnitsParser.GetLastUnit();
             var tempValue = firstUnit.RelationToReferenceUnit();
             var resValue = resUnit.RelationToThisUnit(tempValue);
-            return firstUnit.Value.ToString() + firstUnit.Name + "=" + resValue.ToString() + resUnit.Name;
+            return resValue.ToString();
         }
     }
 }
