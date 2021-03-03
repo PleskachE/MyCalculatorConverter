@@ -110,6 +110,10 @@ namespace Apps.WPFVersionCC.ViewModel
         public RelayCommand DotInputCommand { get; set; }
         public RelayCommand EqualsInputCommand { get; set; }
 
+        public RelayCommand DeleteAllCommand { get; set; }
+        public RelayCommand JournalTextChoiceCommand { get; set; }
+        public RelayCommand JournalClearCommand { get; set; }
+
         public Display Display { get; set; }
         public Journal Journal { get; set; }
 
@@ -161,6 +165,37 @@ namespace Apps.WPFVersionCC.ViewModel
             return (_buttonManager.IsEqualsInput != true || Display.InputText.Length != 0);
         }
 
+        private void ExecuteDeleteAllCommand(object parameter)
+        {
+            Display.DeleteOutput();
+            _buttonManager = new EqualsEntered();
+        }
+        public bool CanExecuteDeleteAllCommand(object parameter)
+        {
+            return Display.OutputText.Length != 0;
+        }
+
+        private void ExecuteJournalTextChoiceCommand(object parametr)
+        {
+            //Display.DeleteOutput();
+            //var text = (parametr as string);
+            //var index = text.IndexOf("=");
+            //Display.AddNumber(text.Substring((++index), text.Length - index));
+        }
+        public bool CanExecuteJournalTextChoiceCommand(object parametr)
+        {
+            return Journal.TextList.Count != 0;
+        }
+
+        private void ExecuteJournalClearCommand(object parametr)
+        {
+            Journal.TextList.Clear();
+        }
+        public bool CanExecuteJournalClearCommand(object parametr)
+        {
+            return Journal.TextList.Count != 0;
+        }
+
         #endregion
 
         #region Methods
@@ -170,6 +205,10 @@ namespace Apps.WPFVersionCC.ViewModel
             NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);  
             DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
             EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
+
+            DeleteAllCommand = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
+            JournalTextChoiceCommand = new RelayCommand(ExecuteJournalTextChoiceCommand, CanExecuteJournalTextChoiceCommand);
+            JournalClearCommand = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
         }
 
         #endregion

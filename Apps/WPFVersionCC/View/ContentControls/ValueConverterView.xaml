@@ -284,8 +284,8 @@
                 <Button
             Grid.Row="4"
             Grid.Column="2"
-            Command="{Binding DeleteOneNumberCommand}"
-            Content="CE"
+            Command="{Binding DeleteAllCommand}"
+            Content="C"
             Style="{DynamicResource WorkingButtonStyle}" />
             </Grid>
         </Grid>
