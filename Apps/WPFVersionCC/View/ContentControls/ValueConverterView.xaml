@@ -14,10 +14,99 @@
         <local:ValueConverterViewModel />
     </ContentControl.DataContext>
 
+    <ContentControl.InputBindings>
+        <KeyBinding
+            Key="NumPad0"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="0" />
+        <KeyBinding
+            Key="NumPad1"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="1" />
+        <KeyBinding
+            Key="NumPad2"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="2" />
+        <KeyBinding
+            Key="NumPad3"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="3" />
+        <KeyBinding
+            Key="NumPad4"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="4" />
+        <KeyBinding
+            Key="NumPad5"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="5" />
+        <KeyBinding
+            Key="NumPad6"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="6" />
+        <KeyBinding
+            Key="NumPad7"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="7" />
+        <KeyBinding
+            Key="NumPad8"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="8" />
+        <KeyBinding
+            Key="NumPad9"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="9" />
+
+        <KeyBinding
+            Key="D0"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="0" />
+        <KeyBinding
+            Key="D1"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="1" />
+        <KeyBinding
+            Key="D2"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="2" />
+        <KeyBinding
+            Key="D3"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="3" />
+        <KeyBinding
+            Key="D4"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="4" />
+        <KeyBinding
+            Key="D5"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="5" />
+        <KeyBinding
+            Key="D6"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="6" />
+        <KeyBinding
+            Key="D7"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="7" />
+        <KeyBinding
+            Key="D8"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="8" />
+        <KeyBinding
+            Key="D9"
+            Command="{Binding NumbersInputCommand}"
+            CommandParameter="9" />
+
+        <KeyBinding
+            Key="Enter"
+            Command="{Binding EqualsInputCommand}"
+            CommandParameter="=" />
+    </ContentControl.InputBindings>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid
             Grid.Column="0"
@@ -106,7 +195,7 @@
             Grid.Column="0"
             Command="{Binding NumbersInputCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
-            Content="7"
+            Content="9"
             Style="{DynamicResource NumberButtonStyle}" />
                 <Button
             Grid.Row="0"
@@ -120,7 +209,7 @@
             Grid.Column="2"
             Command="{Binding NumbersInputCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
-            Content="9"
+            Content="7"
             Style="{DynamicResource NumberButtonStyle}" />
                 <Button
             Grid.Row="1"
@@ -167,25 +256,36 @@
                 <Button
             Grid.Row="3"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
             Command="{Binding NumbersInputCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="0"
             Style="{DynamicResource NumberButtonStyle}" />
                 <Button
             Grid.Row="3"
-            Grid.Column="2"
+            Grid.Column="1"
             Command="{Binding DotInputCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content=","
             Style="{DynamicResource NumberButtonStyle}" />
                 <Button
+            Grid.Row="3"
+            Grid.Column="2"
+            Command="{Binding JournalClearCommand}"
+            Content="#"
+            Style="{DynamicResource WorkingButtonStyle}" />
+                <Button
             Grid.Row="4"
-            Grid.ColumnSpan="3"
             Grid.Column="0"
+            Grid.ColumnSpan="2"
             Command="{Binding EqualsInputCommand}"
             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
             Content="="
+            Style="{DynamicResource WorkingButtonStyle}" />
+                <Button
+            Grid.Row="4"
+            Grid.Column="2"
+            Command="{Binding DeleteOneNumberCommand}"
+            Content="CE"
             Style="{DynamicResource WorkingButtonStyle}" />
             </Grid>
         </Grid>
