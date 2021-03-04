@@ -16,6 +16,7 @@ using Bll.Executers.Abstractions;
 using Bll.Executers;
 using System.Windows.Controls;
 using Apps.WPFVersionCC.View.ContentControls;
+using MyCalculatorConverter.Properties;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
@@ -56,6 +57,20 @@ namespace Apps.WPFVersionCC.ViewModel
         }
 
         public bool CanExecuteOpenValueConverterCommand(object parameter)
+        {
+            return true;
+        }
+
+        private void ExecuteChacngingDesignThemeCommand(object parameter)
+        {
+            string _uri = Resources.StylePath + parameter as string + ".xaml";
+            var newTheme = new ResourceDictionary();
+            newTheme.Source = new Uri(_uri);
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(newTheme);
+        }
+
+        public bool CanExecuteChacngingDesignThemeCommand(object parameter)
         {
             return true;
         }
@@ -110,6 +125,7 @@ namespace Apps.WPFVersionCC.ViewModel
 
         public RelayCommand OpenCalculatorCommand { get; set; }
         public RelayCommand OpenValueConverterCommand { get; set; }
+        public RelayCommand ChacngingDesignThemeCommand { get; set; }
 
         #endregion
 
@@ -119,6 +135,7 @@ namespace Apps.WPFVersionCC.ViewModel
         {
             OpenCalculatorCommand = new RelayCommand(ExecuteOpenCalculatorCommand, CanExecuteOpenCalculatorCommand);
             OpenValueConverterCommand = new RelayCommand(ExecuteOpenValueConverterCommand, CanExecuteOpenValueConverterCommand);
+            ChacngingDesignThemeCommand = new RelayCommand(ExecuteChacngingDesignThemeCommand, CanExecuteChacngingDesignThemeCommand);
         }
 
         #endregion

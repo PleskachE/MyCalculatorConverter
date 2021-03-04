@@ -8,6 +8,7 @@ using Bll.Executers;
 using Bll.Executers.Abstractions;
 using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Entities;
+using MyCalculatorConverter.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

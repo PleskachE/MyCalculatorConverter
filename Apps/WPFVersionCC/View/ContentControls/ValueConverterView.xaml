@@ -155,7 +155,7 @@
                 <ComboBox
                     Grid.Row="1"
                     Grid.Column="0"
-                    Margin="5"
+                    Style="{DynamicResource ComboboxStyle}"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     SelectedItem="{Binding CurrentFirstUnit}"/>
@@ -169,7 +169,7 @@
                 <ComboBox
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="5"
+                    Style="{DynamicResource ComboboxStyle}"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     SelectedItem="{Binding CurrentResultUnit}"/>
@@ -300,6 +300,7 @@
                 Grid.Row="0"
                 Margin="5">
                 <ComboBox
+                    Style="{DynamicResource ComboboxStyle}"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding Systems, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     SelectedItem="{Binding CurrentSystem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

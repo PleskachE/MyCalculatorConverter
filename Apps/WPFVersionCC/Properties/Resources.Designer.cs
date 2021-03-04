@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Apps.WPFVersionCC.Properties {
+namespace MyCalculatorConverter.Properties {
     using System;
     
     
@@ -102,6 +102,15 @@ namespace Apps.WPFVersionCC.Properties {
         public static string MinWidthSimpleCalc {
             get {
                 return ResourceManager.GetString("MinWidthSimpleCalc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\Apps\WPFVersionCC\Resource\Styles\.
+        /// </summary>
+        public static string StylePath {
+            get {
+                return ResourceManager.GetString("StylePath", resourceCulture);
             }
         }
         

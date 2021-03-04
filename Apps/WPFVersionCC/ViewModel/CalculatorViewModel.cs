@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using MyCalculatorConverter.Properties;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
