@@ -1,17 +1,21 @@
 ﻿using Models.ConverterModels.Abstraction;
-using System;
+using Models.ConverterModels.Abstraction.Common;
+using Models.ConverterModels.Entities.Units;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.ConverterModels.Entities
 {
     public class MemorySystem : BaseSystem
     {
-        public override IUnitSystem GetReferenceUnit()
+        public MemorySystem()
         {
-            throw new NotImplementedException();
+            Name = "Memory Elements";
+            TypesSystems = TypesMeasurementSystems.SystemMemory;
+            Units = new List<IUnitSystem>()
+            {
+
+            };
         }
     }
 }

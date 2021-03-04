@@ -1,6 +1,7 @@
 ﻿using Models.ConverterModels.Abstraction.Common;
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Models.ConverterModels.Abstraction
 {
@@ -10,9 +11,9 @@ namespace Models.ConverterModels.Abstraction
         public ICollection<IUnitSystem> Units { get; set; }
         public TypesMeasurementSystems TypesSystems { get; set; }
 
-        public virtual IUnitSystem GetReferenceUnit()
+        public IUnitSystem GetReferenceUnit()
         {
-            throw new System.NotImplementedException();
+            return Units.ToList().Find(x => x.isReferenceUnit == true);
         }
     }
 }

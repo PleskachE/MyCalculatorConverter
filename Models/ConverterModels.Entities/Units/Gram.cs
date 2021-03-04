@@ -1,41 +1,40 @@
 ﻿using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Abstraction.Common;
-using System;
 using System.ComponentModel;
 
 namespace Models.ConverterModels.Entities.Units
 {
-    [Description("Ft")]
-    public class Ft : IUnitSystem
+    [Description("Gram")]
+    public class Gram : IUnitSystem
     {
         public string Name { get; set; }
         public bool isReferenceUnit { get; set; }
         public decimal Value { get; set; }
         public TypesMeasurementSystems Type { get; set; }
 
-        public Ft()
+        public Gram()
         {
-            Name = "Ft";
-            Type = TypesMeasurementSystems.LengthSystem;
+            Name = "Gram";
+            Type = TypesMeasurementSystems.SystemWeights;
             isReferenceUnit = false;
         }
 
-        public Ft(decimal value)
+        public Gram(decimal value)
         {
-            Name = "Ft";
-            Type = TypesMeasurementSystems.LengthSystem;
+            Name = "Gram";
+            Type = TypesMeasurementSystems.SystemWeights;
             isReferenceUnit = false;
             Value = value;
         }
 
         public decimal RelationToReferenceUnit()
         {
-            return (Decimal.Parse("30.48") * Value);
+            return Value / 1000;
         }
 
         public decimal RelationToThisUnit(decimal unitValue)
         {
-            return (unitValue / Decimal.Parse("30.48"));
+            return unitValue * 1000;
         }
     }
 }

@@ -3,7 +3,6 @@ using Models.ConverterModels.Abstraction.Common;
 using Models.ConverterModels.Entities.Units;
 
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Models.ConverterModels.Entities
 {
@@ -11,7 +10,7 @@ namespace Models.ConverterModels.Entities
     {
         public LengthSystem()
         {
-            Name = "Система мер длинны";
+            Name = "Length Elements";
             TypesSystems = TypesMeasurementSystems.LengthSystem;
             Units = new List<IUnitSystem>()
             {
@@ -25,11 +24,6 @@ namespace Models.ConverterModels.Entities
                 new Yard(),
                 new Mile()
             };
-        }
-
-        public override IUnitSystem GetReferenceUnit()
-        {
-            return Units.ToList().Find(x => x.isReferenceUnit == true);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Models.ConverterModels.Abstraction;
-
+using Models.ConverterModels.Abstraction.Common;
 using System;
 using System.ComponentModel;
 
@@ -11,15 +11,20 @@ namespace Models.ConverterModels.Entities.Units
         public string Name { get; set; }
         public bool isReferenceUnit { get; set; }
         public decimal Value { get; set; }
+        public TypesMeasurementSystems Type { get; set; }
 
         public Inch()
         {
             Name = "Inch";
+            Type = TypesMeasurementSystems.LengthSystem;
+            isReferenceUnit = false;
         }
 
         public Inch(decimal value)
         {
             Name = "Inch";
+            Type = TypesMeasurementSystems.LengthSystem;
+            isReferenceUnit = false;
             Value = value;
         }
 

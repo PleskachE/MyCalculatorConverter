@@ -5,37 +5,37 @@ using System.ComponentModel;
 
 namespace Models.ConverterModels.Entities.Units
 {
-    [Description("Ft")]
-    public class Ft : IUnitSystem
+    [Description("Carat")]
+    public class Carat : IUnitSystem
     {
         public string Name { get; set; }
         public bool isReferenceUnit { get; set; }
         public decimal Value { get; set; }
         public TypesMeasurementSystems Type { get; set; }
 
-        public Ft()
+        public Carat()
         {
-            Name = "Ft";
-            Type = TypesMeasurementSystems.LengthSystem;
+            Name = "Carat";
+            Type = TypesMeasurementSystems.SystemWeights;
             isReferenceUnit = false;
         }
 
-        public Ft(decimal value)
+        public Carat(decimal value)
         {
-            Name = "Ft";
-            Type = TypesMeasurementSystems.LengthSystem;
+            Name = "Carat";
+            Type = TypesMeasurementSystems.SystemWeights;
             isReferenceUnit = false;
             Value = value;
         }
 
         public decimal RelationToReferenceUnit()
         {
-            return (Decimal.Parse("30.48") * Value);
+            return Value * Decimal.Parse("0.0002");
         }
 
         public decimal RelationToThisUnit(decimal unitValue)
         {
-            return (unitValue / Decimal.Parse("30.48"));
+            return unitValue / Decimal.Parse("0.0002");
         }
     }
 }
