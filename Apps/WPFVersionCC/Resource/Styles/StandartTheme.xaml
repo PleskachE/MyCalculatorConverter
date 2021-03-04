@@ -55,13 +55,15 @@
         <Setter Property="Margin" Value="5" />
     </Style>
 
+    <Style x:Key="items" TargetType="ComboBoxItem">
+        <Setter Property="Background" Value="{StaticResource WorkingBrush}"/>
+    </Style>
+    
     <Style x:Key="ComboboxStyle" TargetType="ComboBox">
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="FontSize" Value="15" />
         <Setter Property="Margin" Value="5" />
-        <Setter Property="Background" Value="{StaticResource WorkingBrush}" />
-        <Setter Property="BorderBrush" Value="DeepSkyBlue" />
-        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource items}"/>
     </Style>
 
 </ResourceDictionary>
