@@ -14,7 +14,10 @@ namespace Models.ConverterModels.Entities
             TypesSystems = TypesMeasurementSystems.SystemMemory;
             Units = new List<IUnitSystem>()
             {
-
+                new Bit(),
+                new Byte(),
+                new Kilobyte(),
+                new Megabyte()
             };
         }
     }

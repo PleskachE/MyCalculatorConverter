@@ -13,26 +13,26 @@
         <GradientStop Offset="1" Color="LawnGreen" />
     </LinearGradientBrush>
 
-  <Style x:Key="WorkingButtonStyle" TargetType="Button">
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate TargetType="Button">
-          <Grid x:Name="border">
-            <Rectangle
-                Fill="{StaticResource WorkingBrush}"
-                RadiusX="5"
-                RadiusY="5"
-                Stroke="DeepSkyBlue"
-                StrokeThickness="3" />
-            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-          </Grid>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-    <Setter Property="Foreground" Value="Black" />
-    <Setter Property="FontSize" Value="18" />
-    <Setter Property="Margin" Value="5" />
-  </Style>
+    <Style x:Key="WorkingButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="border">
+                        <Rectangle
+                            Fill="{StaticResource WorkingBrush}"
+                            RadiusX="5"
+                            RadiusY="5"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="3" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Margin" Value="5" />
+    </Style>
 
     <Style x:Key="NumberButtonStyle" TargetType="Button">
         <Setter Property="Template">
@@ -55,15 +55,15 @@
         <Setter Property="Margin" Value="5" />
     </Style>
 
-  <Style x:Key="items" TargetType="ComboBoxItem">
-    <Setter Property="Background" Value="{StaticResource WorkingBrush}"/>
-  </Style>
+    <Style x:Key="items" TargetType="ComboBoxItem">
+        <Setter Property="Background" Value="{StaticResource WorkingBrush}" />
+    </Style>
 
-  <Style x:Key="ComboboxStyle" TargetType="ComboBox">
-    <Setter Property="Foreground" Value="Black" />
-    <Setter Property="FontSize" Value="15" />
-    <Setter Property="Margin" Value="5" />
-    <Setter Property="ItemContainerStyle" Value="{StaticResource items}"/>
-  </Style>
+    <Style x:Key="ComboboxStyle" TargetType="ComboBox">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource items}" />
+    </Style>
 
 </ResourceDictionary>

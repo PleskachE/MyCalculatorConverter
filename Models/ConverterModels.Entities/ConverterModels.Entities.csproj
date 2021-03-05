@@ -44,6 +44,8 @@
     <Compile Include="LengthSystem.cs" />
     <Compile Include="MemorySystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Units\Bit.cs" />
+    <Compile Include="Units\Byte.cs" />
     <Compile Include="Units\Carat.cs" />
     <Compile Include="Units\Centimeter.cs" />
     <Compile Include="Units\Decimeter.cs" />
@@ -52,8 +54,10 @@
     <Compile Include="Units\Gram.cs" />
     <Compile Include="Units\Hundredweight.cs" />
     <Compile Include="Units\Inch.cs" />
+    <Compile Include="Units\Kilobyte.cs" />
     <Compile Include="Units\Kilogram.cs" />
     <Compile Include="Units\Kilometer.cs" />
+    <Compile Include="Units\Megabyte.cs" />
     <Compile Include="Units\Metre.cs" />
     <Compile Include="Units\Mile.cs" />
     <Compile Include="Units\Milligram.cs" />
