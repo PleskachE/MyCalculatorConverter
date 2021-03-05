@@ -1,29 +1,41 @@
-﻿using Models.ConverterModels.Abstraction;
+﻿using Common;
+using ConverterModels.Entities;
+using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Abstraction.Common;
 using Models.ConverterModels.Entities.Units;
 
+using System;
 using System.Collections.Generic;
 
 namespace Models.ConverterModels.Entities
 {
     public class LengthSystem : BaseSystem
     {
+        private ICollection<Type> collection = ClassCollectionLoader
+            .loadsTypesImplementInterface(AssemblyLoader.LoadsAssemblyOnPath(ModelResource.ValuesConverterEntitiesPath), "IUnitSystem");
+
         public LengthSystem()
         {
             Name = "Length Elements";
             TypesSystems = TypesMeasurementSystems.LengthSystem;
-            Units = new List<IUnitSystem>()
+            Units = new List<IUnitSystem>();
+            LoadUnits();
+        }
+
+        private void LoadUnits()
+        {
+            foreach (var item in collection)
             {
-                new Millimeter(),
-                new Centimeter(),
-                new Decimeter(),
-                new Metre(),
-                new Kilometer(),
-                new Inch(),
-                new Ft(),
-                new Yard(),
-                new Mile()
-            };
+                var unit = (IUnitSystem)Activator.CreateInstance(item);
+                if (unit.Type == TypesSystems)
+                {
+                    Units.Add(unit);
+                }
+            }
+            if (Units.Count == 0)
+            {
+                Units.Add(new DefaultUnit());
+            }
         }
     }
 }

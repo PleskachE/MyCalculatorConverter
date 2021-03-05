@@ -43,6 +43,11 @@
   <ItemGroup>
     <Compile Include="LengthSystem.cs" />
     <Compile Include="MemorySystem.cs" />
+    <Compile Include="ModelResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Units\Bit.cs" />
     <Compile Include="Units\Byte.cs" />
@@ -70,10 +75,20 @@
     <Compile Include="WeightsSystem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{571A2DFD-D0F6-48FD-B94B-31F06C95126A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
       <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
       <Name>ConverterModels.Abstraction</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ModelResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ModelResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

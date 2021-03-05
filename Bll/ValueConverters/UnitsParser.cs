@@ -4,11 +4,12 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-using Common;
+using Common.extensions;
 
 using System.ComponentModel;
 using System.IO;
 using System.Collections.Generic;
+using Common;
 
 namespace Bll.ValueConverters
 {
@@ -37,53 +38,18 @@ namespace Bll.ValueConverters
                 textValue += item.ToString();
             }
             text = text.Remove(0, textValue.Length);
-            IUnitSystem resUnit = null;
 
-            Type type = Type.GetType("IUnitSystem");
-            var res = GetType(GetAssembly()
-                            .GetTypes()
-                            .ToList()
-                            .FindAll(x => x.GetInterface("IUnitSystem") != type), text);
+            var res = TypeLoader.GetType
+                (ClassCollectionLoader.loadsTypesImplementInterface
+                (AssemblyLoader.LoadsAssemblyOnPath(ResourceBll.ValuesConverterEntitiesPath), "IUnitSystem"), text);
 
-            resUnit = (IUnitSystem)Activator.CreateInstance(res);
+            var resUnit = (IUnitSystem)Activator.CreateInstance(res);
             if(textValue == "")
             {
                 textValue = "0";
             }
             resUnit.Value = Decimal.Parse(textValue);
             return resUnit;
-        }
-        private static Assembly GetAssembly()
-        {
-            string path =  ResourceBll.ValuesConverterEntitiesPath;
-            Assembly assembly = null;
-            try
-            {
-                assembly = Assembly.LoadFrom(path);
-            }
-            catch 
-            {
-                throw new DirectoryNotFoundException($"Directory {path} was not found");
-            }
-            return assembly;
-        }
-
-        private static Type GetType(IEnumerable<Type> types, string text)
-        {
-            Type result = null;
-            try
-            {
-                result = types
-                    .ToList()
-                    .Find(x => x.GetAttribute<DescriptionAttribute>().Description == text);
-            }
-            catch
-            {
-                result = types
-                   .ToList()
-                   .Find(x => x.GetAttribute<DescriptionAttribute>().Description == "Default");
-            }
-            return result;
         }
     }
 }
