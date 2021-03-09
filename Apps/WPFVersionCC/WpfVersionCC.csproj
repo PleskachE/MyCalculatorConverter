@@ -166,6 +166,10 @@
       <Project>{5B1E4EFF-838A-4A5D-A865-833930C614CE}</Project>
       <Name>Bll</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{571A2DFD-D0F6-48FD-B94B-31F06C95126A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Models\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
       <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
       <Name>ConverterModels.Abstraction</Name>

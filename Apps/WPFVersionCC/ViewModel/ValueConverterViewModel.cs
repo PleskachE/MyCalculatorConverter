@@ -6,6 +6,7 @@ using Apps.WPFVersionCC.ViewManagment.ButtonManagers.Abstractions;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
 using Bll.Executers;
 using Bll.Executers.Abstractions;
+using Common.extensions;
 using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Entities;
 using MyCalculatorConverter.Properties;
@@ -180,10 +181,13 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void ExecuteJournalTextChoiceCommand(object parametr)
         {
-            //Display.DeleteOutput();
-            //var text = (parametr as string);
-            //var index = text.IndexOf("=");
-            //Display.AddNumber(text.Substring((++index), text.Length - index));
+            Display.DeleteOutput();
+            var text = (parametr as string);
+            var index = text.IndexOf("=");
+            Display.AddNumber(text
+                .Substring((++index), text.Length - index).
+                GetNumbersFromString());
+
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
         {
