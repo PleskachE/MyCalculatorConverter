@@ -47,6 +47,12 @@
     <Compile Include="extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeLoader.cs" />
+    <Compile Include="ViewManagement\ButtonManager.cs" />
+    <Compile Include="ViewManagement\Display.cs" />
+    <Compile Include="ViewManagement\Interfaces\IButtonManager.cs" />
+    <Compile Include="ViewManagement\Interfaces\IDisplay.cs" />
+    <Compile Include="ViewManagement\Interfaces\IJournal.cs" />
+    <Compile Include="ViewManagement\Journal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\ConverterModels.Common\ConverterModels.Common.csproj">

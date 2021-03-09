@@ -1,9 +1,11 @@
-﻿using System.ComponentModel;
+﻿using Common.ViewManagement.Interfaces;
+
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Apps.WPFVersionCC.ViewManagment
+namespace Common.ViewManagement
 {
-    public class Display : INotifyPropertyChanged
+    public class Display : INotifyPropertyChanged, IDisplay
     {
         public Display()
         {

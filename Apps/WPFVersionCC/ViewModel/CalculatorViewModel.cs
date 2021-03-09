@@ -3,9 +3,6 @@ using Bll.Executers.Abstractions;
 using Apps.WPFVersionCC.Properties;
 using Apps.WPFVersionCC.View;
 using Apps.WPFVersionCC.View.UserControls;
-using Apps.WPFVersionCC.ViewManagment;
-using Apps.WPFVersionCC.ViewManagment.ButtonManagers;
-using Apps.WPFVersionCC.ViewManagment.ButtonManagers.Abstractions;
 using Apps.WPFVersionCC.Infrastructure;
 using Apps.WPFVersionCC.ViewModel;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
@@ -17,6 +14,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using MyCalculatorConverter.Properties;
+using Common.ViewManagement.Interfaces;
+using Common.ViewManagement;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
@@ -24,7 +23,7 @@ namespace Apps.WPFVersionCC.ViewModel
     {
         #region Fields
 
-        private ButtonManager _buttonManager;
+        private IButtonManager _buttonManager;
 
         private IExecuter _executor;
 
@@ -40,7 +39,9 @@ namespace Apps.WPFVersionCC.ViewModel
             Journal = new Journal();
             Keyboard = new SimpleCalculatorView();
 
-            _buttonManager = new EqualsEntered();
+            _buttonManager = new ButtonManager();
+            _buttonManager.EqualsEntered();
+
             _executor = new Calculator();
 
             ChangeSizesWindow(Int32.Parse(Resources.MinHeightSimpleCalc), Int32.Parse(Resources.MinWidthSimpleCalc));
@@ -61,8 +62,8 @@ namespace Apps.WPFVersionCC.ViewModel
             }
         }
 
-        public Display Display { get; set; }
-        public Journal Journal { get; set; }
+        public IDisplay Display { get; set; }
+        public IJournal Journal { get; set; }
 
         public RelayCommand NumbersInputCommand { get; set; }
         public RelayCommand OperationInputCommand { get; set; }
@@ -102,7 +103,7 @@ namespace Apps.WPFVersionCC.ViewModel
             }
             Display.NumbersInput(text);
 
-            _buttonManager = new DottInput();
+            _buttonManager.DotEntered();
         }
         public bool CanExecuteDotInputCommand(object parameter)
         {
@@ -139,7 +140,7 @@ namespace Apps.WPFVersionCC.ViewModel
             Journal.InputRightPart(result);
             Display.InputText = result;
 
-            _buttonManager = new EqualsEntered();
+            _buttonManager.EqualsEntered();
             _buttonManager.IsDotInput = true;
         }
         public bool CanExecuteEqualsInputCommand(object parameter)
@@ -172,7 +173,7 @@ namespace Apps.WPFVersionCC.ViewModel
         private void ExecuteDeleteAllCommand(object parameter)
         {
             Display.DeleteOutput();
-            _buttonManager = new EqualsEntered();
+            _buttonManager.EqualsEntered();
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
         {
@@ -255,14 +256,14 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void WorkingSymbalInput(string text)
         {
-            _buttonManager = new OperationSymbalInpyt();
+            _buttonManager.WorkingSymbalEntered();
             Display.WorkingSymbalInput(text);
         }
 
         public void DeleteAll()
         {
             Display.DeleteOutput();
-            _buttonManager = new EqualsEntered();
+            _buttonManager.EqualsEntered();
         }
 
         private void ChangeSizesWindow(int minHeight, int minWidth)

@@ -1,12 +1,11 @@
 ﻿using Apps.WPFVersionCC.Infrastructure;
 using Apps.WPFVersionCC.Properties;
-using Apps.WPFVersionCC.ViewManagment;
-using Apps.WPFVersionCC.ViewManagment.ButtonManagers;
-using Apps.WPFVersionCC.ViewManagment.ButtonManagers.Abstractions;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
 using Bll.Executers;
 using Bll.Executers.Abstractions;
 using Common.extensions;
+using Common.ViewManagement;
+using Common.ViewManagement.Interfaces;
 using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Entities;
 using MyCalculatorConverter.Properties;
@@ -26,7 +25,7 @@ namespace Apps.WPFVersionCC.ViewModel
         #region Fields
 
         private IExecuter _executor;
-        private ButtonManager _buttonManager;
+        private IButtonManager _buttonManager;
 
         #endregion
 
@@ -36,7 +35,9 @@ namespace Apps.WPFVersionCC.ViewModel
         {
             GeneratingCommands();
 
-            _buttonManager = new EqualsEntered();
+            _buttonManager = new ButtonManager();
+            _buttonManager.EqualsEntered();
+
             _executor = new ConverterUnitsMeasurement(_currentSystem);
 
             Display = new Display();
@@ -112,13 +113,12 @@ namespace Apps.WPFVersionCC.ViewModel
         public RelayCommand NumbersInputCommand { get; set; }
         public RelayCommand DotInputCommand { get; set; }
         public RelayCommand EqualsInputCommand { get; set; }
-
         public RelayCommand DeleteAllCommand { get; set; }
         public RelayCommand JournalTextChoiceCommand { get; set; }
         public RelayCommand JournalClearCommand { get; set; }
 
-        public Display Display { get; set; }
-        public Journal Journal { get; set; }
+        public IDisplay Display { get; set; }
+        public IJournal Journal { get; set; }
 
         #endregion
 
@@ -138,14 +138,13 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void ExecuteDotInputCommand(object parameter)
         {
-            var text = parameter as string;
             if (Display.InputText.Length == 0)
             {
                 Display.WorkingSymbalInput("0");
             }
-            Display.NumbersInput(text);
+            Display.NumbersInput(parameter as string);
 
-            _buttonManager = new DottInput();
+            _buttonManager.DotEntered();
         }
         public bool CanExecuteDotInputCommand(object parameter)
         {
@@ -154,25 +153,33 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void ExecuteEqualsInputCommand(object parameter)
         {
-            var text = Display.InputText + CurrentFirstUnit.Name + "=" + CurrentResultUnit.Name;
+            var text = Display.InputText 
+                                + CurrentFirstUnit.Name 
+                                + "=" 
+                                + CurrentResultUnit.Name;
             var result = _executor.Calculation(text);
-            text = Display.InputText + CurrentFirstUnit.Name + "=" + result + CurrentResultUnit.Name;
+            text = Display.InputText 
+                    + CurrentFirstUnit.Name 
+                    + "=" 
+                    + result 
+                    + CurrentResultUnit.Name;
             Display.AddNumber(result);
             Journal.AddNote(text);
-
-            _buttonManager = new EqualsEntered();
+            _buttonManager.EqualsEntered();
             _buttonManager.IsDotInput = true;
         }
         public bool CanExecuteEqualsInputCommand(object parameter)
         {
-            return (_buttonManager.IsEqualsInput != true || Display.InputText.Length != 0 ||
-                CurrentFirstUnit != null || CurrentResultUnit != null);
+            return (_buttonManager.IsEqualsInput != true 
+                                                || Display.InputText.Length != 0 
+                                                || CurrentFirstUnit != null 
+                                                || CurrentResultUnit != null);
         }
 
         private void ExecuteDeleteAllCommand(object parameter)
         {
             Display.DeleteOutput();
-            _buttonManager = new EqualsEntered();
+            _buttonManager.EqualsEntered();
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
         {
@@ -185,8 +192,8 @@ namespace Apps.WPFVersionCC.ViewModel
             var text = (parametr as string);
             var index = text.IndexOf("=");
             Display.AddNumber(text
-                .Substring((++index), text.Length - index).
-                GetNumbersFromString());
+                            .Substring((++index), text.Length - index)
+                            .GetNumbersFromString());
 
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
@@ -209,13 +216,12 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void GeneratingCommands()
         {
-            NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);  
-            DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
-            EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
-
-            DeleteAllCommand = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
+            NumbersInputCommand      = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);  
+            DotInputCommand          = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
+            EqualsInputCommand       = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
+            DeleteAllCommand         = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
             JournalTextChoiceCommand = new RelayCommand(ExecuteJournalTextChoiceCommand, CanExecuteJournalTextChoiceCommand);
-            JournalClearCommand = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
+            JournalClearCommand      = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
         }
 
         #endregion

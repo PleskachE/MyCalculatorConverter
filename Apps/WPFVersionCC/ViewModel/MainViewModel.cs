@@ -8,12 +8,6 @@ using System.Windows;
 using Apps.WPFVersionCC.Infrastructure;
 using Apps.WPFVersionCC.Infrastructure.Abstraction;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
-using Apps.WPFVersionCC.ViewManagment;
-using Apps.WPFVersionCC.ViewManagment.ButtonManagers.Abstractions;
-using Apps.WPFVersionCC.ViewManagment.ButtonManagers;
-using Apps.WPFVersionCC.Properties;
-using Bll.Executers.Abstractions;
-using Bll.Executers;
 using System.Windows.Controls;
 using Apps.WPFVersionCC.View.ContentControls;
 using MyCalculatorConverter.Properties;
@@ -133,8 +127,8 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void GeneratingCommands()
         {
-            OpenCalculatorCommand = new RelayCommand(ExecuteOpenCalculatorCommand, CanExecuteOpenCalculatorCommand);
-            OpenValueConverterCommand = new RelayCommand(ExecuteOpenValueConverterCommand, CanExecuteOpenValueConverterCommand);
+            OpenCalculatorCommand       = new RelayCommand(ExecuteOpenCalculatorCommand, CanExecuteOpenCalculatorCommand);
+            OpenValueConverterCommand   = new RelayCommand(ExecuteOpenValueConverterCommand, CanExecuteOpenValueConverterCommand);
             ChacngingDesignThemeCommand = new RelayCommand(ExecuteChacngingDesignThemeCommand, CanExecuteChacngingDesignThemeCommand);
         }
 

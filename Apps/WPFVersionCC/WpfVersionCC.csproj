@@ -72,12 +72,6 @@
     <Compile Include="Infrastructure\Abstraction\IWindowFactory.cs" />
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Infrastructure\WindowFactory.cs" />
-    <Compile Include="ViewManagment\ButtonManagers\Abstraction\ButtonManager.cs" />
-    <Compile Include="ViewManagment\ButtonManagers\DottInput.cs" />
-    <Compile Include="ViewManagment\ButtonManagers\EqualsEntered.cs" />
-    <Compile Include="ViewManagment\ButtonManagers\OperationSymbalInpyt.cs" />
-    <Compile Include="ViewManagment\Display.cs" />
-    <Compile Include="ViewManagment\Journal.cs" />
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
     <Compile Include="ViewModel\CalculatorViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

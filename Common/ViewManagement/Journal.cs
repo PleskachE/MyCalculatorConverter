@@ -1,13 +1,15 @@
-﻿using System.Collections.ObjectModel;
+﻿using Common.ViewManagement.Interfaces;
 
-namespace Apps.WPFVersionCC.ViewManagment
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
+namespace Common.ViewManagement
 {
-    public class Journal 
+    public class Journal : IJournal
     {
-
         private string _text;
 
-        public ObservableCollection<string> TextList { get; set; }
+        public ICollection<string> TextList { get; set; }
 
         public Journal()
         {
@@ -35,6 +37,5 @@ namespace Apps.WPFVersionCC.ViewManagment
         {
             _text = "";
         }
-
     }
 }
