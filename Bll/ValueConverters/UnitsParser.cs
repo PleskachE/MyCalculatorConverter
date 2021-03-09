@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 
 using Common;
+using Common.extensions;
 
 namespace Bll.ValueConverters
 {
@@ -24,19 +25,11 @@ namespace Bll.ValueConverters
 
         private static IUnitSystem CreatingNewUnit(string text)
         {
-            char[] numbers = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ',' };
-            var chairs = text.Intersect(numbers);
-            string textValue = "";
-            foreach(var item in chairs)
-            {
-                textValue += item.ToString();
-            }
+            var textValue = text.GetNumbersFromString();
             text = text.Remove(0, textValue.Length);
-
             var res = TypeLoader.GetType
                 (ClassCollectionLoader.loadsTypesImplementInterface
                 (AssemblyLoader.LoadsAssemblyOnPath(ResourceBll.ValuesConverterEntitiesPath), "IUnitSystem"), text);
-
             var resUnit = (IUnitSystem)Activator.CreateInstance(res);
             if(textValue == "")
             {
