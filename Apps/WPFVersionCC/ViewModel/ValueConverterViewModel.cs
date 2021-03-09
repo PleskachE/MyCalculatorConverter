@@ -66,6 +66,7 @@ namespace Apps.WPFVersionCC.ViewModel
             set
             {
                 _currentSystem = value;
+                CurrentResultUnit = CurrentFirstUnit = _currentSystem.GetReferenceUnit();                
                 OnPropertyChanged();
             }
         }
@@ -147,7 +148,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteDotInputCommand(object parameter)
         {
-            return ((_buttonManager.IsDotInput != true) & (Display.InputText.Length != 0));
+            return (_buttonManager.IsDotInput != true) & (Display.InputText.Length != 0);
         }
 
         private void ExecuteEqualsInputCommand(object parameter)
@@ -163,7 +164,8 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteEqualsInputCommand(object parameter)
         {
-            return (_buttonManager.IsEqualsInput != true || Display.InputText.Length != 0);
+            return (_buttonManager.IsEqualsInput != true || Display.InputText.Length != 0 ||
+                CurrentFirstUnit != null || CurrentResultUnit != null);
         }
 
         private void ExecuteDeleteAllCommand(object parameter)

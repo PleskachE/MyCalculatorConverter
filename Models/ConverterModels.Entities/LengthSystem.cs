@@ -2,7 +2,7 @@
 using ConverterModels.Entities;
 using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Abstraction.Common;
-using Models.ConverterModels.Entities.Units;
+using Models.ConverterModels.Common;
 
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace Models.ConverterModels.Entities
             foreach (var item in collection)
             {
                 var unit = (IUnitSystem)Activator.CreateInstance(item);
-                if (unit.Type == TypesSystems)
+                if (unit.Type == TypesSystems )
                 {
                     Units.Add(unit);
                 }

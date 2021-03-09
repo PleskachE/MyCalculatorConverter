@@ -1,4 +1,5 @@
 ﻿using Common.extensions;
+using Models.ConverterModels.Common;
 
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,9 @@ namespace Common
             }
             catch
             {
-                result = types
-                   .ToList()
-                   .Find(x => x.GetAttribute<DescriptionAttribute>().Description == "Default");
+                var newItem = new DefaultUnit();
+                result = newItem.GetType();
+                
             }
             return result;
         }

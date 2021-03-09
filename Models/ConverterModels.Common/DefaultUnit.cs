@@ -1,8 +1,9 @@
 ﻿using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Abstraction.Common;
+
 using System.ComponentModel;
 
-namespace Models.ConverterModels.Entities.Units
+namespace Models.ConverterModels.Common
 {
     [Description("Default")]
     public class DefaultUnit : IUnitSystem

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterModels.Abstraction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterModels.Entities", "Models\ConverterModels.Entities\ConverterModels.Entities.csproj", "{B977D022-F257-45A4-B65F-EC8F1B57778D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterModels.Common", "Models\ConverterModels.Common\ConverterModels.Common.csproj", "{31B1CA9A-FA8A-420F-B8D2-4467ABC6062E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{B977D022-F257-45A4-B65F-EC8F1B57778D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B977D022-F257-45A4-B65F-EC8F1B57778D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B977D022-F257-45A4-B65F-EC8F1B57778D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B1CA9A-FA8A-420F-B8D2-4467ABC6062E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B1CA9A-FA8A-420F-B8D2-4467ABC6062E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B1CA9A-FA8A-420F-B8D2-4467ABC6062E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B1CA9A-FA8A-420F-B8D2-4467ABC6062E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{F41FA802-1B44-41D0-A01A-602604AD71F0} = {16F7E9EF-9097-4352-B3F7-F6FA6E55FCB2}
 		{6DBA95E1-6829-4C89-97D3-C520A610E5A6} = {91599E79-2F97-4222-9CBD-25D0667BBF2C}
 		{B977D022-F257-45A4-B65F-EC8F1B57778D} = {91599E79-2F97-4222-9CBD-25D0667BBF2C}
+		{31B1CA9A-FA8A-420F-B8D2-4467ABC6062E} = {91599E79-2F97-4222-9CBD-25D0667BBF2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D7F95D4E-A079-45B6-A535-4EC20DDBCCDD}

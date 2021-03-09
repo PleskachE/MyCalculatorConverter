@@ -30,12 +30,12 @@ namespace Models.ConverterModels.Entities.Units
 
         public decimal RelationToReferenceUnit()
         {
-            return (Decimal.Parse("30.48") * Value);
+            return (Decimal.Parse("30,48") * Value);
         }
 
         public decimal RelationToThisUnit(decimal unitValue)
         {
-            return (unitValue / Decimal.Parse("30.48"));
+            return (unitValue / Decimal.Parse("30,48"));
         }
     }
 }
