@@ -105,32 +105,23 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Margin="5">
             <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition />
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             <Border
                 Grid.Row="0"
-                Margin="10"
-                Background="SkyBlue"
-                BorderThickness="3"
-                CornerRadius="5">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock
-                        x:Name="OutputBlock"
-                        FontSize="12"
-                        Text="{Binding Display.OutputText, Mode=OneWay}" />
-                    <TextBlock
+                Style="{DynamicResource BorderDisplayStyle}">
+                <TextBlock
                         x:Name="InputBlock"
-                        FontSize="18"
+                        FontSize="20"
                         FontWeight="Bold"
                         Text="{Binding Display.InputText, Mode=OneWay}" />
-                </StackPanel>
             </Border>
             <Grid Grid.Row="1" Margin="5">
                 <Grid.ColumnDefinitions>
@@ -173,7 +164,6 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                     <ColumnDefinition />
-                    <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -286,19 +276,17 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="5">
+            <Grid Grid.Row="0" Margin="10">
                 <ComboBox
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding Systems, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     SelectedItem="{Binding CurrentSystem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Style="{DynamicResource ComboboxStyle}" />
             </Grid>
-            <Grid Grid.Row="1" Margin="5">
+            <Border Grid.Row="1" Style="{DynamicResource BorderJournal}">
                 <ListView
-                    Name="JournalListView"
-                    Grid.Row="2"
-                    Background="Gray"
-                    BorderThickness="3"
+                    x:Name="JournalListView"
+                    Style="{DynamicResource JournalStyle}"
                     ItemsSource="{Binding Journal.TextList, Mode=OneWay}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDoubleClick">
@@ -306,7 +294,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </ListView>
-            </Grid>
+            </Border>
         </Grid>
     </Grid>
 

@@ -55,7 +55,7 @@
         <Setter Property="Margin" Value="5" />
     </Style>
 
-    <Style x:Key="items" TargetType="ComboBoxItem">
+    <Style x:Key="comboBoxItems" TargetType="ComboBoxItem">
         <Setter Property="Background" Value="{StaticResource WorkingBrush}" />
     </Style>
 
@@ -63,7 +63,29 @@
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="FontSize" Value="15" />
         <Setter Property="Margin" Value="5" />
-        <Setter Property="ItemContainerStyle" Value="{StaticResource items}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource comboBoxItems}" />
+    </Style>
+
+    <Style x:Key="BorderJournal" TargetType="Border">
+        <Setter Property="BorderBrush" Value="DeepSkyBlue"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
+    <Style x:Key="JournalStyle" TargetType="ListView">
+        <Setter Property="Background" Value="{StaticResource WorkingBrush}"/>
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style x:Key="BorderDisplayStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource NumberBrush}"/>
+        <Setter Property="BorderBrush" Value="DeepSkyBlue"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Margin" Value="10" />
     </Style>
 
 </ResourceDictionary>

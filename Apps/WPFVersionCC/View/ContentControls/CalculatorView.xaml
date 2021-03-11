@@ -45,18 +45,18 @@
                     Content="Engineering" />
             </StackPanel>
             <Label Grid.Row="1" Content="Журнал:" />
-            <ListView
-                Name="JournalListView"
-                Grid.Row="2"
-                Background="Gray"
-                BorderThickness="3"
-                ItemsSource="{Binding Journal.TextList, Mode=OneWay}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding JournalTextChoiceCommand}" CommandParameter="{Binding ElementName=JournalListView, Path=SelectedItem}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </ListView>
+            <Border Grid.Row="2" Style="{DynamicResource BorderJournal}">
+                <ListView 
+                    x:Name="JournalListView"
+                    ItemsSource="{Binding Journal.TextList, Mode=OneWay}" 
+                    Style="{DynamicResource JournalStyle}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding JournalTextChoiceCommand}" CommandParameter="{Binding ElementName=JournalListView, Path=SelectedItem}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ListView>
+            </Border>
         </Grid>
         <Grid Name="CalculatorGrid" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -65,10 +65,7 @@
             </Grid.RowDefinitions>
             <Border
                 Grid.Row="0"
-                Margin="10"
-                Background="SkyBlue"
-                BorderThickness="3"
-                CornerRadius="5">
+                Style="{DynamicResource BorderDisplayStyle}">
                 <StackPanel Orientation="Vertical">
                     <TextBlock
                         x:Name="OutputBlock"
