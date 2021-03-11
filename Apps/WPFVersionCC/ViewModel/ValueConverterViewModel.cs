@@ -190,10 +190,13 @@ namespace Apps.WPFVersionCC.ViewModel
         {
             Display.DeleteOutput();
             var text = (parametr as string);
-            var index = text.IndexOf("=");
-            Display.AddNumber(text
-                            .Substring((++index), text.Length - index)
-                            .GetNumbersFromString());
+            if (text != null)
+            {
+                var index = text.IndexOf("=");
+                Display.AddNumber(text
+                                .Substring((++index), text.Length - index)
+                                .GetNumbersFromString());
+            }
 
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)

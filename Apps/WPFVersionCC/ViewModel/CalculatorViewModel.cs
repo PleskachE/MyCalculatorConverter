@@ -194,8 +194,11 @@ namespace Apps.WPFVersionCC.ViewModel
         {
             Display.DeleteOutput();
             var text = (parametr as string);
-            var index = text.IndexOf("=");
-            Display.AddNumber(text.Substring((++index), text.Length - index));
+            if (text != null)
+            {
+                var index = text.IndexOf("=");
+                Display.AddNumber(text.Substring((++index), text.Length - index));
+            }
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
         {
