@@ -12,7 +12,7 @@ namespace Models.ConverterModels.Entities
     public class LengthSystem : BaseSystem
     {
         private ICollection<Type> collection = ClassCollectionLoader
-            .loadsTypesImplementInterface(AssemblyLoader.LoadsAssemblyOnPath(ModelResource.ValuesConverterEntitiesPath), "IUnitSystem");
+            .loadsTypesImplementInterface(AssemblyLoader.LoadsAssemblyOnPath(Constants.ValuesConverterEntitiesPath), "IUnitSystem");
 
         public LengthSystem()
         {

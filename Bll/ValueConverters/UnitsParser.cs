@@ -29,7 +29,7 @@ namespace Bll.ValueConverters
             text = text.Remove(0, textValue.Length);
             var res = TypeLoader.GetType
                 (ClassCollectionLoader.loadsTypesImplementInterface
-                (AssemblyLoader.LoadsAssemblyOnPath(ResourceBll.ValuesConverterEntitiesPath), "IUnitSystem"), text);
+                (AssemblyLoader.LoadsAssemblyOnPath(Constants.ValuesConverterEntitiesPath), "IUnitSystem"), text);
             var resUnit = (IUnitSystem)Activator.CreateInstance(res);
             if(textValue == "")
             {
