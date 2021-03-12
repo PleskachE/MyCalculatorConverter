@@ -41,16 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculatorSupportTools\AlgorithmHandlers\ClosingParenthesisHandler.cs" />
-    <Compile Include="CalculatorSupportTools\AlgorithmHandlers\OpenParenthesisHandler.cs" />
-    <Compile Include="CalculatorSupportTools\AlgorithmHandlers\OperandHandler.cs" />
-    <Compile Include="CalculatorSupportTools\AlgorithmHandlers\OperationHandler.cs" />
+    <Compile Include="CalculatorSupportTools\Algorithms\Interface\IAlgorithm.cs" />
+    <Compile Include="CalculatorSupportTools\Algorithms\ReversePolishNotation.cs" />
     <Compile Include="CalculatorSupportTools\Converters\NumbersConverter.cs" />
     <Compile Include="CalculatorSupportTools\Converters\OperationConverter.cs" />
-    <Compile Include="CalculatorSupportTools\Converters\PolishAlgorithmConverter.cs" />
+    <Compile Include="CalculatorSupportTools\Converters\StackConverter.cs" />
+    <Compile Include="CalculatorSupportTools\Sorters\Interface\IStackSorter.cs" />
+    <Compile Include="CalculatorSupportTools\Sorters\StackSorterForReversePolishNotation.cs" />
     <Compile Include="Executers\Abstractions\IExecuter.cs" />
     <Compile Include="Executers\Calculator.cs" />
-    <Compile Include="Executers\ConverterUnitsMeasurement.cs" />
+    <Compile Include="Executers\ValueConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverterSupportTools\UnitsParser.cs" />
   </ItemGroup>

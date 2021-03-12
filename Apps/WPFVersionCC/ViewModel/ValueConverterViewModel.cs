@@ -38,7 +38,7 @@ namespace Apps.WPFVersionCC.ViewModel
             _buttonManager = new ButtonManager();
             _buttonManager.EqualsEntered();
 
-            _executor = new ConverterUnitsMeasurement(_currentSystem);
+            _executor = new ValueConverter(_currentSystem);
 
             Display = new Display();
             Journal = new Journal();

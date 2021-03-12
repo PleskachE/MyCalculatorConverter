@@ -4,9 +4,9 @@ using Models.Calculator.Entities.Operations;
 
 namespace Bll.CalculatorSupportTools.Converters
 {
-    public class OperationConverter
+    public static class OperationConverter
     {
-        public BaseSymbal StringToOperation(string text)
+        public static BaseSymbal StringToOperation(string text)
         {
             BaseSymbal operation = null;
 

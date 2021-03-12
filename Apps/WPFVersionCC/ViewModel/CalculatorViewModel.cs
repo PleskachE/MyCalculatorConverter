@@ -42,7 +42,7 @@ namespace Apps.WPFVersionCC.ViewModel
             _buttonManager = new ButtonManager();
             _buttonManager.EqualsEntered();
 
-            _executor = new Calculator();
+            _executor = new Calculator("ReversePolishNotation");
 
             ChangeSizesWindow(Int32.Parse(Resources.MinHeightSimpleCalc), Int32.Parse(Resources.MinWidthSimpleCalc));
         }

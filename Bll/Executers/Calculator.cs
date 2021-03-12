@@ -2,12 +2,13 @@
 using Bll.Executers.Abstractions;
 using Common;
 using Models.Calculator.Abstraction;
-using Models.Calculator.Common;
 using Models.Calculator.Entities;
 
-
-using System.Linq;
 using System;
+using Bll.CalculatorSupportTools.Sorters;
+using Bll.CalculatorSupportTools.Algorithms;
+using Bll.CalculatorSupportTools.Sorters.Interface;
+using Bll.CalculatorSupportTools.Algorithms.Interface;
 
 namespace Bll.Executers
 {
@@ -16,80 +17,55 @@ namespace Bll.Executers
         #region Fields
 
         private ICollectionChar _listOfReturn;
-        private PolishAlgorithmConverter _polishAlgorithmConverter;
+        private IStackSorter _stackSorter;
+        private IAlgorithm _algorithm;
+        private string _algorithmName;
 
         #endregion
 
-        #region Ctor
-
-        public Calculator()
+        public Calculator(string algorithmName)
         {
-            _polishAlgorithmConverter = new PolishAlgorithmConverter();
+            _algorithmName = algorithmName;
         }
-
-        #endregion
 
         #region Methods
 
         public string Calculation(string text)
         {
-            _listOfReturn = _polishAlgorithmConverter.StringToAlghoritm(text);
+            _listOfReturn = new CollectionChar();
+            _listOfReturn = StackConverter.StringToStack(text, _listOfReturn);
             CheckingForNull();
-            var result = Decimal.Parse(Result());
+            CreateStackSorter();
+            _listOfReturn = _stackSorter.Sort(_listOfReturn);
+            CreateAlgorithm();
+            var result = Decimal.Parse(_algorithm.Result());
             result = Math.Round(result, Constants.CountOfDecimalPlaces);
             return result.ToString();
         }
 
         private void CheckingForNull()
         {
-            _listOfReturn
-                .Symbals
-                .RemoveAll(x => x.Value == "");
+            _listOfReturn.Symbals.RemoveAll(x => x.Value == "");
         }
 
-        private string Result()
+        private void CreateStackSorter()
         {
-            string result = "";
-            while (_listOfReturn.Symbals.Count() > 2)
+            switch(_algorithmName)
             {
-                var tempItem = _listOfReturn
-                    .Symbals
-                    .First();
-                if (tempItem.Priority == Priority.Minimum)
-                {
-                    _listOfReturn
-                        .Symbals
-                        .RemoveAt(0);
-                    _listOfReturn
-                        .Symbals
-                        .Add(tempItem);
-                }
-                else
-                {
-                    var tempResult = tempItem
-                        .Result(_listOfReturn.Symbals.ElementAt(_listOfReturn.Symbals.Count - 2).Value,
-                        _listOfReturn.Symbals.ElementAt(_listOfReturn.Symbals.Count - 1).Value);
-                    _listOfReturn
-                        .Symbals
-                        .Remove(_listOfReturn.Symbals.Last());
-                    _listOfReturn
-                        .Symbals
-                        .Remove(_listOfReturn.Symbals.Last());
-                    if (_listOfReturn.Symbals.Count >= 2)
-                    {
-                        _listOfReturn
-                            .Symbals
-                            .RemoveAt(0);
-                    }
-                    _listOfReturn
-                        .Symbals
-                        .Add(new Number(tempResult));
-                }
+                case "ReversePolishNotation":
+                    _stackSorter = new StackSorterForReversePolishNotation();
+                    break;
             }
-            result = _listOfReturn
-                .Symbals
-                .Last().Value;
-            return result;
+        }
+
+        private void CreateAlgorithm()
+        {
+            switch (_algorithmName)
+            {
+                case "ReversePolishNotation":
+                    _algorithm = new ReversePolishNotation(_listOfReturn);
+                    break;
+            }
         }
 
         #endregion

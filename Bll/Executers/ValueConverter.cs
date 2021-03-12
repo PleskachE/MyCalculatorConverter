@@ -7,11 +7,11 @@ using System;
 
 namespace Bll.Executers
 {
-    public class ConverterUnitsMeasurement : IExecuter
+    public class ValueConverter : IExecuter
     {
         public BaseSystem SystemMeasuring { get; set; }
 
-        public ConverterUnitsMeasurement(BaseSystem system)
+        public ValueConverter(BaseSystem system)
         {
             SystemMeasuring = system;
         }
