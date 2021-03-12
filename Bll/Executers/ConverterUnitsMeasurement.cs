@@ -1,6 +1,9 @@
 ﻿using Bll.Executers.Abstractions;
 using Bll.ValueConverters;
+using Common;
 using Models.ConverterModels.Abstraction;
+
+using System;
 
 namespace Bll.Executers
 {
@@ -20,6 +23,7 @@ namespace Bll.Executers
             var resUnit = UnitsParser.GetLastUnit();
             var tempValue = firstUnit.RelationToReferenceUnit();
             var resValue = resUnit.RelationToThisUnit(tempValue);
+            resValue = Math.Round(resValue, Constants.CountOfDecimalPlaces);
             return resValue.ToString();
         }
     }

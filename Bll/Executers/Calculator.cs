@@ -6,6 +6,8 @@ using Bll.Calculator.Model.Common;
 
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using Common;
 
 namespace Bll.Executers
 {
@@ -33,7 +35,9 @@ namespace Bll.Executers
         {
             _listOfReturn = _polishAlgorithmConverter.StringToAlghoritm(text);
             CheckingForNull();
-            return Result();
+            var result = Decimal.Parse(Result());
+            result = Math.Round(result, Constants.CountOfDecimalPlaces);
+            return result.ToString();
         }
 
         private void CheckingForNull()
