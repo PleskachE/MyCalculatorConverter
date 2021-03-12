@@ -1,8 +1,9 @@
-﻿using Bll.Calculator.Model.Common;
+﻿using Models.Calculator.Common;
+
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Bll.Calculator.Model.Abstraction
+namespace Models.Calculator.Abstraction
 {
     public abstract class BaseSymbal : INotifyPropertyChanged, IBaseSymbal
     {

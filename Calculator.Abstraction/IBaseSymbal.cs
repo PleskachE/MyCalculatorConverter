@@ -1,5 +1,5 @@
 ﻿
-namespace Bll.Calculator.Model.Abstraction
+namespace Models.Calculator.Abstraction
 {
     public interface IBaseSymbal
     {

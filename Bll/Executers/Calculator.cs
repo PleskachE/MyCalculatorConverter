@@ -1,13 +1,14 @@
 ﻿using Bll.Calculator.Converters;
 using Bll.Executers.Abstractions;
-using Bll.Calculator.Model;
-using Bll.Calculator.Model.Abstraction;
-using Bll.Calculator.Model.Common;
+
 
 using System.Collections.Generic;
 using System.Linq;
 using System;
 using Common;
+using Models.Calculator.Abstraction;
+using Models.Calculator.Common;
+using Models.Calculator.Entities;
 
 namespace Bll.Executers
 {

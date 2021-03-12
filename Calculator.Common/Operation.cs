@@ -1,5 +1,5 @@
 ﻿
-namespace Bll.Calculator.Model.Common
+namespace Models.Calculator.Common
 {
     public enum Operation
     {

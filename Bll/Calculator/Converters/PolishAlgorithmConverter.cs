@@ -1,7 +1,7 @@
-﻿using Bll.Calculator.Model;
-using Bll.Calculator.Model.Abstraction;
-using Bll.Calculator.Model.Common;
-using Bll.Calculator.Model.PartsAlghoritm;
+﻿using Bll.Calculator.AlgorithmHandlers;
+using Models.Calculator.Abstraction;
+using Models.Calculator.Common;
+using Models.Calculator.Entities;
 
 using System.Collections.Generic;
 using System.Linq;

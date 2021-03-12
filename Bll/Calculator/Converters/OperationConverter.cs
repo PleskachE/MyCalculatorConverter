@@ -1,6 +1,6 @@
-﻿using Bll.Calculator.Model;
-using Bll.Calculator.Model.Abstraction;
-using Bll.Calculator.Model.Operations;
+﻿using Models.Calculator.Abstraction;
+using Models.Calculator.Entities;
+using Models.Calculator.Entities.Operations;
 
 namespace Bll.Calculator.Converters
 {

@@ -1,7 +1,7 @@
-﻿using Bll.Calculator.Model.Abstraction;
-using Bll.Calculator.Model.Common;
+﻿using Models.Calculator.Abstraction;
+using Models.Calculator.Common;
 
-namespace Bll.Calculator.Model.Operations
+namespace Models.Calculator.Entities.Operations
 {
     public class ClosingParenthesis : BaseSymbal
     {

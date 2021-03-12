@@ -1,9 +1,11 @@
-﻿using Bll.Calculator.Model.Abstraction;
+﻿using Models.Calculator.Abstraction;
+using Models.Calculator.Entities;
+using Models.Calculator.Common;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bll.Calculator.Model.PartsAlghoritm
+namespace Bll.Calculator.AlgorithmHandlers
 {
     public class OperandHandler : PartAlgorithm
     {
@@ -22,7 +24,7 @@ namespace Bll.Calculator.Model.PartsAlghoritm
 
         public override void Processing(string symbal)
         {
-            if (ListOfReturn.Last().Priority != Common.Priority.Minimum)
+            if (ListOfReturn.Last().Priority != Priority.Minimum)
             {
                 ListOfReturn.Add(new Number());
                 ListOfReturn.Last().Value += (symbal);

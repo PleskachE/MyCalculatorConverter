@@ -1,7 +1,7 @@
-﻿using Bll.Calculator.Model.Abstraction;
-using Bll.Calculator.Model.Common;
+﻿using Models.Calculator.Common;
+using Models.Calculator.Abstraction;
 
-namespace Bll.Calculator.Model
+namespace Models.Calculator.Entities
 {
     public class Number : BaseSymbal
     {
