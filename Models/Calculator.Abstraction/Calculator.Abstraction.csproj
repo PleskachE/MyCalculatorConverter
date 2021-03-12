@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BaseSymbal.cs" />
     <Compile Include="IBaseSymbal.cs" />
+    <Compile Include="ICollectionChar.cs" />
     <Compile Include="IPartAlgorithm.cs" />
     <Compile Include="PartAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

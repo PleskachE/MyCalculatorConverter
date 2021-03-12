@@ -1,8 +1,6 @@
 ﻿using Bll.CalculatorSupportTools.Converters;
 using Models.Calculator.Abstraction;
 
-using System.Collections.Generic;
-
 namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 {
     public class OpenParenthesisHandler : PartAlgorithm
@@ -15,7 +13,7 @@ namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 
         #region Ctor
 
-        public OpenParenthesisHandler(List<BaseSymbal> listOfReturn, List<BaseSymbal> operationStack)
+        public OpenParenthesisHandler(ICollectionChar listOfReturn, ICollectionChar operationStack)
         {
             OperationStack = operationStack;
             ListOfReturn = listOfReturn;
@@ -28,7 +26,7 @@ namespace Bll.CalculatorSupportTools.AlgorithmHandlers
         public override void Processing(string symbal)
         {
             var operation = _operationConverter.StringToOperation(symbal);
-            OperationStack.Add(operation);
+            OperationStack.Symbals.Add(operation);
         }
 
         #endregion

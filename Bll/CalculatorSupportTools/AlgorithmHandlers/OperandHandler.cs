@@ -2,7 +2,6 @@
 using Models.Calculator.Entities;
 using Models.Calculator.Common;
 
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Bll.CalculatorSupportTools.AlgorithmHandlers
@@ -12,7 +11,7 @@ namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 
         #region Ctor
 
-        public OperandHandler(List<BaseSymbal> listOfReturn, List<BaseSymbal> operationStack)
+        public OperandHandler(ICollectionChar listOfReturn, ICollectionChar operationStack)
         {
             OperationStack = operationStack;
             ListOfReturn = listOfReturn;
@@ -24,18 +23,22 @@ namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 
         public override void Processing(string symbal)
         {
-            if (ListOfReturn.Last().Priority != Priority.Minimum)
+            if (ListOfReturn.Symbals.Last().Priority != Priority.Minimum)
             {
-                ListOfReturn.Add(new Number());
-                ListOfReturn.Last().Value += (symbal);
-            }
-            else if(ListOfReturn.Last().Value == "")
-            {
-                ListOfReturn.Last().Value += (symbal);
+                ListOfReturn
+                    .Symbals
+                    .Add(new Number());
+                ListOfReturn
+                    .Symbals
+                    .Last()
+                    .Value += (symbal);
             }
             else
             {
-                ListOfReturn.Last().Value += (symbal);
+                ListOfReturn
+                    .Symbals
+                    .Last()
+                    .Value += (symbal);
             }
         }
 

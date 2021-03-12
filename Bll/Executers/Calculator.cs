@@ -5,7 +5,7 @@ using Models.Calculator.Abstraction;
 using Models.Calculator.Common;
 using Models.Calculator.Entities;
 
-using System.Collections.Generic;
+
 using System.Linq;
 using System;
 
@@ -15,7 +15,7 @@ namespace Bll.Executers
     {
         #region Fields
 
-        private List<BaseSymbal> _listOfReturn;
+        private ICollectionChar _listOfReturn;
         private PolishAlgorithmConverter _polishAlgorithmConverter;
 
         #endregion
@@ -42,34 +42,53 @@ namespace Bll.Executers
 
         private void CheckingForNull()
         {
-            _listOfReturn.RemoveAll(x => x.Value == "");
+            _listOfReturn
+                .Symbals
+                .RemoveAll(x => x.Value == "");
         }
 
         private string Result()
         {
             string result = "";
-            while (_listOfReturn.Count > 2)
+            while (_listOfReturn.Symbals.Count() > 2)
             {
-                var tempItem = _listOfReturn.First();
+                var tempItem = _listOfReturn
+                    .Symbals
+                    .First();
                 if (tempItem.Priority == Priority.Minimum)
                 {
-                    _listOfReturn.RemoveAt(0);
-                    _listOfReturn.Add(tempItem);
+                    _listOfReturn
+                        .Symbals
+                        .RemoveAt(0);
+                    _listOfReturn
+                        .Symbals
+                        .Add(tempItem);
                 }
                 else
                 {
-                    var tempResult = tempItem.Result(_listOfReturn.ElementAt(_listOfReturn.Count - 2).Value,
-                        _listOfReturn.ElementAt(_listOfReturn.Count - 1).Value);
-                    _listOfReturn.Remove(_listOfReturn.Last());
-                    _listOfReturn.Remove(_listOfReturn.Last());
-                    if (_listOfReturn.Count >= 2)
+                    var tempResult = tempItem
+                        .Result(_listOfReturn.Symbals.ElementAt(_listOfReturn.Symbals.Count - 2).Value,
+                        _listOfReturn.Symbals.ElementAt(_listOfReturn.Symbals.Count - 1).Value);
+                    _listOfReturn
+                        .Symbals
+                        .Remove(_listOfReturn.Symbals.Last());
+                    _listOfReturn
+                        .Symbals
+                        .Remove(_listOfReturn.Symbals.Last());
+                    if (_listOfReturn.Symbals.Count >= 2)
                     {
-                        _listOfReturn.RemoveAt(0);
+                        _listOfReturn
+                            .Symbals
+                            .RemoveAt(0);
                     }
-                    _listOfReturn.Add(new Number(tempResult));
+                    _listOfReturn
+                        .Symbals
+                        .Add(new Number(tempResult));
                 }
             }
-            result = _listOfReturn.Last().Value;
+            result = _listOfReturn
+                .Symbals
+                .Last().Value;
             return result;
         }
 

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Models.Calculator.Abstraction
@@ -7,8 +6,8 @@ namespace Models.Calculator.Abstraction
     public abstract class PartAlgorithm : INotifyPropertyChanged, IPartAlgorithm
     {
 
-        private List<BaseSymbal> _listOfReturn = new List<BaseSymbal>();
-        public List<BaseSymbal> ListOfReturn
+        private ICollectionChar _listOfReturn;
+        public ICollectionChar ListOfReturn
         {
             get
             {
@@ -21,8 +20,8 @@ namespace Models.Calculator.Abstraction
             }
         }
 
-        private List<BaseSymbal> _operationStack = new List<BaseSymbal>();
-        public List<BaseSymbal> OperationStack
+        private ICollectionChar _operationStack;
+        public ICollectionChar OperationStack
         {
             get
             {

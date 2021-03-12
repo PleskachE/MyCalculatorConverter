@@ -13,8 +13,8 @@ namespace Bll.CalculatorSupportTools.Converters
         #region Fields
 
         private OperationConverter _operationConverter;
-        private List<BaseSymbal> _listOfReturn;
-        private List<BaseSymbal> _operationStack;
+        private ICollectionChar _listOfReturn;
+        private ICollectionChar _operationStack;
 
         private PartAlgorithm _symbalHandler;
 
@@ -31,11 +31,13 @@ namespace Bll.CalculatorSupportTools.Converters
 
         #region Methods
 
-        public List<BaseSymbal> StringToAlghoritm(string text)
+        public ICollectionChar StringToAlghoritm(string text)
         {
-            _listOfReturn = new List<BaseSymbal>();
-            _operationStack = new List<BaseSymbal>();
-            _listOfReturn.Add(new Number());
+            _listOfReturn = new CollectionChar();
+            _operationStack = new CollectionChar();
+            _listOfReturn
+                .Symbals
+                .Add(new Number());
             DataProcessing(text);
             return _listOfReturn;
         }
@@ -55,7 +57,9 @@ namespace Bll.CalculatorSupportTools.Converters
                         {
                             _symbalHandler = new OpenParenthesisHandler(_listOfReturn, _operationStack);
                             GetResultConvert(symbal.Value);
-                            _listOfReturn.Add(new Number());
+                            _listOfReturn
+                                .Symbals
+                                .Add(new Number());
                         }
                         else
                         {
@@ -70,21 +74,29 @@ namespace Bll.CalculatorSupportTools.Converters
                     case (Priority.Low ):
                         _symbalHandler = new OperationHandler(_listOfReturn, _operationStack);
                         GetResultConvert(symbal.Value);
-                        _listOfReturn.Add(new Number());
+                        _listOfReturn
+                            .Symbals
+                            .Add(new Number());
                         break;
                     case (Priority.High):
                         _symbalHandler = new OperationHandler(_listOfReturn, _operationStack);
                         GetResultConvert(symbal.Value);
-                        _listOfReturn.Add(new Number());
+                        _listOfReturn
+                            .Symbals
+                            .Add(new Number());
                         break;
                 }
                 currentIndex++;
-                if (currentIndex == text.Length && _operationStack.Count != 0)
+                if (currentIndex == text.Length && _operationStack.Symbals.Count != 0)
                 {
-                    while (_operationStack.Count != 0)
+                    while (_operationStack.Symbals.Count != 0)
                     {
-                        _listOfReturn.Add(_operationStack.Last());
-                        _operationStack.RemoveAt(_operationStack.Count - 1);
+                        _listOfReturn
+                            .Symbals
+                            .Add(_operationStack.Symbals.Last());
+                        _operationStack
+                            .Symbals
+                            .RemoveAt(_operationStack.Symbals.Count() - 1);
                     }
                 }
             }

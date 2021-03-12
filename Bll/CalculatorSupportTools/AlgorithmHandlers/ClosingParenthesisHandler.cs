@@ -1,6 +1,5 @@
 ﻿using Models.Calculator.Abstraction;
 
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Bll.CalculatorSupportTools.AlgorithmHandlers
@@ -10,7 +9,7 @@ namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 
         #region Ctor
 
-        public ClosingParenthesisHandler(List<BaseSymbal> listOfReturn, List<BaseSymbal> operationStack)
+        public ClosingParenthesisHandler(ICollectionChar listOfReturn, ICollectionChar operationStack)
         {
             ListOfReturn = listOfReturn;
             OperationStack = operationStack;
@@ -22,16 +21,22 @@ namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 
         public override void Processing(string symbal)
         {
-            while (OperationStack.Count != 0)
+            while (OperationStack.Symbals.Count != 0)
             {
-                if (OperationStack.Last().Value == "(" || OperationStack.Last().Value == ")")
+                if (OperationStack.Symbals.Last().Value == "(" || OperationStack.Symbals.Last().Value == ")")
                 {
-                    OperationStack.Remove(OperationStack.Last());
+                    OperationStack
+                        .Symbals
+                        .Remove(OperationStack.Symbals.Last());
                 }
                 else
                 {
-                    ListOfReturn.Add(OperationStack.Last());
-                    OperationStack.RemoveAt(OperationStack.Count - 1);
+                    ListOfReturn
+                        .Symbals
+                        .Add(OperationStack.Symbals.Last());
+                    OperationStack
+                        .Symbals
+                        .RemoveAt(OperationStack.Symbals.Count - 1);
                 }
             }
         }
