@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 
-namespace Common
+namespace Common.Loaders
 {
     public static class AssemblyLoader
     {

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Common
+namespace Common.Loaders
 {
     public static class TypeLoader
     {

@@ -41,13 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyLoader.cs" />
-    <Compile Include="ClassCollectionLoader.cs" />
+    <Compile Include="Loaders\AssemblyLoader.cs" />
+    <Compile Include="Loaders\ClassCollectionLoader.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="extensions\MemberInfoExtensions.cs" />
     <Compile Include="extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeLoader.cs" />
+    <Compile Include="Loaders\TypeLoader.cs" />
     <Compile Include="ViewManagement\ButtonManager.cs" />
     <Compile Include="ViewManagement\Display.cs" />
     <Compile Include="ViewManagement\Interfaces\IButtonManager.cs" />
@@ -61,5 +61,6 @@
       <Name>ConverterModels.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
