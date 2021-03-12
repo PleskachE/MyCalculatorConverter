@@ -1,9 +1,9 @@
-﻿using Bll.Calculator.Converters;
+﻿using Bll.CalculatorSupportTools.Converters;
 using Models.Calculator.Abstraction;
 
 using System.Collections.Generic;
 
-namespace Bll.Calculator.AlgorithmHandlers
+namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 {
     public class OpenParenthesisHandler : PartAlgorithm
     {

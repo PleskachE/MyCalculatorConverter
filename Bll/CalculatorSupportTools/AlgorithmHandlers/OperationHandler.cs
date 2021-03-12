@@ -1,11 +1,11 @@
-﻿using Bll.Calculator.Converters;
+﻿using Bll.CalculatorSupportTools.Converters;
 using Models.Calculator.Abstraction;
 using Models.Calculator.Common;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bll.Calculator.AlgorithmHandlers
+namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 {
     public class OperationHandler : PartAlgorithm
     {

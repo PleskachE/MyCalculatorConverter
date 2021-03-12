@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bll.Calculator.AlgorithmHandlers
+namespace Bll.CalculatorSupportTools.AlgorithmHandlers
 {
     public class ClosingParenthesisHandler : PartAlgorithm
     {

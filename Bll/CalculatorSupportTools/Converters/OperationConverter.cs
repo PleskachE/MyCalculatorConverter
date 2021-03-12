@@ -2,7 +2,7 @@
 using Models.Calculator.Entities;
 using Models.Calculator.Entities.Operations;
 
-namespace Bll.Calculator.Converters
+namespace Bll.CalculatorSupportTools.Converters
 {
     public class OperationConverter
     {

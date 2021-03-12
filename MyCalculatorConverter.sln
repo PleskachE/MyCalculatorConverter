@@ -19,11 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterModels.Entities", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterModels.Common", "Models\ConverterModels.Common\ConverterModels.Common.csproj", "{31B1CA9A-FA8A-420F-B8D2-4467ABC6062E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Abstraction", "Calculator.Abstraction\Calculator.Abstraction.csproj", "{E55D7F6D-1455-468C-A633-6A85A6826358}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Abstraction", "Models\Calculator.Abstraction\Calculator.Abstraction.csproj", "{E55D7F6D-1455-468C-A633-6A85A6826358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Common", "Calculator.Common\Calculator.Common.csproj", "{C439A4F2-D34E-4347-9791-8DB49078A10E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Common", "Models\Calculator.Common\Calculator.Common.csproj", "{C439A4F2-D34E-4347-9791-8DB49078A10E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Entities", "Calculator.Entities\Calculator.Entities.csproj", "{EC9915CD-BBA7-4946-AF22-A828F2CD6CB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Entities", "Models\Calculator.Entities\Calculator.Entities.csproj", "{EC9915CD-BBA7-4946-AF22-A828F2CD6CB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

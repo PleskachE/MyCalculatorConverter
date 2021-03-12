@@ -1,4 +1,4 @@
-﻿using Bll.Calculator.AlgorithmHandlers;
+﻿using Bll.CalculatorSupportTools.AlgorithmHandlers;
 using Models.Calculator.Abstraction;
 using Models.Calculator.Common;
 using Models.Calculator.Entities;
@@ -6,7 +6,7 @@ using Models.Calculator.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bll.Calculator.Converters
+namespace Bll.CalculatorSupportTools.Converters
 {
     public class PolishAlgorithmConverter
     {

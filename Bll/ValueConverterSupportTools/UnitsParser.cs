@@ -6,7 +6,7 @@ using System.Linq;
 using Common;
 using Common.extensions;
 
-namespace Bll.ValueConverters
+namespace Bll.ValueConverterSupportTools
 {
     public static class UnitsParser
     {
