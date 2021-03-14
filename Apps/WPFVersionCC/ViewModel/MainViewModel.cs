@@ -5,13 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Apps.WPFVersionCC.Infrastructure;
-using Apps.WPFVersionCC.Infrastructure.Abstraction;
-using Apps.WPFVersionCC.ViewModel.Abstraction;
 using System.Windows.Controls;
+
+using Apps.WPFVersionCC.Infrastructure;
+using Apps.WPFVersionCC.ViewModel.Abstraction;
 using Apps.WPFVersionCC.View.ContentControls;
+
 using MyCalculatorConverter.Properties;
+
 using Algorithms.Interface;
+
+using Factories.Abstraction;
+
+using Common.ViewManagement.Interfaces;
+using Models.ConverterModels.Abstraction;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
@@ -19,17 +26,28 @@ namespace Apps.WPFVersionCC.ViewModel
     {
         #region Fields
 
-        private IWindowFactory _windowFactory = new WindowFactory();
+        private IWindowFactory          _windowFactory;
         private IEnumerable<IAlgorithm> _alghoritms;
+        private IDisplay                _display;
+        private IJournal                _journal;
+        private IButtonManager          _buttonManager;
+        private IEnumerable<BaseSystem> _systems;
 
         #endregion
 
         #region Ctors
 
-        public MainViewModel(IEnumerable<IAlgorithm> alghoritms)
+        public MainViewModel(IEnumerable<IAlgorithm> alghoritms, IEnumerable<BaseSystem> systems,
+            IWindowFactory windowFactory, IDisplay display, IJournal journal, IButtonManager buttonManager)
         {
+            _alghoritms    = alghoritms;
+            _windowFactory = windowFactory;
+            _display       = display;
+            _journal       = journal;
+            _buttonManager = buttonManager;
+            _systems = systems;
+
             GeneratingCommands();
-            _alghoritms = alghoritms;
         }
 
         #endregion
@@ -39,7 +57,7 @@ namespace Apps.WPFVersionCC.ViewModel
         private void ExecuteOpenCalculatorCommand(object parameter)
         {
             Title = "Calculator";
-            WorkingPlace = new CalculatorView(new CalculatorViewModel(_alghoritms));
+            WorkingPlace = new CalculatorView(new CalculatorViewModel(_alghoritms, _display, _journal, _buttonManager));
         }
 
         public bool CanExecuteOpenCalculatorCommand(object parameter)
@@ -50,7 +68,7 @@ namespace Apps.WPFVersionCC.ViewModel
         private void ExecuteOpenValueConverterCommand(object parameter)
         {
             Title = "ValueConverter";
-            WorkingPlace = new ValueConverterView();
+            WorkingPlace = new ValueConverterView(new ValueConverterViewModel(_display, _journal, _buttonManager, _systems));
         }
 
         public bool CanExecuteOpenValueConverterCommand(object parameter)
@@ -83,7 +101,7 @@ namespace Apps.WPFVersionCC.ViewModel
             {
                 if(_workingPlace == null)
                 {
-                    _workingPlace = new CalculatorView(new CalculatorViewModel(_alghoritms));
+                    _workingPlace = new CalculatorView(new CalculatorViewModel(_alghoritms, _display, _journal, _buttonManager));
                 }
                 return _workingPlace; 
             }

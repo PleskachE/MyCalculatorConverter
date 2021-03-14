@@ -1,10 +1,10 @@
-﻿using Apps.WPFVersionCC.Infrastructure.Abstraction;
+﻿using Factories.Abstraction;
 
 using System.Windows;
 
-namespace Apps.WPFVersionCC.Infrastructure
+namespace Factories
 {
-    internal sealed class WindowFactory : IWindowFactory
+    public class WindowFactory : IWindowFactory
     {
 		public Window CreateWindow(WindowCreationOptions options)
 		{

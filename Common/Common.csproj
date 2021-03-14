@@ -60,10 +60,6 @@
       <Project>{09146AD1-B54B-420C-AEF7-01B805430EE7}</Project>
       <Name>Algorithms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DependencyConfig\DependencyConfig.csproj">
-      <Project>{4EABD956-D559-444D-9E36-82EF57FC5B9C}</Project>
-      <Name>DependencyConfig</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Models\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
       <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
       <Name>ConverterModels.Abstraction</Name>

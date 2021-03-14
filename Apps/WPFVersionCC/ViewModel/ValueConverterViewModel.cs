@@ -1,14 +1,16 @@
 ﻿using Apps.WPFVersionCC.Infrastructure;
-using Apps.WPFVersionCC.Properties;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
+
 using Bll.Executers;
 using Bll.Executers.Abstractions;
+
 using Common.extensions;
-using Common.ViewManagement;
 using Common.ViewManagement.Interfaces;
+
 using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Entities;
 using MyCalculatorConverter.Properties;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,30 +26,25 @@ namespace Apps.WPFVersionCC.ViewModel
     {
         #region Fields
 
-        private IExecuter _executor;
+        private IExecuter      _executor;
         private IButtonManager _buttonManager;
 
         #endregion
 
         #region Ctor
 
-        public ValueConverterViewModel()
+        public ValueConverterViewModel(IDisplay display, IJournal journal, IButtonManager buttonManager, 
+            IEnumerable<BaseSystem> systems)
         {
+            _buttonManager = buttonManager;
+            _executor      = new ValueConverter(_currentSystem);
+
+            Display = display;
+            Journal = journal;
+            Systems = systems;
+
             GeneratingCommands();
-
-            _buttonManager = new ButtonManager();
             _buttonManager.EqualsEntered();
-
-            _executor = new ValueConverter(_currentSystem);
-
-            Display = new Display();
-            Journal = new Journal();
-            Systems = new List<BaseSystem>()
-            {
-                new LengthSystem(),
-                new WeightsSystem(),
-                new MemorySystem()
-            };
         }
 
         #endregion
@@ -55,7 +52,7 @@ namespace Apps.WPFVersionCC.ViewModel
         #region Properties
 
         private BaseSystem _currentSystem;
-        public BaseSystem CurrentSystem
+        public  BaseSystem CurrentSystem
         {
             get 
             {
@@ -69,7 +66,7 @@ namespace Apps.WPFVersionCC.ViewModel
             {
                 _currentSystem = value;
                 CurrentResultUnit = _currentSystem.GetReferenceUnit();
-                CurrentFirstUnit = _currentSystem.GetReferenceUnit();
+                CurrentFirstUnit =  _currentSystem.GetReferenceUnit();
                 OnPropertyChanged();
             }
         }
@@ -109,14 +106,14 @@ namespace Apps.WPFVersionCC.ViewModel
             }
         }
 
-        public ICollection<BaseSystem> Systems { get; }
+        public IEnumerable<BaseSystem> Systems { get; set; }
 
-        public RelayCommand NumbersInputCommand { get; set; }
-        public RelayCommand DotInputCommand { get; set; }
-        public RelayCommand EqualsInputCommand { get; set; }
-        public RelayCommand DeleteAllCommand { get; set; }
+        public RelayCommand NumbersInputCommand      { get; set; }
+        public RelayCommand DotInputCommand          { get; set; }
+        public RelayCommand EqualsInputCommand       { get; set; }
+        public RelayCommand DeleteAllCommand         { get; set; }
         public RelayCommand JournalTextChoiceCommand { get; set; }
-        public RelayCommand JournalClearCommand { get; set; }
+        public RelayCommand JournalClearCommand      { get; set; }
 
         public IDisplay Display { get; set; }
         public IJournal Journal { get; set; }

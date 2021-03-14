@@ -55,6 +55,22 @@
       <Project>{09146AD1-B54B-420C-AEF7-01B805430EE7}</Project>
       <Name>Algorithms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{571A2DFD-D0F6-48FD-B94B-31F06C95126A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Factories\Factories.csproj">
+      <Project>{8ADAE55B-4C6F-4A21-AD43-2A13DB975941}</Project>
+      <Name>Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
+      <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
+      <Name>ConverterModels.Abstraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\ConverterModels.Entities\ConverterModels.Entities.csproj">
+      <Project>{B977D022-F257-45A4-B65F-EC8F1B57778D}</Project>
+      <Name>ConverterModels.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

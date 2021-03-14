@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Apps.WPFVersionCC.Infrastructure.Abstraction
+namespace Factories.Abstraction
 {
     public interface IWindowFactory
     {

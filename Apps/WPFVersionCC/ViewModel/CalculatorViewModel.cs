@@ -14,7 +14,6 @@ using System.Windows.Controls;
 using MyCalculatorConverter.Properties;
 
 using Common.ViewManagement.Interfaces;
-using Common.ViewManagement;
 
 using Algorithms.Interface;
 
@@ -26,22 +25,23 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private IButtonManager _buttonManager;
 
-        private IExecuter _executor;
+        private IExecuter      _executor;
 
         #endregion
 
         #region Ctors
 
-        public CalculatorViewModel(IEnumerable<IAlgorithm> algorithms)
+        public CalculatorViewModel(IEnumerable<IAlgorithm> algorithms,
+            IDisplay display, IJournal journal, IButtonManager buttonManager)
         {
             GeneratingCommands();
 
-            Display        = new Display();
-            Journal        = new Journal();
+            Display        = display;
+            Journal        = journal;
             Keyboard       = new SimpleCalculatorView();
 
             _algorithms    = algorithms;
-            _buttonManager = new ButtonManager();
+            _buttonManager = buttonManager;
             _executor      = new Calculator(CurrentAlgorithm);
 
             _buttonManager.EqualsEntered();
