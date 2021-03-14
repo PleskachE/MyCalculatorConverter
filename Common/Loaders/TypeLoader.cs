@@ -1,5 +1,5 @@
 ﻿using Common.extensions;
-using Models.ConverterModels.Common;
+using Models.ConverterModels.Abstraction.Common;
 
 using System;
 using System.Collections.Generic;

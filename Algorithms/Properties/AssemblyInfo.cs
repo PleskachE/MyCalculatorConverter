@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ConverterModels.Common")]
+[assembly: AssemblyTitle("Algorithms")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ConverterModels.Common")]
+[assembly: AssemblyProduct("Algorithms")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("31b1ca9a-fa8a-420f-b8d2-4467abc6062e")]
+[assembly: Guid("09146ad1-b54b-420c-aef7-01b805430ee7")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

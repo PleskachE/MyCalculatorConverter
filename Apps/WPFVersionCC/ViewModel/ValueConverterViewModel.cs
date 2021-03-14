@@ -68,7 +68,8 @@ namespace Apps.WPFVersionCC.ViewModel
             set
             {
                 _currentSystem = value;
-                CurrentResultUnit = CurrentFirstUnit = _currentSystem.GetReferenceUnit();                
+                CurrentResultUnit = _currentSystem.GetReferenceUnit();
+                CurrentFirstUnit = _currentSystem.GetReferenceUnit();
                 OnPropertyChanged();
             }
         }

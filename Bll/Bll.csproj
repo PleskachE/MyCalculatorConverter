@@ -41,13 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculatorSupportTools\Algorithms\Interface\IAlgorithm.cs" />
-    <Compile Include="CalculatorSupportTools\Algorithms\ReversePolishNotation.cs" />
     <Compile Include="CalculatorSupportTools\Converters\NumbersConverter.cs" />
     <Compile Include="CalculatorSupportTools\Converters\OperationConverter.cs" />
     <Compile Include="CalculatorSupportTools\Converters\StackConverter.cs" />
-    <Compile Include="CalculatorSupportTools\Sorters\Interface\IStackSorter.cs" />
-    <Compile Include="CalculatorSupportTools\Sorters\StackSorterForReversePolishNotation.cs" />
     <Compile Include="Executers\Abstractions\IExecuter.cs" />
     <Compile Include="Executers\Calculator.cs" />
     <Compile Include="Executers\ValueConverter.cs" />
@@ -55,6 +51,10 @@
     <Compile Include="ValueConverterSupportTools\UnitsParser.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Algorithms\Algorithms.csproj">
+      <Project>{09146AD1-B54B-420C-AEF7-01B805430EE7}</Project>
+      <Name>Algorithms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{571A2DFD-D0F6-48FD-B94B-31F06C95126A}</Project>
       <Name>Common</Name>

@@ -10,10 +10,6 @@
     Height="auto"
     mc:Ignorable="d">
 
-    <ContentControl.DataContext>
-        <local:CalculatorViewModel />
-    </ContentControl.DataContext>
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*" />
@@ -24,6 +20,7 @@
             Grid.Column="1"
             Margin="10">
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition />
@@ -44,8 +41,13 @@
                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
                     Content="Engineering" />
             </StackPanel>
-            <Label Grid.Row="1" Content="Журнал:" />
-            <Border Grid.Row="2" Style="{DynamicResource BorderJournal}">
+            <ComboBox Grid.Row="1"
+                      Style="{DynamicResource ComboboxStyle}"
+                      DisplayMemberPath="Name"
+                      ItemsSource="{Binding Algorithms, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding CurrentAlgorithm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="2" Content="Журнал:" />
+            <Border Grid.Row="3" Style="{DynamicResource BorderJournal}">
                 <ListView 
                     x:Name="JournalListView"
                     ItemsSource="{Binding Journal.TextList, Mode=OneWay}" 

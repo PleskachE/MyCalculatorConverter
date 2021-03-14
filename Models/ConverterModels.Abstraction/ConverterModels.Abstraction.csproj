@@ -42,11 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseSystem.cs" />
+    <Compile Include="Common\DefaultUnit.cs" />
     <Compile Include="ISystem.cs" />
     <Compile Include="IUnitSystem.cs" />
     <Compile Include="Common\TypesMeasurementSystems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,21 +1,17 @@
 ﻿using Bll.Executers;
 using Bll.Executers.Abstractions;
-using Apps.WPFVersionCC.Properties;
-using Apps.WPFVersionCC.View;
 using Apps.WPFVersionCC.View.UserControls;
 using Apps.WPFVersionCC.Infrastructure;
-using Apps.WPFVersionCC.ViewModel;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using MyCalculatorConverter.Properties;
 using Common.ViewManagement.Interfaces;
 using Common.ViewManagement;
+using Algorithms.Interface;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
@@ -31,7 +27,7 @@ namespace Apps.WPFVersionCC.ViewModel
 
         #region Ctors
 
-        public CalculatorViewModel()
+        public CalculatorViewModel(IEnumerable<IAlgorithm> algorithms)
         {
             GeneratingCommands();
 
@@ -39,10 +35,11 @@ namespace Apps.WPFVersionCC.ViewModel
             Journal = new Journal();
             Keyboard = new SimpleCalculatorView();
 
+            _algorithms = algorithms;
             _buttonManager = new ButtonManager();
             _buttonManager.EqualsEntered();
 
-            _executor = new Calculator("ReversePolishNotation");
+            _executor = new Calculator(CurrentAlgorithm);
 
             ChangeSizesWindow(Int32.Parse(Resources.MinHeightSimpleCalc), Int32.Parse(Resources.MinWidthSimpleCalc));
         }
@@ -64,6 +61,38 @@ namespace Apps.WPFVersionCC.ViewModel
 
         public IDisplay Display { get; set; }
         public IJournal Journal { get; set; }
+
+        private IEnumerable<IAlgorithm> _algorithms;
+        public IEnumerable<IAlgorithm> Algorithms
+        {
+            get
+            {
+                return _algorithms;
+            }
+            set
+            {
+                _algorithms = value;
+                OnPropertyChanged();
+            }
+        }
+        private IAlgorithm _currentAlgorithm;
+        public IAlgorithm CurrentAlgorithm
+        {
+            get
+            {
+                if(_currentAlgorithm == null)
+                {
+                    _currentAlgorithm = Algorithms.First();
+                }
+                return _currentAlgorithm;
+            }
+            set
+            {
+                _currentAlgorithm = value;
+                _executor = new Calculator(CurrentAlgorithm);
+                OnPropertyChanged();
+            }
+        }
 
         public RelayCommand NumbersInputCommand { get; set; }
         public RelayCommand OperationInputCommand { get; set; }

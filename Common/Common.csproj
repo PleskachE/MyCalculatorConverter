@@ -56,11 +56,10 @@
     <Compile Include="ViewManagement\Journal.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\ConverterModels.Common\ConverterModels.Common.csproj">
-      <Project>{31B1CA9A-FA8A-420F-B8D2-4467ABC6062E}</Project>
-      <Name>ConverterModels.Common</Name>
+    <ProjectReference Include="..\Models\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
+      <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
+      <Name>ConverterModels.Abstraction</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
