@@ -12,6 +12,7 @@ using MyCalculatorConverter.Properties;
 using Common.ViewManagement.Interfaces;
 using Common.ViewManagement;
 using Algorithms.Interface;
+using Common.Containers;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
@@ -27,7 +28,7 @@ namespace Apps.WPFVersionCC.ViewModel
 
         #region Ctors
 
-        public CalculatorViewModel(IEnumerable<IAlgorithm> algorithms)
+        public CalculatorViewModel(IContainerOfCustomTypes algorithms)
         {
             GeneratingCommands();
 
@@ -35,7 +36,7 @@ namespace Apps.WPFVersionCC.ViewModel
             Journal = new Journal();
             Keyboard = new SimpleCalculatorView();
 
-            _algorithms = algorithms;
+            _algorithms = algorithms.Algorithms;
             _buttonManager = new ButtonManager();
             _buttonManager.EqualsEntered();
 

@@ -72,7 +72,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Configure\DependencyInjectionConfig.cs" />
     <Compile Include="Infrastructure\Abstraction\IWindowFactory.cs" />
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Infrastructure\WindowFactory.cs" />
@@ -171,6 +170,14 @@
     <ProjectReference Include="..\..\Common\Common.csproj">
       <Project>{571A2DFD-D0F6-48FD-B94B-31F06C95126A}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DependencyConfig\DependencyConfig.csproj">
+      <Project>{4EABD956-D559-444D-9E36-82EF57FC5B9C}</Project>
+      <Name>DependencyConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Factories\Factories.csproj">
+      <Project>{8ADAE55B-4C6F-4A21-AD43-2A13DB975941}</Project>
+      <Name>Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Models\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
       <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>

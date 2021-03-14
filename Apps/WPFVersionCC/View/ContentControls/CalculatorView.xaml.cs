@@ -1,5 +1,6 @@
-﻿using Apps.WPFVersionCC.Configure;
-using Apps.WPFVersionCC.ViewModel;
+﻿using Apps.WPFVersionCC.ViewModel;
+
+using Factories;
 
 using System.Windows.Controls;
 
@@ -12,8 +13,8 @@ namespace Apps.WPFVersionCC.View.ContentControls
     {
         public CalculatorView()
         {
-            DependencyInjectionConfig conteiner = new DependencyInjectionConfig();
-            DataContext = new CalculatorViewModel(conteiner.GetAlgorithms());
+            AlgorithmsFactory factory = new AlgorithmsFactory();
+            DataContext = new CalculatorViewModel(factory.GetContainerForAlgorithms());
             InitializeComponent();
         }
     }
