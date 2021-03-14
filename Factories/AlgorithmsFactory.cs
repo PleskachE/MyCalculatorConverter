@@ -1,16 +1,17 @@
-﻿using Apps.WPFVersionCC.Configure;
-using Common.Containers;
+﻿using Algorithms.Interface;
+using Apps.WPFVersionCC.Configure;
 using Factories.Interface;
+
+using System.Collections.Generic;
 
 namespace Factories
 {
     public class AlgorithmsFactory : IFactory
     {
-        public IContainerOfCustomTypes GetContainerForAlgorithms()
+        public IEnumerable<IAlgorithm> CreateAlgorithms()
         {
             DependencyInjectionConfig injector = new DependencyInjectionConfig();
-            IContainerOfCustomTypes container = new ContainerForAlgorithms(injector.GetAlgorithms());
-            return container;
+            return injector.GetAlgorithms();
         }
     }
 }

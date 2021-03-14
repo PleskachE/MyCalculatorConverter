@@ -175,10 +175,6 @@
       <Project>{4EABD956-D559-444D-9E36-82EF57FC5B9C}</Project>
       <Name>DependencyConfig</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Factories\Factories.csproj">
-      <Project>{8ADAE55B-4C6F-4A21-AD43-2A13DB975941}</Project>
-      <Name>Factories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Models\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
       <Project>{6DBA95E1-6829-4C89-97D3-C520A610E5A6}</Project>
       <Name>ConverterModels.Abstraction</Name>

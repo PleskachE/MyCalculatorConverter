@@ -11,6 +11,7 @@ using Apps.WPFVersionCC.ViewModel.Abstraction;
 using System.Windows.Controls;
 using Apps.WPFVersionCC.View.ContentControls;
 using MyCalculatorConverter.Properties;
+using Algorithms.Interface;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
@@ -19,14 +20,16 @@ namespace Apps.WPFVersionCC.ViewModel
         #region Fields
 
         private IWindowFactory _windowFactory = new WindowFactory();
+        private IEnumerable<IAlgorithm> _alghoritms;
 
         #endregion
 
         #region Ctors
 
-        public MainViewModel()
+        public MainViewModel(IEnumerable<IAlgorithm> alghoritms)
         {
             GeneratingCommands();
+            _alghoritms = alghoritms;
         }
 
         #endregion
@@ -36,7 +39,7 @@ namespace Apps.WPFVersionCC.ViewModel
         private void ExecuteOpenCalculatorCommand(object parameter)
         {
             Title = "Calculator";
-            WorkingPlace = new CalculatorView();
+            WorkingPlace = new CalculatorView(new CalculatorViewModel(_alghoritms));
         }
 
         public bool CanExecuteOpenCalculatorCommand(object parameter)
@@ -73,10 +76,17 @@ namespace Apps.WPFVersionCC.ViewModel
 
         #region Properties
 
-        private ContentControl _workingPlace = new CalculatorView();
+        private ContentControl _workingPlace;
         public ContentControl WorkingPlace
         {
-            get { return _workingPlace; }
+            get 
+            {
+                if(_workingPlace == null)
+                {
+                    _workingPlace = new CalculatorView(new CalculatorViewModel(_alghoritms));
+                }
+                return _workingPlace; 
+            }
             set
             {
                 _workingPlace = value;

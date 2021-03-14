@@ -41,8 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Containers\ContainerForAlgorithms.cs" />
-    <Compile Include="Containers\IContainerOfCustomTypes.cs" />
     <Compile Include="Loaders\AssemblyLoader.cs" />
     <Compile Include="Loaders\ClassCollectionLoader.cs" />
     <Compile Include="Constants.cs" />

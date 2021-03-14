@@ -1,18 +1,22 @@
 ﻿using Bll.Executers;
 using Bll.Executers.Abstractions;
+
 using Apps.WPFVersionCC.View.UserControls;
 using Apps.WPFVersionCC.Infrastructure;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+
 using MyCalculatorConverter.Properties;
+
 using Common.ViewManagement.Interfaces;
 using Common.ViewManagement;
+
 using Algorithms.Interface;
-using Common.Containers;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
@@ -28,20 +32,19 @@ namespace Apps.WPFVersionCC.ViewModel
 
         #region Ctors
 
-        public CalculatorViewModel(IContainerOfCustomTypes algorithms)
+        public CalculatorViewModel(IEnumerable<IAlgorithm> algorithms)
         {
             GeneratingCommands();
 
-            Display = new Display();
-            Journal = new Journal();
-            Keyboard = new SimpleCalculatorView();
+            Display        = new Display();
+            Journal        = new Journal();
+            Keyboard       = new SimpleCalculatorView();
 
-            _algorithms = algorithms.Algorithms;
+            _algorithms    = algorithms;
             _buttonManager = new ButtonManager();
+            _executor      = new Calculator(CurrentAlgorithm);
+
             _buttonManager.EqualsEntered();
-
-            _executor = new Calculator(CurrentAlgorithm);
-
             ChangeSizesWindow(Int32.Parse(Resources.MinHeightSimpleCalc), Int32.Parse(Resources.MinWidthSimpleCalc));
         }
 

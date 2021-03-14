@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Apps.WPFVersionCC.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{Binding Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
     Width="{Binding MinWidthtWindow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
@@ -11,10 +10,6 @@
     MinWidth="{Binding MinWidthtWindow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
     MinHeight="{Binding MinHeightWindow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
     mc:Ignorable="d">
-
-    <Window.DataContext>
-        <local:MainViewModel />
-    </Window.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>

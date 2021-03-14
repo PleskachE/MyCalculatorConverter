@@ -1,7 +1,5 @@
 ﻿using Apps.WPFVersionCC.ViewModel;
 
-using Factories;
-
 using System.Windows.Controls;
 
 namespace Apps.WPFVersionCC.View.ContentControls
@@ -11,10 +9,9 @@ namespace Apps.WPFVersionCC.View.ContentControls
     /// </summary>
     public partial class CalculatorView : ContentControl
     {
-        public CalculatorView()
+        public CalculatorView(CalculatorViewModel viewModel)
         {
-            AlgorithmsFactory factory = new AlgorithmsFactory();
-            DataContext = new CalculatorViewModel(factory.GetContainerForAlgorithms());
+            DataContext = viewModel;
             InitializeComponent();
         }
     }
