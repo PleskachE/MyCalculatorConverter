@@ -1,7 +1,13 @@
-﻿namespace Models.ConverterModels.Abstraction
+﻿using Models.ConverterModels.Abstraction.Common;
+
+using System.Collections.Generic;
+
+namespace Models.ConverterModels.Abstraction
 {
     public interface ISystem
     {
-        IUnitSystem GetReferenceUnit();
+        string Name { get; set; }
+        ICollection<IUnitSystem> Units { get; set; }
+        TypesMeasurementSystems TypesSystems { get; set; }
     }
 }

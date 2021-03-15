@@ -8,17 +8,12 @@ using Common.extensions;
 using Common.ViewManagement.Interfaces;
 
 using Models.ConverterModels.Abstraction;
-using Models.ConverterModels.Entities;
+
 using MyCalculatorConverter.Properties;
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace Apps.WPFVersionCC.ViewModel
 {
@@ -36,12 +31,12 @@ namespace Apps.WPFVersionCC.ViewModel
         public ValueConverterViewModel(IDisplay display, IJournal journal, IButtonManager buttonManager, 
             IEnumerable<BaseSystem> systems)
         {
-            _buttonManager = buttonManager;
-            _executor      = new ValueConverter(_currentSystem);
-
             Display = display;
             Journal = journal;
             Systems = systems;
+
+            _buttonManager = buttonManager;
+            _executor      = new ValueConverter(CurrentSystem);
 
             GeneratingCommands();
             _buttonManager.EqualsEntered();
@@ -65,8 +60,9 @@ namespace Apps.WPFVersionCC.ViewModel
             set
             {
                 _currentSystem = value;
-                CurrentResultUnit = _currentSystem.GetReferenceUnit();
-                CurrentFirstUnit =  _currentSystem.GetReferenceUnit();
+                _executor = new ValueConverter(CurrentSystem);
+                CurrentResultUnit = _currentSystem.Units.First();
+                CurrentFirstUnit =  _currentSystem.Units.First();
                 OnPropertyChanged();
             }
         }
@@ -78,7 +74,7 @@ namespace Apps.WPFVersionCC.ViewModel
             {
                 if(_currentFirstUnit == null)
                 {
-                    _currentFirstUnit = CurrentSystem.GetReferenceUnit();
+                    _currentFirstUnit = CurrentSystem.Units.First();
                 }
                 return _currentFirstUnit;
             }
@@ -95,7 +91,7 @@ namespace Apps.WPFVersionCC.ViewModel
             {
                 if (_currentResultUnit == null)
                 {
-                    _currentResultUnit = CurrentSystem.GetReferenceUnit();
+                    _currentResultUnit = CurrentSystem.Units.First();
                 }
                 return _currentResultUnit;
             }

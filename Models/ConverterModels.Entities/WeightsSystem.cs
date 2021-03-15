@@ -1,5 +1,6 @@
 ﻿using Common;
 using Common.Loaders;
+
 using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Abstraction.Common;
 
@@ -11,7 +12,7 @@ namespace Models.ConverterModels.Entities
     public class WeightsSystem : BaseSystem
     {
         private ICollection<Type> collection = ClassCollectionLoader
-           .loadsTypesImplementInterface(AssemblyLoader
+                .loadsTypesImplementInterface(AssemblyLoader
                 .LoadsAssemblyOnPath(Constants.ValuesConverterEntitiesPath),Constants.ValuesConverterEntitiesNameInterface);
         public WeightsSystem()
         {

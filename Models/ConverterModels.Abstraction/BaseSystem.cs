@@ -12,15 +12,12 @@ namespace Models.ConverterModels.Abstraction
         public ICollection<IUnitSystem> Units { get; set; }
         public TypesMeasurementSystems TypesSystems { get; set; }
 
-        public IUnitSystem GetReferenceUnit()
-        {
-            return Units.ToList().Find(x => x.isReferenceUnit == true);
-        }
-
         protected void LoadUnits(ICollection<Type> collection)
         {
             if (!collection.Any())
+            {
                 Units.Add(new DefaultUnit());
+            }
             Units = collection
                 .Select(Instance)
                 .Where(IsNeededTypeSystem)
