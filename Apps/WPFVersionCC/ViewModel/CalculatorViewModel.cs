@@ -130,7 +130,7 @@ namespace Apps.WPFVersionCC.ViewModel
         private void ExecuteDotInputCommand(object parameter)
         {
             var text = parameter as string;
-            if (Display.InputText.Length == 0)
+            if (!Display.InputText.Any())
             {
                 Display.WorkingSymbalInput("0");
             }
@@ -140,7 +140,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteDotInputCommand(object parameter)
         {
-            return ((_buttonManager.IsDotInput != true) & (Display.InputText.Length != 0));
+            return (_buttonManager.IsDotInput != true) & (Display.InputText.Any());
         }
 
         #endregion
@@ -149,7 +149,7 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void ExecuteOperationInputCommand(object parameter)
         {
-            if (Display.InputText.Length == 0)
+            if (!Display.InputText.Any())
             {
                 WorkingSymbalInput("0");
             }
@@ -178,7 +178,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteEqualsInputCommand(object parameter)
         {
-            return (_buttonManager.IsEqualsInput != true || Display.InputText.Length != 0);
+            return (_buttonManager.IsEqualsInput != true || Display.InputText.Any());
         }
 
         #endregion
@@ -210,7 +210,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
         {
-            return Display.OutputText.Length != 0;
+            return Display.OutputText.Any();
         }
 
         private void ExecuteDeleteOneNumberCommand(object parameter)
@@ -220,7 +220,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteDeleteOneNumberCommand(object parameter)
         {
-            return Display.InputText.Length != 0;
+            return Display.InputText.Any();
         }
 
         private void ExecuteJournalTextChoiceCommand(object parametr)
@@ -235,7 +235,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
         {
-            return Journal.TextList.Count != 0;
+            return Journal.TextList.Any();
         }
 
         private void ExecuteJournalClearCommand(object parametr)
@@ -244,7 +244,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteJournalClearCommand(object parametr)
         {
-            return Journal.TextList.Count != 0;
+            return Journal.TextList.Any();
         }
 
         private void ExecuteChangingTypeCalculatorCommand(object parametr)

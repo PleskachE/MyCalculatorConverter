@@ -132,31 +132,23 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void ExecuteDotInputCommand(object parameter)
         {
-            if (Display.InputText.Length == 0)
+            if (!Display.InputText.Any())
             {
                 Display.WorkingSymbalInput("0");
             }
             Display.NumbersInput(parameter as string);
-
             _buttonManager.DotEntered();
         }
         public bool CanExecuteDotInputCommand(object parameter)
         {
-            return (_buttonManager.IsDotInput != true) & (Display.InputText.Length != 0);
+            return (_buttonManager.IsDotInput != true) & (Display.InputText.Any());
         }
 
         private void ExecuteEqualsInputCommand(object parameter)
         {
-            var text = Display.InputText 
-                                + CurrentFirstUnit.Name 
-                                + "=" 
-                                + CurrentResultUnit.Name;
+            var text = Display.InputText + CurrentFirstUnit.Name + "=" + CurrentResultUnit.Name;
             var result = _executor.Calculation(text);
-            text = Display.InputText 
-                    + CurrentFirstUnit.Name 
-                    + "=" 
-                    + result 
-                    + CurrentResultUnit.Name;
+            text = Display.InputText + CurrentFirstUnit.Name + "=" + result + CurrentResultUnit.Name;
             Display.AddNumber(result);
             Journal.AddNote(text);
             _buttonManager.EqualsEntered();
@@ -165,7 +157,7 @@ namespace Apps.WPFVersionCC.ViewModel
         public bool CanExecuteEqualsInputCommand(object parameter)
         {
             return (_buttonManager.IsEqualsInput != true 
-                                                || Display.InputText.Length != 0 
+                                                || Display.InputText.Any()
                                                 || CurrentFirstUnit != null 
                                                 || CurrentResultUnit != null);
         }
@@ -177,7 +169,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteDeleteAllCommand(object parameter)
         {
-            return Display.OutputText.Length != 0;
+            return Display.OutputText.Any();
         }
 
         private void ExecuteJournalTextChoiceCommand(object parametr)
@@ -195,7 +187,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteJournalTextChoiceCommand(object parametr)
         {
-            return Journal.TextList.Count != 0;
+            return Journal.TextList.Any();
         }
 
         private void ExecuteJournalClearCommand(object parametr)
@@ -204,7 +196,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteJournalClearCommand(object parametr)
         {
-            return Journal.TextList.Count != 0;
+            return Journal.TextList.Any();
         }
 
         #endregion
