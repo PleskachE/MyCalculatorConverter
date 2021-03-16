@@ -275,16 +275,16 @@ namespace Apps.WPFVersionCC.ViewModel
         {
             NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);
 
-            OperationInputCommand = new RelayCommand(ExecuteOperationInputCommand, CanExecuteOperationInputCommand);
-            DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
-            EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
+            OperationInputCommand         = new RelayCommand(ExecuteOperationInputCommand, CanExecuteOperationInputCommand);
+            DotInputCommand               = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
+            EqualsInputCommand            = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
 
-            DeleteAllCommand = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
-            DeleteOneNumberCommand = new RelayCommand(ExecuteDeleteOneNumberCommand, CanExecuteDeleteOneNumberCommand);
-            JournalTextChoiceCommand = new RelayCommand(ExecuteJournalTextChoiceCommand, CanExecuteJournalTextChoiceCommand);
-            JournalClearCommand = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
+            DeleteAllCommand              = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
+            DeleteOneNumberCommand        = new RelayCommand(ExecuteDeleteOneNumberCommand, CanExecuteDeleteOneNumberCommand);
+            JournalTextChoiceCommand      = new RelayCommand(ExecuteJournalTextChoiceCommand, CanExecuteJournalTextChoiceCommand);
+            JournalClearCommand           = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
 
-            ParenthesisInputCommand = new RelayCommand(ExecuteParenthesisInputCommand, CanExecuteParenthesisInputCommand);
+            ParenthesisInputCommand       = new RelayCommand(ExecuteParenthesisInputCommand, CanExecuteParenthesisInputCommand);
 
             ChangingTypeCalculatorCommand = new RelayCommand(ExecuteChangingTypeCalculatorCommand, CanExecuteChangingTypeCalculatorCommand);
         }
@@ -304,10 +304,10 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void ChangeSizesWindow(int minHeight, int minWidth)
         {
-            Application.Current.MainWindow.Height = minHeight;
-            Application.Current.MainWindow.Width = minWidth;
+            Application.Current.MainWindow.Height    = minHeight;
+            Application.Current.MainWindow.Width     = minWidth;
             Application.Current.MainWindow.MinHeight = minHeight;
-            Application.Current.MainWindow.MinWidth = minWidth;
+            Application.Current.MainWindow.MinWidth  = minWidth;;
         }
 
         #endregion
