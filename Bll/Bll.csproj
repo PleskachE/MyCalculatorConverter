@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bll.Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bll.Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="CalculatorSupportTools\Converters\NumbersConverter.cs" />
     <Compile Include="CalculatorSupportTools\Converters\OperationConverter.cs" />
     <Compile Include="CalculatorSupportTools\Converters\StackConverter.cs" />
@@ -79,6 +84,12 @@
       <Project>{48B6C70F-8CB9-4310-BB59-A8947E7069EF}</Project>
       <Name>ConverterModels.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Bll.Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Bll.Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

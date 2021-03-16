@@ -45,7 +45,7 @@ namespace Apps.WPFVersionCC.ViewModel
             _display       = display;
             _journal       = journal;
             _buttonManager = buttonManager;
-            _systems = systems;
+            _systems       = systems;
 
             GeneratingCommands();
         }
@@ -57,6 +57,7 @@ namespace Apps.WPFVersionCC.ViewModel
         private void ExecuteOpenCalculatorCommand(object parameter)
         {
             Title = "Calculator";
+            _journal.TextList.Clear();
             WorkingPlace = new CalculatorView(new CalculatorViewModel(_alghoritms, _display, _journal, _buttonManager));
         }
 
@@ -68,6 +69,7 @@ namespace Apps.WPFVersionCC.ViewModel
         private void ExecuteOpenValueConverterCommand(object parameter)
         {
             Title = "ValueConverter";
+            _journal.TextList.Clear();
             WorkingPlace = new ValueConverterView(new ValueConverterViewModel(_display, _journal, _buttonManager, _systems));
         }
 

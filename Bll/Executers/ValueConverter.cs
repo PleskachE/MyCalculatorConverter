@@ -20,7 +20,7 @@ namespace Bll.Executers
         public ValueConverter(BaseSystem system)
         {
             SystemMeasuring = system;
-            GeneratingHandlers();
+            _constants = new ContainerOfSystemConstants(GeneratingPath());
             _valueHandler = new ValueHandler();
         }
 
@@ -35,20 +35,22 @@ namespace Bll.Executers
             return resValue.ToString();
         }
 
-        private void GeneratingHandlers()
+        private string GeneratingPath()
         {
+            string path = null;
             switch (SystemMeasuring.Name)
             {
                 case "Length Elements":
-                    _constants = new LengthConstantsWithReferenceCentimeter();
+                    path = Bll_Resource.LenghtConstantsPath;
                     break;
                 case "Memory Elements":
-                    _constants = new MemoryConstantsWithReferenceByte();
+                    path = Bll_Resource.MemoryConstantsPath;
                     break;
                 case "Mass Elements":
-                    _constants = new WeightsConstantsWithReferenceKilogram();
+                    path = Bll_Resource.WeightsConstantsPath;
                     break;
             }
+            return path;
         }
     }
 }

@@ -43,11 +43,9 @@
   <ItemGroup>
     <Compile Include="Interface\IContainerOfSystemConstants.cs" />
     <Compile Include="Interface\IValueHandler.cs" />
-    <Compile Include="LengthConstantsWithReferenceCentimeter.cs" />
-    <Compile Include="MemoryConstantsWithReferenceByte.cs" />
+    <Compile Include="ContainerOfSystemConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueHandler.cs" />
-    <Compile Include="WeightsConstantsWithReferenceKilogram.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConverterModels.Abstraction\ConverterModels.Abstraction.csproj">
