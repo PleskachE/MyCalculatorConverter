@@ -1,0 +1,4 @@
+Bit-0,8
+Byte-1
+Kilobyte-1024
+Megabyte-1048576

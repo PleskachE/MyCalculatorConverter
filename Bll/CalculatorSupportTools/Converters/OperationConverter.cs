@@ -38,7 +38,6 @@ namespace Bll.CalculatorSupportTools.Converters
                     operation.Value += text;
                     break;
             }
-
             return operation;
         }
     }

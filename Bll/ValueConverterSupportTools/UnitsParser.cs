@@ -7,6 +7,8 @@ using Common;
 using Common.extensions;
 using Common.Loaders;
 
+using Models.ConverterModels.Abstraction.Common;
+
 namespace Bll.ValueConverterSupportTools
 {
     public static class UnitsParser
@@ -21,8 +23,22 @@ namespace Bll.ValueConverterSupportTools
             _units[1] = CreatingNewUnit(lastElem);
         }
 
-        public static IUnitSystem GetFirstUnit() { return _units[0]; }
-        public static IUnitSystem GetLastUnit() { return _units[1]; }
+        public static IUnitSystem GetFirstUnit() 
+        {
+            if(_units[0] == null )
+            {
+                _units[0] = new DefaultUnit();
+            }
+            return _units[0]; 
+        }
+        public static IUnitSystem GetLastUnit() 
+        {
+            if (_units[1] == null)
+            {
+                _units[1] = new DefaultUnit();
+            }
+            return _units[1];
+        }
 
         private static IUnitSystem CreatingNewUnit(string text)
         {

@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LenghtConstantsPath" xml:space="preserve">
-    <value>ConstantsOfReferenceElements\Centimeter.txt</value>
+    <value>C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Centimeter.txt</value>
   </data>
   <data name="MemoryConstantsPath" xml:space="preserve">
-    <value>ConstantsOfReferenceElements\Byte.txt</value>
+    <value>C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Byte.txt</value>
   </data>
   <data name="WeightsConstantsPath" xml:space="preserve">
-    <value>ConstantsOfReferenceElements\Kilogram.txt</value>
+    <value>C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Kilogram.txt</value>
   </data>
 </root>

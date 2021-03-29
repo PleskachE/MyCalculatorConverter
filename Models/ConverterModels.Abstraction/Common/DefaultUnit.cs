@@ -14,22 +14,13 @@ namespace Models.ConverterModels.Abstraction.Common
         {
             Name = "Default";
             isReferenceUnit = false;
+            Value = 0;
         }
         public DefaultUnit(decimal value)
         {
             Name = "Default";
             isReferenceUnit = false;
             Value = value;
-        }
-
-        public decimal RelationToReferenceUnit()
-        {
-            return Value;
-        }
-
-        public decimal RelationToThisUnit(decimal unitValue)
-        {
-            return unitValue;
         }
     }
 }

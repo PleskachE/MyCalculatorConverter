@@ -9,7 +9,7 @@ namespace Models.Calculator.Entities.Operations
 
         public Subtraction()
         {
-            Operation = Operation.Division;
+            Operation = Operation.Subtraction;
             Priority = Priority.Low;
             Value = "-";
         }

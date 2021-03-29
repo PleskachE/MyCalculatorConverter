@@ -61,7 +61,7 @@ namespace Bll {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ConstantsOfReferenceElements\Centimeter.txt.
+        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Centimeter.txt.
         /// </summary>
         internal static string LenghtConstantsPath {
             get {
@@ -70,7 +70,7 @@ namespace Bll {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ConstantsOfReferenceElements\Byte.txt.
+        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Byte.txt.
         /// </summary>
         internal static string MemoryConstantsPath {
             get {
@@ -79,7 +79,7 @@ namespace Bll {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ConstantsOfReferenceElements\Kilogram.txt.
+        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Kilogram.txt.
         /// </summary>
         internal static string WeightsConstantsPath {
             get {

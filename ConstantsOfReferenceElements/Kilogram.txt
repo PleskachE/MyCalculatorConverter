@@ -1,0 +1,9 @@
+Milligram-0,00001
+Gram-0,001
+Carat-0,0002
+Ounce-0,0283495
+Pound-0,453592
+Kilogram-1
+Stone-6,35029
+Hundredweight-100
+Ton-1000

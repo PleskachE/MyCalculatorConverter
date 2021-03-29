@@ -14,7 +14,8 @@ namespace Bll.Executers
     public class ValueConverter : IExecuter
     {
         private IValueHandler _valueHandler;
-        IContainerOfSystemConstants _constants;
+        private IContainerOfSystemConstants _constants;
+
         public BaseSystem SystemMeasuring { get; set; }
 
         public ValueConverter(BaseSystem system)

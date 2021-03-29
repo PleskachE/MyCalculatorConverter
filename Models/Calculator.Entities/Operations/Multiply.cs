@@ -9,7 +9,7 @@ namespace Models.Calculator.Entities.Operations
 
         public Multiply()
         {
-            Operation = Operation.Division;
+            Operation = Operation.Multiply;
             Priority = Priority.High;
             Value = "*";
         }

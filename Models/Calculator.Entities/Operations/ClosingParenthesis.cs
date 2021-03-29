@@ -9,7 +9,7 @@ namespace Models.Calculator.Entities.Operations
 
         public ClosingParenthesis()
         {
-            Operation = Operation.Division;
+            Operation = Operation.ClosingParenthesis;
             Priority = Priority.Top;
             Value = ")";
         }

@@ -41,7 +41,7 @@ namespace Algorithms
             _stackSorter = new StackSorterForReversePolishNotation();
             _listOfReturn = _stackSorter.Sort(_listOfReturn);
             string result = "0";
-            while (_listOfReturn.Symbals.Count() > 2)
+            while (_listOfReturn.Symbals.Count > 2)
             {
                 var tempItem = _listOfReturn.Symbals.First();
                 if (tempItem.Priority == Priority.Minimum)

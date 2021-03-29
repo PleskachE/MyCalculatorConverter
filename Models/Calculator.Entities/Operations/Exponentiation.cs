@@ -10,7 +10,7 @@ namespace Models.Calculator.Entities.Operations
 
         public Exponentiation()
         {
-            Operation = Operation.Division;
+            Operation = Operation.Exponentiation;
             Priority = Priority.High;
             Value = "^";
         }

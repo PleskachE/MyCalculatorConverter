@@ -1,0 +1,9 @@
+Millimeter-0,1
+Centimeter-1
+Decimeter-10
+Metre-100
+Kilometer-100000
+Ft-30,48
+Inch-2,54
+Yard-91,44
+Mile-160934,4
