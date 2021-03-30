@@ -153,7 +153,7 @@ namespace Apps.WPFVersionCC.ViewModel
             {
                 WorkingSymbalInput("0");
             }
-            if ((parameter as string) == "1/")
+            if ((parameter as string) == "1/" || (parameter as string) == "√")
             {
                 Display.DeleteOutput();
             }

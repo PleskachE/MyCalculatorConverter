@@ -9,6 +9,7 @@ namespace Models.Calculator.Common
         Division,
         Exponentiation,
         OpeningParenthesis,
-        ClosingParenthesis
+        ClosingParenthesis,
+        SquareRoot
     }
 }

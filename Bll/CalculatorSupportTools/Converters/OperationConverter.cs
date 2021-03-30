@@ -33,6 +33,9 @@ namespace Bll.CalculatorSupportTools.Converters
                 case ")":
                     operation = new ClosingParenthesis();
                     break;
+                case "√":
+                    operation = new SquareRoot();
+                    break;
                 default:
                     operation = new Number();
                     operation.Value += text;
