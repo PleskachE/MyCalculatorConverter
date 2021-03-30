@@ -20,136 +20,71 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
-                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
             </Grid.RowDefinitions>
-            <Border
+            <Button
                 Grid.Row="0"
                 Grid.Column="0"
-                Grid.ColumnSpan="4"
-                BorderBrush="Black"
-                BorderThickness="3"
-                CornerRadius="3">
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <RadioButton 
-                        Margin="5"
-                        Content="Градусы"/>
-                    <RadioButton 
-                        Margin="5"
-                        Content="Радианы"/>
-                    <RadioButton 
-                        Margin="5" 
-                        Content="Грады"/>
-                </StackPanel>
-            </Border>
-            <Button
-                Grid.Row="1"
-                Grid.Column="0"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="1"
-                Grid.Column="1"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="1"
-                Grid.Column="2"
                 Command="{Binding ParenthesisInputCommand}"
                 CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
                 Content="("
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="1"
-                Grid.Column="3"
+                Grid.Row="0"
+                Grid.Column="1"
                 Command="{Binding ParenthesisInputCommand}"
                 CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
                 Content=")"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="2"
-                Grid.Column="0"
-                Content="sinh"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="2"
-                Grid.Column="1"
+                Grid.Row="0"
+                Grid.Column="2"
                 Content="sin"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="2"
-                Grid.Column="2"
+                Grid.Row="1"
+                Grid.Column="0"
                 Content="Int"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="2"
-                Grid.Column="3"
+                Grid.Row="1"
+                Grid.Column="1"
                 Content="n!"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="3"
-                Grid.Column="0"
-                Content="cosh"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="3"
-                Grid.Column="1"
+                Grid.Row="1"
+                Grid.Column="2"
                 Content="cos"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="3"
-                Grid.Column="2"
-                Content="dms"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="3"
-                Grid.Column="3"
+                Grid.Row="2"
+                Grid.Column="0"
                 Content="ln"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="4"
-                Grid.Column="0"
-                Content="tanh"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="4"
+                Grid.Row="2"
                 Grid.Column="1"
                 Content="tan"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="4"
+                Grid.Row="2"
                 Grid.Column="2"
                 Content="3.14"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="4"
-                Grid.Column="3"
-                Content="Inv"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="5"
+                Grid.Row="3"
                 Grid.Column="0"
-                Content="Exp"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="5"
-                Grid.Column="1"
                 Content="Mod"
                 Style="{DynamicResource WorkingButtonStyle}" />
             <Button
-                Grid.Row="5"
-                Grid.Column="2"
+                Grid.Row="3"
+                Grid.Column="1"
                 Content="Log"
-                Style="{DynamicResource WorkingButtonStyle}" />
-            <Button
-                Grid.Row="5"
-                Grid.Column="3"
-                Content="F-E"
                 Style="{DynamicResource WorkingButtonStyle}" />
         </Grid>
 
