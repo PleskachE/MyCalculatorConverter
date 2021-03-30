@@ -45,7 +45,7 @@
                       DisplayMemberPath="Name"
                       ItemsSource="{Binding Algorithms, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding CurrentAlgorithm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Grid.Row="2" Content="Журнал:" />
+            <Label Grid.Row="2" Content="Journal:" />
             <Border Grid.Row="3" Style="{DynamicResource BorderJournal}">
                 <ListView 
                     x:Name="JournalListView"

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -61,7 +57,6 @@ namespace Apps.WPFVersionCC.ViewModel
             _journal.TextList.Clear();
             WorkingPlace = new CalculatorView(new CalculatorViewModel(_alghoritms, _display, _journal, _buttonManager));
         }
-
         public bool CanExecuteOpenCalculatorCommand(object parameter)
         {
             return true;
@@ -73,7 +68,6 @@ namespace Apps.WPFVersionCC.ViewModel
             _journal.TextList.Clear();
             WorkingPlace = new ValueConverterView(new ValueConverterViewModel(_display, _journal, _buttonManager, _systems));
         }
-
         public bool CanExecuteOpenValueConverterCommand(object parameter)
         {
             return true;
@@ -87,8 +81,16 @@ namespace Apps.WPFVersionCC.ViewModel
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(newTheme);
         }
-
         public bool CanExecuteChacngingDesignThemeCommand(object parameter)
+        {
+            return true;
+        }
+
+        private void ExecuteCloseAppCommand(object parameter)
+        {
+            Application.Current.MainWindow.Close();
+        }
+        public bool CanExecuteCloseAppCommand(object parameter)
         {
             return true;
         }
@@ -148,9 +150,10 @@ namespace Apps.WPFVersionCC.ViewModel
             }
         }
 
-        public RelayCommand OpenCalculatorCommand { get; set; }
-        public RelayCommand OpenValueConverterCommand { get; set; }
+        public RelayCommand OpenCalculatorCommand       { get; set; }
+        public RelayCommand OpenValueConverterCommand   { get; set; }
         public RelayCommand ChacngingDesignThemeCommand { get; set; }
+        public RelayCommand CloseAppCommand             { get; set; }
 
         #endregion
 
@@ -158,9 +161,10 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void GeneratingCommands()
         {
-            OpenCalculatorCommand       = new RelayCommand(ExecuteOpenCalculatorCommand, CanExecuteOpenCalculatorCommand);
-            OpenValueConverterCommand   = new RelayCommand(ExecuteOpenValueConverterCommand, CanExecuteOpenValueConverterCommand);
-            ChacngingDesignThemeCommand = new RelayCommand(ExecuteChacngingDesignThemeCommand, CanExecuteChacngingDesignThemeCommand);
+            OpenCalculatorCommand       = new RelayCommand(ExecuteOpenCalculatorCommand        , CanExecuteOpenCalculatorCommand);
+            OpenValueConverterCommand   = new RelayCommand(ExecuteOpenValueConverterCommand    , CanExecuteOpenValueConverterCommand);
+            ChacngingDesignThemeCommand = new RelayCommand(ExecuteChacngingDesignThemeCommand  , CanExecuteChacngingDesignThemeCommand);
+            CloseAppCommand             = new RelayCommand(ExecuteCloseAppCommand              , CanExecuteCloseAppCommand);
         }
 
         #endregion

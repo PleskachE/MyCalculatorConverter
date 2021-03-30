@@ -20,13 +20,14 @@
             Grid.Row="0"
             Height="25"
             VerticalAlignment="Top">
-            <MenuItem Header="Режим">
-                <MenuItem Command="{Binding OpenCalculatorCommand}" Header="Калькулятор" />
-                <MenuItem Command="{Binding OpenValueConverterCommand}" Header="Преобразователь" />
+            <MenuItem Header="Mode">
+                <MenuItem Command="{Binding OpenCalculatorCommand}" Header="Calculator" />
+                <MenuItem Command="{Binding OpenValueConverterCommand}" Header="Converter" />
                 <Separator />
-                <MenuItem Header="Выход" />
+                <MenuItem Header="Exit" 
+                          Command="{Binding CloseAppCommand}"/>
             </MenuItem>
-            <MenuItem Header="Вид">
+            <MenuItem Header="View">
                 <MenuItem
                     Command="{Binding ChacngingDesignThemeCommand, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Header, Mode=OneWay}"
@@ -36,7 +37,7 @@
                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Header, Mode=OneWay}"
                     Header="GreenTheme" />
             </MenuItem>
-            <MenuItem Header="Справка" />
+            <MenuItem Header="help" />
         </Menu>
 
         <ContentControl Grid.Row="1" Content="{Binding WorkingPlace, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />

@@ -153,7 +153,7 @@ namespace Apps.WPFVersionCC.ViewModel
             {
                 WorkingSymbalInput("0");
             }
-            if ((parameter as string) == "1/" || (parameter as string) == "√")
+            if ((parameter as string) == "1/")
             {
                 Display.DeleteOutput();
             }
@@ -161,7 +161,7 @@ namespace Apps.WPFVersionCC.ViewModel
         }
         public bool CanExecuteOperationInputCommand(object parameter)
         {
-            return _buttonManager.IsWorkingSymbalInput != true; ;
+            return _buttonManager.IsWorkingSymbalInput != true || (parameter as string) == "√"; 
         }
 
         private void ExecuteEqualsInputCommand(object parameter)
