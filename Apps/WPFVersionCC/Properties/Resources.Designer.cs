@@ -88,7 +88,7 @@ namespace MyCalculatorConverter.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 900.
+        ///   Ищет локализованную строку, похожую на 700.
         /// </summary>
         public static string MinWidthEngineeringCalc {
             get {

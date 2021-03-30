@@ -11,8 +11,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Margin="10">
@@ -85,6 +85,11 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 Content="Log"
+                Style="{DynamicResource WorkingButtonStyle}" />
+            <Button
+                Grid.Row="3"
+                Grid.Column="2"
+                Content="ctg"
                 Style="{DynamicResource WorkingButtonStyle}" />
         </Grid>
 

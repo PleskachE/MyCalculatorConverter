@@ -18,6 +18,7 @@ using Algorithms.Interface;
 using Factories.Abstraction;
 
 using Common.ViewManagement.Interfaces;
+
 using Models.ConverterModels.Abstraction;
 
 namespace Apps.WPFVersionCC.ViewModel
