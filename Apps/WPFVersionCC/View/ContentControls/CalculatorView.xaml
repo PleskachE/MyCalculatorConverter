@@ -43,8 +43,9 @@
                     Style="{DynamicResource RadioButtonStyle}"/>
             </StackPanel>
             <ComboBox Grid.Row="1"
-                      Style="{DynamicResource ComboboxStyle}"
+                      Style="{DynamicResource ComboBoxStyle}"
                       DisplayMemberPath="Name"
+                      Margin="10"
                       ItemsSource="{Binding Algorithms, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding CurrentAlgorithm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Grid.Row="2" 
