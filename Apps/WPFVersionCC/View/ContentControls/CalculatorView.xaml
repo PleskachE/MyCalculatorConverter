@@ -33,19 +33,23 @@
                     Command="{Binding ChangingTypeCalculatorCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
                     Content="Simple"
+                    Style="{DynamicResource RadioButtonStyle}"
                     IsChecked="True" />
                 <RadioButton
                     Margin="5"
                     Command="{Binding ChangingTypeCalculatorCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content, Mode=OneWay}"
-                    Content="Engineering" />
+                    Content="Engineering" 
+                    Style="{DynamicResource RadioButtonStyle}"/>
             </StackPanel>
             <ComboBox Grid.Row="1"
                       Style="{DynamicResource ComboboxStyle}"
                       DisplayMemberPath="Name"
                       ItemsSource="{Binding Algorithms, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding CurrentAlgorithm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Grid.Row="2" Content="Journal:" />
+            <Label Grid.Row="2" 
+                   Content="Journal:"
+                   Style="{StaticResource LabelStyle}"/>
             <Border Grid.Row="3" Style="{DynamicResource BorderJournal}">
                 <ListView 
                     x:Name="JournalListView"

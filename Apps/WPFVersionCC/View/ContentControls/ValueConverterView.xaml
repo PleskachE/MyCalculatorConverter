@@ -127,12 +127,11 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Border
+                <Label
                     Grid.Row="0"
                     Grid.Column="0"
-                    Margin="5">
-                    <Label Content="Input:" />
-                </Border>
+                    Content="Input:" 
+                    Style="{StaticResource LabelStyle}"/>
                 <ComboBox
                     Grid.Row="1"
                     Grid.Column="0"
@@ -140,12 +139,11 @@
                     ItemsSource="{Binding CurrentSystem.Units, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     SelectedItem="{Binding CurrentFirstUnit}"
                     Style="{DynamicResource ComboboxStyle}" />
-                <Border
+                <Label 
                     Grid.Row="0"
                     Grid.Column="1"
-                    Margin="5">
-                    <Label Content="Output:" />
-                </Border>
+                    Content="Output:" 
+                    Style="{StaticResource LabelStyle}" />
                 <ComboBox
                     Grid.Row="1"
                     Grid.Column="1"
@@ -269,16 +267,23 @@
         <Grid Grid.Column="1" Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="10">
-                <ComboBox
+            <Label Grid.Row="0"
+                   Style="{DynamicResource LabelStyle}"
+                   Content="System:"/>
+            <ComboBox
+                    Grid.Row="1"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding Systems, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     SelectedItem="{Binding CurrentSystem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     Style="{DynamicResource ComboboxStyle}" />
-            </Grid>
-            <Border Grid.Row="1" Style="{DynamicResource BorderJournal}">
+            <Label Grid.Row="2"
+                   Style="{DynamicResource LabelStyle}"
+                   Content="Journal:"/>
+            <Border Grid.Row="3" Style="{DynamicResource BorderJournal}">
                 <ListView
                     x:Name="JournalListView"
                     Style="{DynamicResource JournalStyle}"
