@@ -14,7 +14,7 @@ namespace Algorithms
         #region Fields
 
         private ICollectionChar _listOfReturn;
-        private StackSorterPolishNotation _stackSorter;
+        private IStackSorter _stackSorter;
 
         #endregion
 

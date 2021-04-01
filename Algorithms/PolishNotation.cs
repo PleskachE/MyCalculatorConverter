@@ -14,7 +14,7 @@ namespace Algorithms
         #region Fields
 
         private ICollectionChar _listOfReturn;
-        private StackSorterPolishNotation _stackSorter;
+        private IStackSorter _stackSorter;
 
         #endregion
 
@@ -50,6 +50,10 @@ namespace Algorithms
                     if(CheckingNoteReadyForExecution() == true)
                     {
                         AddResultToStack(CreateResult(_listOfReturn.Symbals.ElementAt(2)));
+                    }
+                    else
+                    {
+                        MovesFirstItemToLastPlaceInStack();
                     }
                 }
             }

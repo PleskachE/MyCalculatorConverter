@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Algorithms.Common
 {
-    internal sealed class StackSorterPolishNotation
+    internal sealed class StackSorterPolishNotation : IStackSorter
     {
         #region Fields
 
