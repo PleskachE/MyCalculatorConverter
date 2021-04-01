@@ -67,12 +67,7 @@ namespace Algorithms
 
         private void AddResultToStack(string result)
         {
-            _listOfReturn.Symbals.Remove(_listOfReturn.Symbals.Last());
-            _listOfReturn.Symbals.Remove(_listOfReturn.Symbals.Last());
-            if (_listOfReturn.Symbals.Count >= 2)
-            {
-                _listOfReturn.Symbals.RemoveAt(0);
-            }
+            _listOfReturn.Symbals.RemoveRange(0, 3);
             _listOfReturn.Symbals.Add(new Number(result));
         }
 
