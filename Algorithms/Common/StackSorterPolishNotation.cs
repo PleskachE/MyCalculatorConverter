@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Algorithms.Common
 {
-    internal sealed class StackSorterForReversePolishNotation
+    internal sealed class StackSorterPolishNotation
     {
         #region Fields
 
@@ -17,7 +17,7 @@ namespace Algorithms.Common
 
         #region Ctor
 
-        public StackSorterForReversePolishNotation()
+        public StackSorterPolishNotation()
         {
             _stackOfReturn = new CollectionChar();
             _stackWaiting = new CollectionChar();

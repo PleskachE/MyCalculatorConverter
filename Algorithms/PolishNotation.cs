@@ -1,6 +1,11 @@
-﻿using Algorithms.Interface;
+﻿using System.Linq;
+
+using Algorithms.Common;
+using Algorithms.Interface;
 
 using Models.Calculator.Abstraction;
+using Models.Calculator.Common;
+using Models.Calculator.Entities;
 
 namespace Algorithms
 {
@@ -9,6 +14,7 @@ namespace Algorithms
         #region Fields
 
         private ICollectionChar _listOfReturn;
+        private StackSorterPolishNotation _stackSorter;
 
         #endregion
 
@@ -24,11 +30,81 @@ namespace Algorithms
 
         #endregion
 
+        #region PublickMethods
+
         public string Result(ICollectionChar listOfReturn)
         {
             _listOfReturn = listOfReturn;
-            string result = "1";           
+            _stackSorter = new StackSorterPolishNotation();
+            _listOfReturn = _stackSorter.Sort(_listOfReturn);
+            string result = "0";
+            while (_listOfReturn.Symbals.Count > 2)
+            {
+                var tempItem = _listOfReturn.Symbals.First();
+                if(_listOfReturn.Symbals.First().Priority != Priority.Minimum)
+                {
+                    MovesFirstItemToLastPlaceInStack(); 
+                }
+                else
+                {
+                    if(CheckingNoteReadyForExecution() == true)
+                    {
+                        AddResultToStack(CreateResult(_listOfReturn.Symbals.ElementAt(2)));
+                    }
+                }
+            }
+            result = _listOfReturn.Symbals.Last().Value;
             return result;
         }
+
+        #endregion
+
+        #region PrivateMethods
+
+        private void AddResultToStack(string result)
+        {
+            _listOfReturn.Symbals.Remove(_listOfReturn.Symbals.Last());
+            _listOfReturn.Symbals.Remove(_listOfReturn.Symbals.Last());
+            if (_listOfReturn.Symbals.Count >= 2)
+            {
+                _listOfReturn.Symbals.RemoveAt(0);
+            }
+            _listOfReturn.Symbals.Add(new Number(result));
+        }
+
+        private void MovesFirstItemToLastPlaceInStack()
+        {
+            var tempItem = _listOfReturn.Symbals.First();
+            _listOfReturn.Symbals.RemoveAt(0);
+            _listOfReturn.Symbals.Add(tempItem);
+        }
+
+        private string CreateResult(BaseSymbal item)
+        {
+            return item.Result(GetLeftItem(), GetRightItem());
+        }
+
+        private string GetLeftItem()
+        {
+            return _listOfReturn.Symbals.First().Value;
+        }
+
+        private string GetRightItem()
+        {
+            return _listOfReturn.Symbals.ElementAt(1).Value;
+        }
+
+        private bool CheckingNoteReadyForExecution()
+        {
+            bool result = false;
+            if((_listOfReturn.Symbals.ElementAt(1).Priority == Priority.Minimum)&
+                (_listOfReturn.Symbals.ElementAt(2).Priority != Priority.Minimum))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        #endregion
     }
 }
