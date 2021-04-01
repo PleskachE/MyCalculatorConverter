@@ -15,4 +15,4 @@ Coming soon:
 1)Implementation of the direct Polish notation algorithm.
 2)Implementation of a number converter from different computing systems.
 3)Visualization of function graphs.
-4)Application visualization for ASP MVС.
+4)Application visualization for ASP MVС. 
