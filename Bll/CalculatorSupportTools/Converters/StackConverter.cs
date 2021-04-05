@@ -2,21 +2,32 @@
 using Models.Calculator.Common;
 using Models.Calculator.Entities;
 
+using NLog;
+
 using System.Linq;
 
 namespace Bll.CalculatorSupportTools.Converters
 {
     public static class StackConverter
     {
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
+
         public static ICollectionChar StringToStack(string text, ICollectionChar _listOfReturn)
         {
-            var currentIndex = 0;
-            text = CheckingFirstChar(text);
-            while (currentIndex < text.Length)
+            if (text.Any())
             {
-                BaseSymbal symbal = OperationConverter.StringToOperation(text[currentIndex].ToString());
-                _listOfReturn.Symbals.Add(symbal);
-                currentIndex++;
+                var currentIndex = 0;
+                text = CheckingFirstChar(text);
+                while (currentIndex < text.Length)
+                {
+                    BaseSymbal symbal = OperationConverter.StringToOperation(text[currentIndex].ToString());
+                    _listOfReturn.Symbals.Add(symbal);
+                    currentIndex++;
+                }
+            }
+            else
+            {
+                _logger.Warn("text is empty!");
             }
             return StackFormation(_listOfReturn);
         }

@@ -5,6 +5,9 @@ using Models.Calculator.Abstraction;
 using Models.Calculator.Common;
 using Models.Calculator.Entities;
 
+using NLog;
+
+using System;
 using System.Linq;
 
 namespace Algorithms
@@ -15,6 +18,7 @@ namespace Algorithms
 
         private ICollectionChar _listOfReturn;
         private IStackSorter _stackSorter;
+        private Logger _logger;
 
         #endregion
 
@@ -23,6 +27,7 @@ namespace Algorithms
         public ReversePolishNotation() 
         {
             Name = "ReversePolishNotation";
+            _logger = LogManager.GetCurrentClassLogger();
         }
 
         #endregion
@@ -37,23 +42,30 @@ namespace Algorithms
 
         public string Result(ICollectionChar listOfReturn)
         {
-            _listOfReturn = listOfReturn;
-            _stackSorter = new StackSorterPolishNotation();
-            _listOfReturn = _stackSorter.Sort(_listOfReturn);
             string result = "0";
-            while (_listOfReturn.Symbals.Count > 2)
+            if (listOfReturn != null)
             {
-                var tempItem = _listOfReturn.Symbals.First();
-                if (tempItem.Priority == Priority.Minimum)
+                _listOfReturn = listOfReturn;
+                _stackSorter = new StackSorterPolishNotation();
+                _listOfReturn = _stackSorter.Sort(_listOfReturn);
+                while (_listOfReturn.Symbals.Count > 2)
                 {
-                    listOfReturn = MovesFirstItemToLastPlaceInStack(_listOfReturn, tempItem);
+                    var tempItem = _listOfReturn.Symbals.First();
+                    if (tempItem.Priority == Priority.Minimum)
+                    {
+                        listOfReturn = MovesFirstItemToLastPlaceInStack(_listOfReturn, tempItem);
+                    }
+                    else
+                    {
+                        AddResultToStack(CreateResult(tempItem));
+                    }
                 }
-                else
-                {
-                    AddResultToStack(CreateResult(tempItem));
-                }
+                result = _listOfReturn.Symbals.Last().Value;
             }
-            result = _listOfReturn.Symbals.Last().Value;
+            else
+            {
+                _logger.Warn("ICollectionChar is null");
+            }
             return result;
         }
 
@@ -63,6 +75,10 @@ namespace Algorithms
 
         private void AddResultToStack(string result)
         {
+            if(result == null)
+            {
+                result = "0";
+            }
             _listOfReturn.Symbals.Remove(_listOfReturn.Symbals.Last());
             _listOfReturn.Symbals.Remove(_listOfReturn.Symbals.Last());
             if (_listOfReturn.Symbals.Count >= 2)
@@ -74,24 +90,61 @@ namespace Algorithms
 
         private ICollectionChar MovesFirstItemToLastPlaceInStack(ICollectionChar listOfReturn, BaseSymbal item)
         {
-            listOfReturn.Symbals.RemoveAt(0);
-            _listOfReturn.Symbals.Add(item);
+            try
+            {
+                listOfReturn.Symbals.RemoveAt(0);
+                _listOfReturn.Symbals.Add(item);
+            }
+            catch(Exception ex)
+            {
+                _logger.Error(ex);
+            }
             return listOfReturn;
         }
 
         private string CreateResult(BaseSymbal item)
         {
-            return item.Result(GetLeftItem(), GetRightItem());
+            string result = null;
+            try
+            {
+                result = item.Result(GetLeftItem(), GetRightItem());
+            }
+            catch(Exception ex)
+            {
+                _logger.Error(ex);
+                result = "0";
+            }
+            return result;
         }
 
         private string GetLeftItem()
         {
-            return _listOfReturn.Symbals.ElementAt(_listOfReturn.Symbals.Count - 2).Value;
+            string result = null;
+            try
+            {
+                result = _listOfReturn.Symbals.ElementAt(_listOfReturn.Symbals.Count - 2).Value;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+                result = "0";
+            }
+            return result;
         }
 
         private string GetRightItem()
         {
-            return _listOfReturn.Symbals.ElementAt(_listOfReturn.Symbals.Count - 1).Value;
+            string result = null;
+            try
+            {
+                result = _listOfReturn.Symbals.ElementAt(_listOfReturn.Symbals.Count - 1).Value;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+                result = "0";
+            }
+            return result;
         }
 
         #endregion

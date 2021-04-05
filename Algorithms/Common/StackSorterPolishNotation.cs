@@ -2,6 +2,9 @@
 using Models.Calculator.Common;
 using Models.Calculator.Entities;
 
+using NLog;
+
+using System;
 using System.Linq;
 
 namespace Algorithms.Common
@@ -12,6 +15,7 @@ namespace Algorithms.Common
 
         private ICollectionChar _stackOfReturn;
         private ICollectionChar _stackWaiting;
+        private Logger _logger;
 
         #endregion
 
@@ -21,6 +25,7 @@ namespace Algorithms.Common
         {
             _stackOfReturn = new CollectionChar();
             _stackWaiting = new CollectionChar();
+            _logger = LogManager.GetCurrentClassLogger();
         }
 
         #endregion
@@ -110,11 +115,18 @@ namespace Algorithms.Common
 
         private void DeleteLastItemToStack(ICollectionChar stack)
         {
-            stack.Symbals.RemoveAt(stack.Symbals.Count - 1);
+            try
+            {
+                stack.Symbals.RemoveAt(stack.Symbals.Count - 1);
+            }
+            catch(Exception ex)
+            {
+                _logger.Error(ex);
+            }
         }
 
         private void AddToStackReturn(BaseSymbal item)
-        {
+        {         
             _stackOfReturn.Symbals.Add(item);
         }
 
