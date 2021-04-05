@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 using Algorithms.Common;
 using Algorithms.Interface;
@@ -6,6 +7,8 @@ using Algorithms.Interface;
 using Models.Calculator.Abstraction;
 using Models.Calculator.Common;
 using Models.Calculator.Entities;
+
+using NLog;
 
 namespace Algorithms
 {
@@ -15,12 +18,17 @@ namespace Algorithms
 
         private ICollectionChar _listOfReturn;
         private IStackSorter _stackSorter;
+        private Logger _logger;
 
         #endregion
 
         #region Ctor
 
-        public PolishNotation() { Name = "PolishNotation"; }
+        public PolishNotation() 
+        {
+            Name = "PolishNotation";
+            _logger = LogManager.GetCurrentClassLogger();
+        }
 
         #endregion
 
@@ -34,30 +42,37 @@ namespace Algorithms
 
         public string Result(ICollectionChar listOfReturn)
         {
-            _listOfReturn = listOfReturn;
-            _stackSorter = new StackSorterPolishNotation();
-            _listOfReturn = _stackSorter.Sort(_listOfReturn);
             string result = "0";
-            while (_listOfReturn.Symbals.Count > 2)
+            if (listOfReturn != null)
             {
-                var tempItem = _listOfReturn.Symbals.First();
-                if(_listOfReturn.Symbals.First().Priority != Priority.Minimum)
+                _listOfReturn = listOfReturn;
+                _stackSorter = new StackSorterPolishNotation();
+                _listOfReturn = _stackSorter.Sort(_listOfReturn);
+                while (_listOfReturn.Symbals.Count > 2)
                 {
-                    MovesFirstItemToLastPlaceInStack(); 
-                }
-                else
-                {
-                    if(CheckingNoteReadyForExecution() == true)
-                    {
-                        AddResultToStack(CreateResult(_listOfReturn.Symbals.ElementAt(2)));
-                    }
-                    else
+                    var tempItem = _listOfReturn.Symbals.First();
+                    if (_listOfReturn.Symbals.First().Priority != Priority.Minimum)
                     {
                         MovesFirstItemToLastPlaceInStack();
                     }
+                    else
+                    {
+                        if (CheckingNoteReadyForExecution() == true)
+                        {
+                            AddResultToStack(CreateResult(_listOfReturn.Symbals.ElementAt(2)));
+                        }
+                        else
+                        {
+                            MovesFirstItemToLastPlaceInStack();
+                        }
+                    }
                 }
+                result = _listOfReturn.Symbals.Last().Value;
             }
-            result = _listOfReturn.Symbals.Last().Value;
+            else
+            {
+                _logger.Warn("ICollectionChar is null");
+            }
             return result;
         }
 
@@ -67,30 +82,71 @@ namespace Algorithms
 
         private void AddResultToStack(string result)
         {
+            if (result == null)
+            {
+                result = "0";
+            }
             _listOfReturn.Symbals.RemoveRange(0, 3);
             _listOfReturn.Symbals.Add(new Number(result));
         }
 
         private void MovesFirstItemToLastPlaceInStack()
         {
-            var tempItem = _listOfReturn.Symbals.First();
-            _listOfReturn.Symbals.RemoveAt(0);
-            _listOfReturn.Symbals.Add(tempItem);
+            try
+            {
+                var tempItem = _listOfReturn.Symbals.First();
+                _listOfReturn.Symbals.RemoveAt(0);
+                _listOfReturn.Symbals.Add(tempItem);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+            }
         }
 
         private string CreateResult(BaseSymbal item)
         {
+            string result = null;
+            try
+            {
+                result = item.Result(GetLeftItem(), GetRightItem());
+            }
+            catch(Exception ex)
+            {
+                _logger.Error(ex);
+                result = "0";
+            }
             return item.Result(GetLeftItem(), GetRightItem());
         }
 
         private string GetLeftItem()
         {
-            return _listOfReturn.Symbals.First().Value;
+            string result = null;
+            try
+            {
+                result = _listOfReturn.Symbals.First().Value;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+                result = "0";
+            }
+            return result;
         }
 
         private string GetRightItem()
         {
-            return _listOfReturn.Symbals.ElementAt(1).Value;
+            string result = null;
+            try
+            {
+                result = _listOfReturn.Symbals.ElementAt(1).Value;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+                result = "0";
+            }
+            return result;
         }
 
         private bool CheckingNoteReadyForExecution()
