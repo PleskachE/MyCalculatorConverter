@@ -75,9 +75,8 @@ namespace Apps.WPFVersionCC.ViewModel
 
         private void ExecuteChacngingDesignThemeCommand(object parameter)
         {
-            string _uri = Resources.StylePath + parameter as string + ".xaml";
             var newTheme = new ResourceDictionary();
-            newTheme.Source = new Uri(_uri);
+            newTheme.Source = new Uri(DefiningPathToResourceFile(parameter as string));
             Application.Current.Resources.MergedDictionaries.Clear();
             Application.Current.Resources.MergedDictionaries.Add(newTheme);
         }
@@ -165,6 +164,25 @@ namespace Apps.WPFVersionCC.ViewModel
             OpenValueConverterCommand   = new RelayCommand(ExecuteOpenValueConverterCommand    , CanExecuteOpenValueConverterCommand);
             ChacngingDesignThemeCommand = new RelayCommand(ExecuteChacngingDesignThemeCommand  , CanExecuteChacngingDesignThemeCommand);
             CloseAppCommand             = new RelayCommand(ExecuteCloseAppCommand              , CanExecuteCloseAppCommand);
+        }
+
+        public string DefiningPathToResourceFile(string text)
+        {
+            string _uri = Resources.StylePathStandartTheme; //default style//
+            switch (text)
+            {
+                case ("GreenTheme"):
+                    {
+                        _uri = Resources.StylePathGreenTheme;
+                        break;
+                    }
+                case ("StandartTheme"):
+                    {
+                        _uri = Resources.StylePathStandartTheme;
+                        break;
+                    }
+            }
+            return _uri;
         }
 
         #endregion

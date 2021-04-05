@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\StackSorterForReversePolishNotation.cs" />
+    <Compile Include="Common\IStackSorter.cs" />
+    <Compile Include="Common\StackSorterPolishNotation.cs" />
     <Compile Include="Interface\IAlgorithm.cs" />
     <Compile Include="PolishNotation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

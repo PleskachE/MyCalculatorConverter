@@ -2,8 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace Models.ConverterModels.Common
 {
@@ -11,17 +9,14 @@ namespace Models.ConverterModels.Common
     {
         public Dictionary<string, decimal> Constants { get; set; }
 
-        public ContainerOfSystemConstants(string path)
+        public ContainerOfSystemConstants(string text)
         {
             Constants = new Dictionary<string, decimal>();
-            string line;
-            using (var sr = new StreamReader(path, Encoding.Default))
+            var lines = text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+            foreach (var item in lines)
             {
-                while ((line = sr.ReadLine()) != null)
-                {
-                    var strings = line.Split('-');
-                    Constants.Add(strings[0], Decimal.Parse(strings[1]));
-                }
+                var strings = item.Split('-');
+                Constants.Add(strings[0], Decimal.Parse(strings[1]));
             }
         }
     }

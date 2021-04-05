@@ -14,7 +14,7 @@ namespace Algorithms
         #region Fields
 
         private ICollectionChar _listOfReturn;
-        StackSorterForReversePolishNotation _stackSorter;
+        private IStackSorter _stackSorter;
 
         #endregion
 
@@ -38,7 +38,7 @@ namespace Algorithms
         public string Result(ICollectionChar listOfReturn)
         {
             _listOfReturn = listOfReturn;
-            _stackSorter = new StackSorterForReversePolishNotation();
+            _stackSorter = new StackSorterPolishNotation();
             _listOfReturn = _stackSorter.Sort(_listOfReturn);
             string result = "0";
             while (_listOfReturn.Symbals.Count > 2)
