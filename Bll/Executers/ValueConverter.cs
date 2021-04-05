@@ -7,6 +7,8 @@ using Models.ConverterModels.Abstraction;
 using Models.ConverterModels.Common;
 using Models.ConverterModels.Common.Interface;
 
+using NLog;
+
 using System;
 
 namespace Bll.Executers
@@ -15,6 +17,7 @@ namespace Bll.Executers
     {
         private IValueHandler _valueHandler;
         private IContainerOfSystemConstants _constants;
+        private Logger _logger;
 
         public BaseSystem SystemMeasuring { get; set; }
 
@@ -23,16 +26,25 @@ namespace Bll.Executers
             SystemMeasuring = system;
             _constants = new ContainerOfSystemConstants(GeneratingTextConstants());
             _valueHandler = new ValueHandler();
+            _logger = LogManager.GetCurrentClassLogger();
         }
 
         public string Calculation(string text)
         {
-            UnitsParser.Parse(text);
-            var firstUnit = UnitsParser.GetFirstUnit();
-            var resUnit = UnitsParser.GetLastUnit();
-            var tempValue = _valueHandler.RelationToReferenceUnit(firstUnit.Value, _constants.Constants[firstUnit.Name]); 
-            var resValue = _valueHandler.RelationToThisUnit(tempValue, _constants.Constants[resUnit.Name]);
-            resValue = Math.Round(resValue, Constants.CountOfDecimalPlaces);
+            decimal resValue = 0;
+            if (text != null)
+            {
+                UnitsParser.Parse(text);
+                var firstUnit = UnitsParser.GetFirstUnit();
+                var resUnit = UnitsParser.GetLastUnit();
+                var tempValue = _valueHandler.RelationToReferenceUnit(firstUnit.Value, _constants.Constants[firstUnit.Name]);
+                resValue = _valueHandler.RelationToThisUnit(tempValue, _constants.Constants[resUnit.Name]);
+                resValue = Math.Round(resValue, Constants.CountOfDecimalPlaces);
+            }
+            else
+            {
+                _logger.Warn("text is null");
+            }
             return resValue.ToString();
         }
 

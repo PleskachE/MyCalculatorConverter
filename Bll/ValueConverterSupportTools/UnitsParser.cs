@@ -1,4 +1,5 @@
 ﻿using Models.ConverterModels.Abstraction;
+using Models.ConverterModels.Abstraction.Common;
 
 using System;
 using System.Linq;
@@ -7,18 +8,37 @@ using Common;
 using Common.extensions;
 using Common.Loaders;
 
-using Models.ConverterModels.Abstraction.Common;
+using NLog;
 
 namespace Bll.ValueConverterSupportTools
 {
     public static class UnitsParser
     {
         private static IUnitSystem[] _units = new IUnitSystem[2];
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
 
         public static void Parse(string text)
         {
-            var firstElem = text.Substring(0, text.LastIndexOf("="));
-            var lastElem = text.Substring(text.LastIndexOf("=") + 1, text.Count() - firstElem.Count() - 1);
+            string firstElem;
+            string lastElem;
+            try
+            {
+                firstElem = text.Substring(0, text.LastIndexOf("="));
+            }
+            catch(Exception ex)
+            {
+                _logger.Error(ex);
+                firstElem = "0";
+            }
+            try
+            {
+                lastElem = text.Substring(text.LastIndexOf("=") + 1, text.Count() - firstElem.Count() - 1);
+            }
+            catch(Exception ex)
+            {
+                _logger.Error(ex);
+                lastElem = "0";
+            }
             _units[0] = CreatingNewUnit(firstElem);
             _units[1] = CreatingNewUnit(lastElem);
         }
