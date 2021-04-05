@@ -117,13 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LenghtConstantsPath" xml:space="preserve">
-    <value>C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Centimeter.txt</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Byte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Byte.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
-  <data name="MemoryConstantsPath" xml:space="preserve">
-    <value>C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Byte.txt</value>
+  <data name="Centimeter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Centimeter.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
-  <data name="WeightsConstantsPath" xml:space="preserve">
-    <value>C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Kilogram.txt</value>
+  <data name="Kilogram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Kilogram.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
 </root>

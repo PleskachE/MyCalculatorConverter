@@ -116,11 +116,20 @@ namespace MyCalculatorConverter.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\Apps\WPFVersionCC\Resource\Styles\.
+        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\Apps\WPFVersionCC\Resource\Styles\GreenTheme.xaml.
         /// </summary>
-        public static string StylePath {
+        public static string StylePathGreenTheme {
             get {
-                return ResourceManager.GetString("StylePath", resourceCulture);
+                return ResourceManager.GetString("StylePathGreenTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\Apps\WPFVersionCC\Resource\Styles\StandartTheme.xaml.
+        /// </summary>
+        public static string StylePathStandartTheme {
+            get {
+                return ResourceManager.GetString("StylePathStandartTheme", resourceCulture);
             }
         }
         

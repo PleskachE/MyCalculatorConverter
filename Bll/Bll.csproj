@@ -91,5 +91,14 @@
       <LastGenOutput>Bll.Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Byte.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Centimeter.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kilogram.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

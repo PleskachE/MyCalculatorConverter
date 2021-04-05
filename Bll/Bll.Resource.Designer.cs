@@ -61,29 +61,48 @@ namespace Bll {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Centimeter.txt.
+        ///   Ищет локализованную строку, похожую на Bit-0,8
+        ///Byte-1
+        ///Kilobyte-1024
+        ///Megabyte-1048576.
         /// </summary>
-        internal static string LenghtConstantsPath {
+        internal static string Byte {
             get {
-                return ResourceManager.GetString("LenghtConstantsPath", resourceCulture);
+                return ResourceManager.GetString("Byte", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Byte.txt.
+        ///   Ищет локализованную строку, похожую на Millimeter-0,1
+        ///Centimeter-1
+        ///Decimeter-10
+        ///Metre-100
+        ///Kilometer-100000
+        ///Ft-30,48
+        ///Inch-2,54
+        ///Yard-91,44
+        ///Mile-160934,4.
         /// </summary>
-        internal static string MemoryConstantsPath {
+        internal static string Centimeter {
             get {
-                return ResourceManager.GetString("MemoryConstantsPath", resourceCulture);
+                return ResourceManager.GetString("Centimeter", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на C:\Users\Sony\source\repos\MyCalculatorConverter\ConstantsOfReferenceElements\Kilogram.txt.
+        ///   Ищет локализованную строку, похожую на Milligram-0,00001
+        ///Gram-0,001
+        ///Carat-0,0002
+        ///Ounce-0,0283495
+        ///Pound-0,453592
+        ///Kilogram-1
+        ///Stone-6,35029
+        ///Hundredweight-100
+        ///Ton-1000.
         /// </summary>
-        internal static string WeightsConstantsPath {
+        internal static string Kilogram {
             get {
-                return ResourceManager.GetString("WeightsConstantsPath", resourceCulture);
+                return ResourceManager.GetString("Kilogram", resourceCulture);
             }
         }
     }
