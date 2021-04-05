@@ -14,7 +14,7 @@ namespace Bll.CalculatorSupportTools.Converters
 
         public static ICollectionChar StringToStack(string text, ICollectionChar _listOfReturn)
         {
-            if (!text.Any())
+            if (text.Any())
             {
                 var currentIndex = 0;
                 text = CheckingFirstChar(text);
