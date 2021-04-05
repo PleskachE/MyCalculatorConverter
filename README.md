@@ -10,6 +10,8 @@ The following algorithms are implemented for the calculator:
 2) The Algorithm of Direct Polish Notation.
 
 In the converters of measured values, the conversion takes place by bringing the source elements to the reference element of the selected measurement system.
+Unit testing is implemented on the NUnit framework.
+Error logging is implemented on the NLog framework.
 
 Coming soon:
 
