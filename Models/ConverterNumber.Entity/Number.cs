@@ -34,27 +34,27 @@ namespace Models.ConverterNumber.Entity
 
         #region Ctors
 
-        public Number() 
+        public Number()
         {
             _logger = LogManager.GetCurrentClassLogger();
-            Value = 0; 
+            Value = 0;
         }
-        public Number(decimal value) 
+        public Number(decimal value)
         {
             _logger = LogManager.GetCurrentClassLogger();
-            Value = value; 
+            Value = value;
         }
-        public Number(int value) 
+        public Number(int value)
         {
             _logger = LogManager.GetCurrentClassLogger();
-            Value = value; 
+            Value = value;
         }
-        public Number(string value) 
+        public Number(string value)
         {
             _logger = LogManager.GetCurrentClassLogger();
             decimal tempValue = 0;
             var isChecked = decimal.TryParse(value, out tempValue);
-            if(isChecked == false)
+            if (isChecked == false)
             {
                 _logger.Warn("string value not parse!");
             }
