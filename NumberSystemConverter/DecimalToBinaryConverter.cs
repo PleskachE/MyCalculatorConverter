@@ -2,8 +2,11 @@
 
 using Models.ConverterNumber.Entity;
 
+using NLog;
+
 using NumberSystemConverter.abstraction;
 
+using System;
 using System.Linq;
 using System.Text;
 
@@ -11,17 +14,45 @@ namespace NumberSystemConverter
 {
     public class DecimalToBinaryConverter : INumberConverter
     {
+        #region Fields
+
+        private Logger _logger;
         private delegate string Converter(Number number);
         private readonly char _floatingPoint = ',';
         private readonly int _maximumNumberDecimalPlaces = 9;
+
+        #endregion
+
+        #region Ctor
+
+        public DecimalToBinaryConverter() { _logger = LogManager.GetCurrentClassLogger(); }
+
+        #endregion
+
+        #region PublickMethod
 
         public string Conversion(string text)
         {
             text = text.GetNumbersFromString();
             var number = new Number(text);
             Converter converter = DefiningExecutingMethod(number);
-            return converter(number);
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                sb.Append(converter(number));
+            }
+            catch(Exception ex)
+            {
+                _logger.Error(ex);
+                sb.Append("0");
+            }
+            _logger.Info(text + " = " + sb.ToString());
+            return sb.ToString();
         }
+
+        #endregion
+
+        #region PrivateMethods
 
         private Converter DefiningExecutingMethod(Number number)
         {
@@ -48,6 +79,10 @@ namespace NumberSystemConverter
         private string ConvertingFractionsMoreThanOne(Number number)
         {
             var arr = number.Value.ToString().Split(',');
+            if(arr.Length>2)
+            {
+                _logger.Warn("Extra floating points in the text!");
+            }
             var part1 = ConvertingIntegers(new Number(arr[0]));
             var part2 = ConvertingFractionsLessThanOne(new Number("0," + arr[1]));
             var templist = part2.ToList();
@@ -97,5 +132,7 @@ namespace NumberSystemConverter
             while (number.Value >= 1);
             return new string(sb.ToString().Reverse().ToArray());
         }
+
+        #endregion
     }
 }
