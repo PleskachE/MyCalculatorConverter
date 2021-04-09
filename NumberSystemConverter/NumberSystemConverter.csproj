@@ -45,5 +45,15 @@
     <Compile Include="DecimalToBinaryConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{571A2DFD-D0F6-48FD-B94B-31F06C95126A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\ConverterNumber.Entity\ConverterNumber.Entity.csproj">
+      <Project>{8910BB99-DA10-4B8C-9A3F-9F516FA8886D}</Project>
+      <Name>ConverterNumber.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
