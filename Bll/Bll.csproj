@@ -59,6 +59,7 @@
     <Compile Include="CalculatorSupportTools\Converters\StackConverter.cs" />
     <Compile Include="Executers\Abstractions\IExecuter.cs" />
     <Compile Include="Executers\Calculator.cs" />
+    <Compile Include="Executers\NumberConverter.cs" />
     <Compile Include="Executers\ValueConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverterSupportTools\UnitsParser.cs" />
@@ -91,6 +92,10 @@
     <ProjectReference Include="..\Models\ConverterModels.Common\ConverterModels.Common.csproj">
       <Project>{48B6C70F-8CB9-4310-BB59-A8947E7069EF}</Project>
       <Name>ConverterModels.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NumberSystemConverter\NumberSystemConverter.csproj">
+      <Project>{FD89A42B-6ED0-482A-B04A-E5C63C32F8C4}</Project>
+      <Name>NumberSystemConverter</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
