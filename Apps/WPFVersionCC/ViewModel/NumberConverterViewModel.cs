@@ -108,7 +108,7 @@ namespace MyCalculatorConverter.ViewModel
 
         private void ExecuteEqualsInputCommand(object parameter)
         {
-            var text = parameter as string;
+            var text = Display.InputText;
             var result = _executor.Calculation(text);
             Display.AddNumber(result);
             Journal.AddNote(text + "=" + result);

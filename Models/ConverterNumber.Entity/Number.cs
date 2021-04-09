@@ -16,7 +16,6 @@ namespace Models.ConverterNumber.Entity
         #endregion
 
         #region Propertyes
-
         public decimal Value
         {
             get

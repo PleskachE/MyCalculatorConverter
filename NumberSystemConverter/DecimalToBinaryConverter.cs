@@ -29,6 +29,12 @@ namespace NumberSystemConverter
 
         #endregion
 
+        #region Properties
+
+        public string Name { get; } = "Decimal To Binary";
+
+        #endregion
+
         #region PublickMethod
 
         public string Conversion(string text)
