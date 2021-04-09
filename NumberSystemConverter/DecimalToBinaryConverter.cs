@@ -88,7 +88,7 @@ namespace NumberSystemConverter
             var templist = part2.ToList();
             templist.RemoveRange(0, 2);
             part2 = new string(templist.ToArray());
-            return part1 + "." + part2;
+            return part1 + "," + part2;
         }
 
         private string ConvertingFractionsLessThanOne(Number number)
@@ -110,7 +110,7 @@ namespace NumberSystemConverter
                 }
                 count++;
             }
-            while ((number.Value < 2) & (count <= _maximumNumberDecimalPlaces));
+            while ((number.Value < 2) & (count < _maximumNumberDecimalPlaces));
             return "0," + sb.ToString();
         }
 
@@ -128,6 +128,7 @@ namespace NumberSystemConverter
                     sb.Append("1");
                 }
                 number.Value /= 2;
+                number.Value = (int)number.Value;
             }
             while (number.Value >= 1);
             return new string(sb.ToString().Reverse().ToArray());

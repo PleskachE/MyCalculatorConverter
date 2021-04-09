@@ -32,7 +32,7 @@ namespace Bll.ValueConverterSupportTools
             }
             try
             {
-                lastElem = text.Substring(text.LastIndexOf("=") + 1, text.Count() - firstElem.Count() - 1);
+                lastElem = text.Substring(text.LastIndexOf("="), text.Count() - firstElem.Count());
             }
             catch(Exception ex)
             {
