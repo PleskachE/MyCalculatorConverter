@@ -4,7 +4,7 @@ namespace Common.extensions
 {
     public static class StringExtensions
     {
-        private static char[] numbers = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ',' };
+        private readonly static char[] numbers = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ',' };
         public static string GetNumbersFromString(this string self)
         {
             string result = "";
@@ -14,6 +14,10 @@ namespace Common.extensions
                 {
                     result += item;
                 }
+            }
+            if(result == "")
+            {
+                result = "0";
             }
             return result;
         }
