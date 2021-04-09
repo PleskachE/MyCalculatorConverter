@@ -78,9 +78,13 @@
     <Compile Include="ViewModel\Abstraction\ViewModelBase.cs" />
     <Compile Include="ViewModel\CalculatorViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\NumberConverterViewModel.cs" />
     <Compile Include="ViewModel\ValueConverterViewModel.cs" />
     <Compile Include="View\ContentControls\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ContentControls\NumberConverterView.xaml.cs">
+      <DependentUpon>NumberConverterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ContentControls\ValueConverterView.xaml.cs">
       <DependentUpon>ValueConverterView.xaml</DependentUpon>
@@ -135,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ContentControls\NumberConverterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ContentControls\ValueConverterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +194,10 @@
     <ProjectReference Include="..\..\Models\ConverterModels.Entities\ConverterModels.Entities.csproj">
       <Project>{B977D022-F257-45A4-B65F-EC8F1B57778D}</Project>
       <Name>ConverterModels.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NumberSystemConverter\NumberSystemConverter.csproj">
+      <Project>{FD89A42B-6ED0-482A-B04A-E5C63C32F8C4}</Project>
+      <Name>NumberSystemConverter</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

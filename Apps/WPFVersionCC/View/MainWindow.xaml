@@ -22,7 +22,8 @@
             VerticalAlignment="Top">
             <MenuItem Header="Mode">
                 <MenuItem Command="{Binding OpenCalculatorCommand}" Header="Calculator" />
-                <MenuItem Command="{Binding OpenValueConverterCommand}" Header="Converter" />
+                <MenuItem Command="{Binding OpenValueConverterCommand}" Header="ValueConverter" />
+                <MenuItem Command="{Binding OpenNumberConverterCommand}" Header="NumberConverter" />
                 <Separator />
                 <MenuItem Header="Exit" 
                           Command="{Binding CloseAppCommand}"/>
