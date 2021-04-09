@@ -1,16 +1,19 @@
 ﻿using Apps.WPFVersionCC.Infrastructure;
 using Apps.WPFVersionCC.ViewModel.Abstraction;
+
 using Bll.Executers;
 using Bll.Executers.Abstractions;
+
 using Common.extensions;
 using Common.ViewManagement.Interfaces;
+
 using MyCalculatorConverter.Properties;
+
 using NumberSystemConverter.abstraction;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyCalculatorConverter.ViewModel
 {
@@ -28,12 +31,11 @@ namespace MyCalculatorConverter.ViewModel
         public NumberConverterViewModel(IDisplay display, IJournal journal, IButtonManager buttonManager,
             IEnumerable<INumberConverter> converters)
         {
-            Display = display;
-            Journal = journal;
-            Converters = converters;
-
+            Display        = display;
+            Journal        = journal;
+            Converters     = converters;
             _buttonManager = buttonManager;
-            _executor = new NumberConverter(CurrentConverter);
+            _executor      = new NumberConverter(CurrentConverter);
 
             GeneratingCommands();
             _buttonManager.EqualsEntered();
@@ -64,12 +66,12 @@ namespace MyCalculatorConverter.ViewModel
 
         public IEnumerable<INumberConverter> Converters { get; set; }
 
-        public RelayCommand NumbersInputCommand { get; set; }
-        public RelayCommand DotInputCommand { get; set; }
-        public RelayCommand EqualsInputCommand { get; set; }
-        public RelayCommand DeleteAllCommand { get; set; }
+        public RelayCommand NumbersInputCommand      { get; set; }
+        public RelayCommand DotInputCommand          { get; set; }
+        public RelayCommand EqualsInputCommand       { get; set; }
+        public RelayCommand DeleteAllCommand         { get; set; }
         public RelayCommand JournalTextChoiceCommand { get; set; }
-        public RelayCommand JournalClearCommand { get; set; }
+        public RelayCommand JournalClearCommand      { get; set; }
 
         public IDisplay Display { get; set; }
         public IJournal Journal { get; set; }
@@ -162,12 +164,12 @@ namespace MyCalculatorConverter.ViewModel
 
         private void GeneratingCommands()
         {
-            NumbersInputCommand = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);
-            DotInputCommand = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
-            EqualsInputCommand = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
-            DeleteAllCommand = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
+            NumbersInputCommand      = new RelayCommand(ExecuteNumbersInputCommand, CanExecuteNumbersInputCommand);
+            DotInputCommand          = new RelayCommand(ExecuteDotInputCommand, CanExecuteDotInputCommand);
+            EqualsInputCommand       = new RelayCommand(ExecuteEqualsInputCommand, CanExecuteEqualsInputCommand);
+            DeleteAllCommand         = new RelayCommand(ExecuteDeleteAllCommand, CanExecuteDeleteAllCommand);
             JournalTextChoiceCommand = new RelayCommand(ExecuteJournalTextChoiceCommand, CanExecuteJournalTextChoiceCommand);
-            JournalClearCommand = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
+            JournalClearCommand      = new RelayCommand(ExecuteJournalClearCommand, CanExecuteJournalClearCommand);
         }
 
         #endregion

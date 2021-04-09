@@ -71,6 +71,10 @@
       <Project>{B977D022-F257-45A4-B65F-EC8F1B57778D}</Project>
       <Name>ConverterModels.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NumberSystemConverter\NumberSystemConverter.csproj">
+      <Project>{FD89A42B-6ED0-482A-B04A-E5C63C32F8C4}</Project>
+      <Name>NumberSystemConverter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

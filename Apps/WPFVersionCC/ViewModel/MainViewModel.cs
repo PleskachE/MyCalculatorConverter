@@ -17,24 +17,32 @@ using Common.ViewManagement.Interfaces;
 
 using Models.ConverterModels.Abstraction;
 
+using NumberSystemConverter.abstraction;
+
+using MyCalculatorConverter.View.ContentControls;
+using MyCalculatorConverter.ViewModel;
+
 namespace Apps.WPFVersionCC.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
         #region Fields
 
-        private IWindowFactory          _windowFactory;
-        private IEnumerable<IAlgorithm> _alghoritms;
-        private IDisplay                _display;
-        private IJournal                _journal;
-        private IButtonManager          _buttonManager;
-        private IEnumerable<BaseSystem> _systems;
+        private IWindowFactory                _windowFactory;
+        private IEnumerable<IAlgorithm>       _alghoritms;
+        private IDisplay                      _display;
+        private IJournal                      _journal;
+        private IButtonManager                _buttonManager;
+        private IEnumerable<BaseSystem>       _systems;
+        private IEnumerable<INumberConverter> _converters;
 
         #endregion
 
         #region Ctors
 
-        public MainViewModel(IEnumerable<IAlgorithm> alghoritms, IEnumerable<BaseSystem> systems,
+        public MainViewModel(IEnumerable<IAlgorithm> alghoritms,
+            IEnumerable<BaseSystem> systems,
+            IEnumerable<INumberConverter> converters,
             IWindowFactory windowFactory, IDisplay display, IJournal journal, IButtonManager buttonManager)
         {
             _alghoritms    = alghoritms;
@@ -43,6 +51,7 @@ namespace Apps.WPFVersionCC.ViewModel
             _journal       = journal;
             _buttonManager = buttonManager;
             _systems       = systems;
+            _converters    = converters;
 
             GeneratingCommands();
         }
@@ -69,6 +78,17 @@ namespace Apps.WPFVersionCC.ViewModel
             WorkingPlace = new ValueConverterView(new ValueConverterViewModel(_display, _journal, _buttonManager, _systems));
         }
         public bool CanExecuteOpenValueConverterCommand(object parameter)
+        {
+            return true;
+        }
+
+        private void ExecuteOpenNumberConverterCommand(object parameter)
+        {
+            Title = "NumberConverter";
+            _journal.TextList.Clear();
+            WorkingPlace = new NumberConverterView(new NumberConverterViewModel(_display, _journal, _buttonManager, _converters));
+        }
+        public bool CanExecuteOpenNumberConverterCommand(object parameter)
         {
             return true;
         }
@@ -151,6 +171,7 @@ namespace Apps.WPFVersionCC.ViewModel
 
         public RelayCommand OpenCalculatorCommand       { get; set; }
         public RelayCommand OpenValueConverterCommand   { get; set; }
+        public RelayCommand OpenNumberConverterCommand { get; set; }
         public RelayCommand ChacngingDesignThemeCommand { get; set; }
         public RelayCommand CloseAppCommand             { get; set; }
 
@@ -162,6 +183,7 @@ namespace Apps.WPFVersionCC.ViewModel
         {
             OpenCalculatorCommand       = new RelayCommand(ExecuteOpenCalculatorCommand        , CanExecuteOpenCalculatorCommand);
             OpenValueConverterCommand   = new RelayCommand(ExecuteOpenValueConverterCommand    , CanExecuteOpenValueConverterCommand);
+            OpenNumberConverterCommand  = new RelayCommand(ExecuteOpenNumberConverterCommand   , CanExecuteOpenNumberConverterCommand);
             ChacngingDesignThemeCommand = new RelayCommand(ExecuteChacngingDesignThemeCommand  , CanExecuteChacngingDesignThemeCommand);
             CloseAppCommand             = new RelayCommand(ExecuteCloseAppCommand              , CanExecuteCloseAppCommand);
         }
