@@ -35,7 +35,7 @@ namespace NumberSystemConverter
 
         #endregion
 
-        #region PublickMethod
+        #region PublicMethods
 
         public string Conversion(string text)
         {

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="abstraction\INumberConverter.cs" />
+    <Compile Include="BinaryToDecimalConverter.cs" />
     <Compile Include="DecimalToBinaryConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

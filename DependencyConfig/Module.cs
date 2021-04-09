@@ -31,6 +31,7 @@ namespace DependencyConfig
             Bind<BaseSystem>().      To<WeightsSystem>();
             Bind<BaseSystem>().      To<MemorySystem>();
             Bind<INumberConverter>().To<DecimalToBinaryConverter>();
+            Bind<INumberConverter>().To<BinaryToDecimalConverter>();
         }
     }
 }
